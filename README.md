@@ -62,3 +62,13 @@
 + letter_opener_web
 + omniauth
 + omniauth-google-oauth2
+
+## 使用技術
+### 就業Termから２つ以上
++ AWS
++ devise
++ メッセージ機能
+
+### カリキュラム外などから１つ以上
++ google API
++ Vue.js
