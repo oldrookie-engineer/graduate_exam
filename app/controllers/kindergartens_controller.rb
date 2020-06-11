@@ -1,0 +1,2 @@
+class KindergartensController < ApplicationController
+end
