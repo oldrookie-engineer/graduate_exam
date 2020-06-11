@@ -12,7 +12,7 @@ class KindergartensController < ApplicationController
     if @kindergarten.save
       redirect_to kindergartens_path, notice: '幼稚園を新規登録しました！'
     else
-      render new
+      render :new
     end
   end
 

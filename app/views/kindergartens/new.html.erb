@@ -1,6 +1,16 @@
 <h1>幼稚園新規登録</h1>
 <h2>概要情報</h2>
 <%= form_with(model: @kindergarten, local: true)do |form| %>
+  <% if @kindergarten.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @kindergarten.errors.count %>件のエラーがあります。</h2>
+      <ul>
+        <% @kindergarten.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="kindergarten_profile">
     <table>
       <tr>
