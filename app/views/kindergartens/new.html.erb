@@ -16,6 +16,12 @@
         <th>
           <%= form.label :image %>
         </th>
+        <th>
+          <%= form.label :緯度 %>
+        </th>
+        <th>
+          <%= form.label :経度 %>
+        </th>
       </tr>
       <tr>
         <td>
@@ -29,6 +35,12 @@
         </td>
         <td>
           <%= form.file_field :image %>
+        </td>
+        <td>
+          <%= form.text_field :latitude %>
+        </td>
+        <td>
+          <%= form.text_field :longitude %>
         </td>
       </tr>
     </table>

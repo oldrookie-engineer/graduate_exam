@@ -1,1 +1,19 @@
 <h1>幼稚園一覧</h1>
+<table>
+  <tr>
+    <th>name</th>
+    <th>address</th>
+    <th>phone_number</th>
+    <th>緯度</th>
+    <th>経度</th>
+  </tr>
+<% @kindergartens.each do |kindergarten| %>
+  <tr>
+    <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %></td>
+    <td><%= kindergarten.address %></td>
+    <td><%= kindergarten.phone_number %></td>
+    <td><%= kindergarten.latitude %></td>
+    <td><%= kindergarten.longitude %></td>
+  </tr>
+<% end %>
+</table>
