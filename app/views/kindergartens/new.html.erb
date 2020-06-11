@@ -1,8 +1,47 @@
 <h1>幼稚園新規登録</h1>
-<%= form_with(model:@kindergarten)do |form| %>
+<h2>概要情報</h2>
+<%= form_with(model: @kindergarten, local: true)do |form| %>
   <div class="kindergarten_profile">
-    <%= form.label :name %>
-    <%= form.text_field :name%>
-
+    <table>
+      <tr>
+        <th>
+          <%= form.label :name %>
+        </th>
+        <th>
+          <%= form.label :address %>
+        </th>
+        <th>
+          <%= form.label :phone_number %>
+        </th>
+        <th>
+          <%= form.label :image %>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= form.text_field :name %>
+        </td>
+        <td>
+          <%= form.text_field :address %>
+        </td>
+        <td>
+          <%= form.telephone_field :phone_number %>
+        </td>
+        <td>
+          <%= form.file_field :image %>
+        </td>
+      </tr>
+    </table>
   </div>
+  <!-- authorizationsテーブルを定義し、kindergartensテーブルと1対1で紐付けた後で、コード記入 -->
+  <h2>認可情報</h2>
+  <table>
+    <tr>
+      <th></th>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+  </table>
+  <%= form.submit %>
 <% end %>

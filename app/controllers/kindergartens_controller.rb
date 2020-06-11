@@ -1,6 +1,6 @@
 class KindergartensController < ApplicationController
   def index
-    @kindergartens = Kindergartens.all
+    @kindergartens = Kindergarten.all
   end
 
   def new
