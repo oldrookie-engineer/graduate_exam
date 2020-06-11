@@ -1,4 +1,5 @@
 <h1>幼稚園一覧</h1>
+<%= notice %>
 <table>
   <tr>
     <th>name</th>
@@ -15,7 +16,7 @@
     <td><%= kindergarten.latitude %></td>
     <td><%= kindergarten.longitude %></td>
     <td><%= link_to 'edit', edit_kindergarten_path(kindergarten.id) %></td>
-    <td><%= link_to 'destroy', kindergarten_path(kindergarten.id), method: :delete, data: {confirm: '本当に削除していいですか？'} %></td>
+    <td><%= link_to 'destroy', kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>
