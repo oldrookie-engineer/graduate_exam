@@ -1,3 +1,4 @@
+# 見通しを良くするため、コメント行を削除
 default: &default
   adapter: postgresql
   encoding: unicode
