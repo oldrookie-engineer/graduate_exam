@@ -1,0 +1,8 @@
+<h1>幼稚園新規登録</h1>
+<%= form_with(model:@kindergarten)do |form| %>
+  <div class="kindergarten_profile">
+    <%= form.label :name %>
+    <%= form.text_field :name%>
+
+  </div>
+<% end %>
