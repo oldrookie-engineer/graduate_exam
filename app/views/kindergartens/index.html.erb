@@ -6,6 +6,24 @@
 <%= notice %>
 <table>
   <tr>
+    <th>
+      <%= search_form_for @q do |f| %>
+        <%= f.label :name, "幼稚園名で検索(部分検索も可)" %>
+        <%= f.search_field :name_cont %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </th>
+    <th>
+      <%= search_form_for @q do |f| %>
+        <%= f.label :address, "住所で検索(部分検索も可)" %>
+        <%= f.search_field :address_cont, placeholder: "(例)中野区" %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </th>
+  </tr>
+</table>
+<table>
+  <tr>
     <th>name</th>
     <th>address</th>
     <th>phone_number</th>
@@ -25,3 +43,4 @@
 <% end %>
 </table>
 </div>
+<%= link_to "全園表示", root_path %>
