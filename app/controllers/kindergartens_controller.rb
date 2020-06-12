@@ -1,5 +1,7 @@
 class KindergartensController < ApplicationController
   before_action :set_kindergarten, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  
   def index
     @kindergartens = Kindergarten.all
   end
