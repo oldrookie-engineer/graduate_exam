@@ -53,16 +53,24 @@
         </td>
       </tr>
     </table>
+    <%= form.fields_for :stations do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label :route %></th>
+        <th><%= f.label :station_name %></th>
+        <th><%= f.label :walk_time %></th>
+      </tr>
+      <tr>
+        <td><%= f.text_field :route %></td>
+        <td><%= f.text_field :station_name %></td>
+        <td><%= f.text_field :walk_time %>分</td>
+        <td><%= f.hidden_field :id %></td>
+      </tr>
+    </table>
+    <% end %>
   </div>
   <!-- authorizationsテーブルを定義し、kindergartensテーブルと1対1で紐付けた後で、コード記入 -->
   <h2>認可情報</h2>
-  <table>
-    <tr>
-      <th></th>
-    </tr>
-    <tr>
-      <td></td>
-    </tr>
-  </table>
+
   <%= form.submit %>
 <% end %>

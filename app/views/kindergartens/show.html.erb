@@ -29,4 +29,14 @@
     <td>い</td>
   </tr>
 </table>
+<h2>最寄駅</h2>
+<% @kindergarten.stations.each do |station| %>
+  <table>
+    <tr>
+      <td><%= station.route %></td>
+      <td><%= station.station_name %></td>
+      <td><%= station.walk_time %>分</td>
+    </tr>
+  </table>
+<% end %>
 <%= link_to '幼稚園一覧', kindergartens_path %>
