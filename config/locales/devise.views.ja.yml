@@ -26,6 +26,18 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      kindergarten:
+        name: 名前
+        address: 住所
+        phone_number: 電話番号
+      stations:
+        route: 路線名
+        station_name: 駅名
+        walk_time: 徒歩分数
+      station:
+        route: 路線名
+        station_name: 駅名
+        walk_time: 徒歩分数
     models:
       user: ユーザ
   devise:
