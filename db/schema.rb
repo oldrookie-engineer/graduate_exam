@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_103623) do
+ActiveRecord::Schema.define(version: 2020_06_13_104753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_06_13_103623) do
     t.integer "school_floor_area", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "kindergarten_id"
+    t.index ["kindergarten_id"], name: "index_authorizations_on_kindergarten_id"
   end
 
   create_table "kindergartens", force: :cascade do |t|
@@ -67,5 +69,6 @@ ActiveRecord::Schema.define(version: 2020_06_13_103623) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "authorizations", "kindergartens"
   add_foreign_key "stations", "kindergartens"
 end
