@@ -69,7 +69,6 @@
     </table>
     <% end %>
   </div>
-
   <h2>認可情報</h2>
   <div class="kindergarten_authorization">
     <%= form.fields_for :authorization do |f| %>
@@ -83,7 +82,8 @@
       <tr>
         <td><%= f.text_field :principal %></td>
         <td><%= f.text_field :installation_date %></td>
-        <td><%= f.text_field :number_of_classes %>分</td>
+        <td><%= f.text_field :number_of_classes %>学級</td>
+        <td><%= f.text_field :capacity %>人</td>
         <td><%= f.hidden_field :id %></td>
       </tr>
       <tr>
@@ -92,9 +92,9 @@
         <th><%= f.label :school_floor_area %></th>
       </tr>
       <tr>
-        <td><%= f.text_field :number_of_students %></td>
-        <td><%= f.text_field :school_area %></td>
-        <td><%= f.text_field :school_floor_area %>分</td>
+        <td><%= f.text_field :number_of_students %>人</td>
+        <td><%= f.text_field :school_area %>㎡</td>
+        <td><%= f.text_field :school_floor_area %>㎡</td>
         <td><%= f.hidden_field :id %></td>
       </tr>
     </table>

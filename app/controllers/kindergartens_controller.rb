@@ -10,6 +10,7 @@ class KindergartensController < ApplicationController
   def new
     @kindergarten = Kindergarten.new
     @kindergarten.stations.build
+    @kindergarten.build_authorization
   end
 
   def create
@@ -42,7 +43,7 @@ class KindergartensController < ApplicationController
 
   private
   def kindergarten_params
-    params.require(:kindergarten).permit(:name, :address, :phone_number, :image, :latitude, :longitude, stations_attributes:%i[route station_name walk_time id _destroy])
+    params.require(:kindergarten).permit(:name, :address, :phone_number, :image, :latitude, :longitude, stations_attributes:%i[route station_name walk_time id _destroy], authorization_attributes:%i[principal installation_date number_of_classes capacity number_of_students school_area school_floor_area id _destroy])
   end
 
   def set_kindergarten

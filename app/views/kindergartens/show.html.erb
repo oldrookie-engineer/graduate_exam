@@ -1,32 +1,32 @@
 <h1><%= @kindergarten.name %></h1>
 <table>
   <tr>
-    <th>園長</th>
-    <td>あ</td>
+    <th>principal</th>
+    <td><%= @kindergarten.authorization.principal %></td>
   </tr>
   <tr>
-    <th>設置許可日</th>
-    <td>い</td>
+    <th>installation_date</th>
+    <td><%= @kindergarten.authorization.installation_date %></td>
   </tr>
   <tr>
-    <th>学級数</th>
-    <td>い</td>
+    <th>number_of_classes</th>
+    <td><%= @kindergarten.authorization.number_of_classes %>学級</td>
   </tr>
   <tr>
-    <th>定員</th>
-    <td>い</td>
+    <th>capacity</th>
+    <td><%= @kindergarten.authorization.capacity %>人</td>
   </tr>
   <tr>
-    <th>園児数</th>
-    <td>い</td>
+    <th>number_of_students</th>
+    <td><%= @kindergarten.authorization.number_of_students %>人</td>
   </tr>
   <tr>
-    <th>園地面積</th>
-    <td>い</td>
+    <th>school_area</th>
+    <td><%= @kindergarten.authorization.school_area %>㎡</td>
   </tr>
   <tr>
-    <th>園舎延床面積</th>
-    <td>い</td>
+    <th>school_floor_area</th>
+    <td><%= @kindergarten.authorization.school_floor_area %>㎡</td>
   </tr>
 </table>
 <h2>最寄駅</h2>
