@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_071606) do
+ActiveRecord::Schema.define(version: 2020_06_13_103623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authorizations", force: :cascade do |t|
+    t.string "principal", null: false
+    t.date "installation_date", null: false
+    t.integer "number_of_classes", null: false
+    t.integer "capacity", null: false
+    t.integer "number_of_students", null: false
+    t.integer "school_area", null: false
+    t.integer "school_floor_area", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "kindergartens", force: :cascade do |t|
     t.string "name", null: false
