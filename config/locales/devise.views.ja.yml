@@ -38,6 +38,14 @@ ja:
         route: 路線名
         station_name: 駅名
         walk_time: 徒歩分数
+      authorization:
+        principal: 園長
+        installation_date: 設置認可日
+        number_of_classes: 学級数
+        capacity: 定員
+        number_of_students: 園児数
+        school_area: 園地面積
+        school_floor_area: 園舎延床面積
     models:
       user: ユーザ
   devise:

@@ -24,14 +24,16 @@
 </table>
 <table>
   <tr>
+    <th colspan="1">No</th>
     <th><%= sort_link(@q, :name, "Name") %></th>
     <th><%= sort_link(@q, :address, "Address") %></th>
     <th>phone_number</th>
     <th>緯度</th>
     <th>経度</th>
   </tr>
-<% @kindergartens.each do |kindergarten| %>
+<% @kindergartens.each_with_index do |kindergarten, i| %>
   <tr>
+    <td><%= i += 1 %></td>
     <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %></td>
     <td><%= kindergarten.address %></td>
     <td><%= kindergarten.phone_number %></td>
