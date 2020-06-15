@@ -23,7 +23,10 @@
           <%= form.label :phone_number %>
         </th>
         <th>
-          <%= form.label :image %>
+          <%= form.label :school_area_image %>
+        </th>
+        <th>
+          <%= form.label :school_floor_image %>
         </th>
         <th>
           <%= form.label :緯度 %>
@@ -44,6 +47,9 @@
         </td>
         <td>
           <%= form.file_field :image %>
+        </td>
+        <td>
+          <%= form.file_field :cover_image %>
         </td>
         <td>
           <%= form.text_field :latitude %>

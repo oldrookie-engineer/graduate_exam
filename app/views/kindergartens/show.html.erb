@@ -1,4 +1,6 @@
 <h1><%= @kindergarten.name %></h1>
+
+<!-- ------  show画面(認可情報)のコード 始まり ------ -->
 <table>
   <tr>
     <th>principal</th>
@@ -29,6 +31,15 @@
     <td><%= @kindergarten.authorization.school_floor_area %>㎡</td>
   </tr>
 </table>
+<!-- ------  show画面(認可情報)のコード 終わり ------ -->
+
+<!-- ------  show画面(担当者メモ)のコード 始まり ------ -->
+
+
+
+<!-- ------  show画面(担当者メモ)のコード 終わり ------ -->
+
+<!-- ------  show画面(アクセス)のコード 始まり ------ -->
 <h2>最寄駅</h2>
 <% @kindergarten.stations.each do |station| %>
   <table>
@@ -39,8 +50,20 @@
     </tr>
   </table>
 <% end %>
-<p>
-  <strong>Image</strong>
-  <%= image_tag @kindergarten.image.url %>
-</p>
+<!-- ------  show画面(アクセス)のコード 終わり ------ -->
+
+<!-- ------  show画面(外観写真)のコード 始まり ------ -->
+<table>
+  <tr>
+    <th>園地</th>
+    <th>園舎</th>
+  </tr>
+  <tr>
+    <td><%= image_tag @kindergarten.image.url %></td>
+    <td><%= image_tag @kindergarten.cover_image.url %></td>
+  </tr>
+</table>
+<!-- ------  show画面(外観写真)のコード 終わり ------ -->
+
+
 <%= link_to '幼稚園一覧', kindergartens_path %>

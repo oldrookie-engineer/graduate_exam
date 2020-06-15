@@ -4,11 +4,12 @@ class Kindergarten < ApplicationRecord
     validates :address
     validates :phone_number, format: {with: /\A[0-9]{2,3}-[0-9]{1,4}-[0-9]{4}\z/}
     validates :latitude
-    validates :longitude  
+    validates :longitude
   end
   has_many :stations, dependent: :destroy
   has_one :authorization, dependent: :destroy
   accepts_nested_attributes_for :stations, allow_destroy: true
   accepts_nested_attributes_for :authorization, allow_destroy: true
   mount_uploader :image, ImageUploader
+  mount_uploader :cover_image, ImageUploader
 end
