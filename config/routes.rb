@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root 'kindergartens#index'
   resources :kindergartens
   namespace :api, format: 'json' do
-    resources :tasks, only:%i(index create show update destroy)
+    resources :tasks, only: [:index, :create, :show, :destroy, :update]
   end
 end
