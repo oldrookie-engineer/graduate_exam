@@ -28,8 +28,6 @@
     <th><%= sort_link(@q, :name, "Name") %></th>
     <th><%= sort_link(@q, :address, "Address") %></th>
     <th>phone_number</th>
-    <th>緯度</th>
-    <th>経度</th>
   </tr>
 <% @kindergartens.each_with_index do |kindergarten, i| %>
   <tr>
@@ -37,8 +35,6 @@
     <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %></td>
     <td><%= kindergarten.address %></td>
     <td><%= kindergarten.phone_number %></td>
-    <td><%= kindergarten.latitude %></td>
-    <td><%= kindergarten.longitude %></td>
     <td><%= link_to 'edit', edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
     <td><%= link_to 'destroy', kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
   </tr>

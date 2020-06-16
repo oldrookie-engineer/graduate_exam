@@ -44,7 +44,42 @@
 ---------------------------------------------------------------------
 <!-- ------  show画面(アクセス)のコード 始まり ------ -->
 <h2>アクセス画面</h2>
-<h3>ここにgoogleマップ</h3>
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @kindergarten.latitude %>, lng: <%= @kindergarten.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @kindergarten.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+ // #Map上の指定した位置にピンを挿して表示する
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDiFNHHbrZedm3v5I-4eY20PgG9Bn8BEE8&callback=initMap">
+</script>
+<style type="text/css">
+  #map { height: 200px;
+         width: 70%;}
+</style>
+
+<div id="map"></div>
 <% @kindergarten.stations.each do |station| %>
   <table>
     <tr>

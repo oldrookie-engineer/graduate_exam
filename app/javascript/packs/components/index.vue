@@ -4,10 +4,10 @@
       <th>園の課題点</th>
       <th>対応案</th>
     </tr>
-      <tr v-for="(task, index) in tasks" v-bind:key="task.id">
+    <tr v-for="(task, index) in tasks" v-bind:key="task.id">
       <td>{{ task.title }}</td>
       <td>{{task.content}}</td>
-      <button v-on:click="deleteTask(task.id, index)">削除</button>
+      <td><button v-on:click="deleteTask(task.id, index)">削除</button></td>
     </tr>
     <h4>追加の課題点があれば入力してください。</h4>
     <table>
