@@ -1,0 +1,13 @@
+<h2>申請登録</h2>
+<%= form_with(model: @application_document, local: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>幼稚園
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :application_date %>
+  <%= f.date_field :application_date %>
+  <%= f.label :processing_deadline %>
+  <%= f.date_field :processing_deadline %>
+  <%= f.submit %>
+<% end %>
+<%= link_to '申請状況一覧へ', application_documents_path %>

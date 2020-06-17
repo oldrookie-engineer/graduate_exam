@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :tasks, only: [:index, :create, :show, :destroy, :update]
   end
+  resources :application_documents
 end

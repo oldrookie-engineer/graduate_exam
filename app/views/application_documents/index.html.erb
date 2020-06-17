@@ -1,0 +1,42 @@
+<h2>申請状況一覧</h2>
+<table>
+  <tr>
+    <th>
+      <%= search_form_for @q do |f| %>
+      <%= f.label :name, "学校名で検索(部分一致も可)" %>
+      <%= f.search_field :name_cont %>
+      <%= f.submit %>
+      <% end %>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <%= search_form_for @q do |f| %>
+      <%= f.label :title, "申請認可名で検索(部分一致も可)" %>
+      <%= f.search_field :title_cont %>
+      <%= f.submit %>
+      <% end %>
+    </th>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>No</th>
+    <th>name</th>
+    <th>title</th>
+    <th>application_date</th>
+    <th>processing_deadline</th>
+  </tr>
+  <% @application_documents.each_with_index do |application_document, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= application_document.name %>幼稚園<td>
+    <td><%= application_document.title %></td>
+    <td><%= application_document.application_date %></td>
+    <td><%= application_document.processing_deadline %></td>
+    <td><%= link_to '削除', application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to '全件表示', application_documents_path %>
+<%= link_to '申請登録へ', new_application_document_path %>
