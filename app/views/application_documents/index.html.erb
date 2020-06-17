@@ -8,11 +8,9 @@
       <%= f.submit %>
       <% end %>
     </th>
-  </tr>
-  <tr>
     <th>
       <%= search_form_for @q do |f| %>
-      <%= f.label :title, "申請認可名で検索(部分一致も可)" %>
+      <%= f.label :title, "申請名で検索(部分一致も可)" %>
       <%= f.search_field :title_cont %>
       <%= f.submit %>
       <% end %>
@@ -22,15 +20,15 @@
 <table>
   <tr>
     <th>No</th>
-    <th>name</th>
-    <th>title</th>
-    <th>application_date</th>
-    <th>processing_deadline</th>
+    <th><%= sort_link(@q, :name, "Name") %></th>
+    <th><%= sort_link(@q, :title, "Title") %></th>
+    <th><%= sort_link(@q, :application_date, "ApplicationDate") %></th>
+    <th><%= sort_link(@q, :processing_deadline, "ProcessingDeadline") %></th>
   </tr>
   <% @application_documents.each_with_index do |application_document, index| %>
   <tr>
     <td><%= index + 1 %></td>
-    <td><%= application_document.name %>幼稚園<td>
+    <td><%= application_document.name %></td>
     <td><%= application_document.title %></td>
     <td><%= application_document.application_date %></td>
     <td><%= application_document.processing_deadline %></td>
@@ -38,5 +36,7 @@
   </tr>
   <% end %>
 </table>
+
 <%= link_to '全件表示', application_documents_path %>
 <%= link_to '申請登録へ', new_application_document_path %>
+<%= link_to '幼稚園一覧へ', kindergartens_path %>
