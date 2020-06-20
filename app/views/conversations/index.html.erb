@@ -1,0 +1,14 @@
+<table class="table table_hover">
+  <thead>
+    <h2>メッセージ一覧</h2>
+  </thead>
+  <tbody>
+    <% @conversations.each do |conversations| %>
+      <td>
+        <% if conversations.target_user(current_user).prepresent? %>
+          <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)  %>
+        <% end %>
+      </td>
+    <% end %>
+  </tbody>
+</table>
