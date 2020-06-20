@@ -26,6 +26,14 @@ class MessagesController < ApplicationController
       render 'index'
     end
   end
+  # def show
+  #   @message = @conversation.messages.find(params[:id])
+  # end
+  def destroy
+    @message = @conversation.messages.find(params[:id])
+    @message.destroy
+    redirect_to conversation_messages_path(@conversation)
+  end
   private
   def message_params
     params.require(:message).permit(:body, :user_id)

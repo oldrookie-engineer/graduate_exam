@@ -5,8 +5,8 @@
   <tbody>
     <% @conversations.each do |conversations| %>
       <td>
-        <% if conversations.target_user(current_user).prepresent? %>
-          <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)  %>
+        <% if conversations.target_user(current_user).present? %>
+          <%= link_to conversations.target_user(current_user).name, conversation_messages_path(conversations)  %>
         <% end %>
       </td>
     <% end %>

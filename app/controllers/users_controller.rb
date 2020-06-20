@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    if current_user.admin?
+      @users = User.all
+    else
+      @users = User.where(admin: true)
+    end
   end
 end
