@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users
   # とりあえずのroot設定
   root 'kindergartens#index'
   resources :kindergartens
