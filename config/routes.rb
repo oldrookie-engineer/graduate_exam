@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:index, :create, :show, :destroy, :update]
   end
   resources :application_documents
+  resources :conversations do
+    resources :messages
+  end
 end
