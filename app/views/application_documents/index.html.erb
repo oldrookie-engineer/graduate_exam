@@ -28,15 +28,16 @@
   <% @application_documents.each_with_index do |application_document, index| %>
   <tr>
     <td><%= index + 1 %></td>
-    <td><%= application_document.name %></td>
+    <td><%= application_document.name %>幼稚園</td>
     <td><%= application_document.title %></td>
     <td><%= application_document.application_date %></td>
     <td><%= application_document.processing_deadline %></td>
+    <td><%= link_to '編集', edit_application_document_path(application_document.id) if current_user.try(:admin?) %></td>
     <td><%= link_to '削除', application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
   </tr>
   <% end %>
 </table>
-
+<%= paginate @application_documents %>
 <%= link_to '全件表示', application_documents_path %>
 <%= link_to '申請登録へ', new_application_document_path %>
 <%= link_to '幼稚園一覧へ', kindergartens_path %>

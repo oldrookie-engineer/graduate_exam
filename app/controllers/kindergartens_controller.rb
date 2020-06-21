@@ -4,7 +4,7 @@ class KindergartensController < ApplicationController
 
   def index
     @q = Kindergarten.ransack(params[:q])
-    @kindergartens = @q.result(distinct: true)
+    @kindergartens = @q.result(distinct: true).page(params[:page]).per(5)
   end
 
   def new
