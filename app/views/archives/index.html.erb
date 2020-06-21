@@ -21,10 +21,10 @@
 <table>
   <tr>
     <th>No</th>
-    <th>name</th>
-    <th>title</th>
-    <th>installation_date</th>
-    <th>status_of_use</th>
+    <th>幼稚園名</th>
+    <th>申請認可名</th>
+    <th><%= sort_link(@q, :installation_date, "認可日")%></th>
+    <th><%= sort_link(@q, :status_of_use, "使用状況")%></th>
   </tr>
   <% @archives.each_with_index do |archive, index| %>
   <tr>
@@ -40,3 +40,4 @@
 </table>
 <%= link_to '全件表示', archives_path %>
 <%= link_to 'アーカイブ登録', new_archive_path %>
+<%= link_to '幼稚園一覧', kindergartens_path %>

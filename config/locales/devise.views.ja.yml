@@ -51,6 +51,11 @@ ja:
         title: 申請認可名
         application_date: 申請日
         processing_deadline: 申請処理期限
+      archive:
+        name: 幼稚園名
+        title: 申請認可名
+        installation_date: 認可日
+        status_of_use: 使用状況
     models:
       user: ユーザ
   devise:

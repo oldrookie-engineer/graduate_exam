@@ -36,7 +36,7 @@
 <% @kindergartens.each_with_index do |kindergarten, i| %>
   <tr>
     <td><%= i += 1 %></td>
-    <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %></td>
+    <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %>幼稚園</td>
     <td><%= kindergarten.address %></td>
     <td><%= kindergarten.phone_number %></td>
     <td><%= link_to 'edit', edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
