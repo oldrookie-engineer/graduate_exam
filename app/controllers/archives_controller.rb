@@ -5,9 +5,9 @@ class ArchivesController < ApplicationController
     @archives = @q.result(distinct: true).page(params[:page]).per(5)
     if params[:search].present?
       if params[:title].present?
-        @archives = Archive.all.title_search(params[:title])
+        @archives = Archive.all.title_search(params[:title]).page(params[:page]).per(5)
       else
-        @archives = Archive.all.order(created_at: :desc)
+        @archives = Archive.all.order(created_at: :asc).page(params[:page]).per(5)
       end
     end
   end
