@@ -3,6 +3,13 @@ class ArchivesController < ApplicationController
   def index
     @q = Archive.ransack(params[:q])
     @archives = @q.result(distinct: true)
+    if params[:search].present?
+      if params[:title].present?
+        @archives = Archive.all.title_search(params[:title])
+      else
+        @archives = Archive.all.order(created_at: :desc)
+      end
+    end
   end
 
   def new

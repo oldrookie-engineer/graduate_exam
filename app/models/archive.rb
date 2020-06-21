@@ -3,4 +3,7 @@ class Archive < ApplicationRecord
     在庫あり: 0,
     使用中: 1
   }
+  scope :title_search, -> (title) {
+    where(title: title)
+  }
 end
