@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_103039) do
+ActiveRecord::Schema.define(version: 2020_06_21_052538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_06_20_103039) do
     t.string "title"
     t.date "application_date", null: false
     t.date "processing_deadline", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "archives", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "title", null: false
+    t.date "installation_date", null: false
+    t.integer "status_of_use", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

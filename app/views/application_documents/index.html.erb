@@ -20,10 +20,10 @@
 <table>
   <tr>
     <th>No</th>
-    <th><%= sort_link(@q, :name, "Name") %></th>
-    <th><%= sort_link(@q, :title, "Title") %></th>
-    <th><%= sort_link(@q, :application_date, "ApplicationDate") %></th>
-    <th><%= sort_link(@q, :processing_deadline, "ProcessingDeadline") %></th>
+    <th><%= sort_link(@q, :name, "幼稚園名") %></th>
+    <th><%= sort_link(@q, :title, "申請認可名") %></th>
+    <th><%= sort_link(@q, :application_date, "申請日") %></th>
+    <th><%= sort_link(@q, :processing_deadline, "申請処理期限") %></th>
   </tr>
   <% @application_documents.each_with_index do |application_document, index| %>
   <tr>

@@ -46,6 +46,11 @@ ja:
         number_of_students: 園児数
         school_area: 園地面積
         school_floor_area: 園舎延床面積
+      application_document:
+        name: 幼稚園名
+        title: 申請認可名
+        application_date: 申請日
+        processing_deadline: 申請処理期限
     models:
       user: ユーザ
   devise:
