@@ -2,7 +2,7 @@ class ArchivesController < ApplicationController
   before_action :set_archive, only: [:edit, :update, :destroy]
   def index
     @q = Archive.ransack(params[:q])
-    @archives = @q.result(distinct: true)
+    @archives = @q.result(distinct: true).page(params[:page]).per(5)
     if params[:search].present?
       if params[:title].present?
         @archives = Archive.all.title_search(params[:title])

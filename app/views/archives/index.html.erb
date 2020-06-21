@@ -29,7 +29,7 @@
   <% @archives.each_with_index do |archive, index| %>
   <tr>
     <td><%= index + 1 %></td>
-    <td><%= archive.name %></td>
+    <td><%= archive.name %>幼稚園</td>
     <td><%= archive.title %></td>
     <td><%= archive.installation_date %></td>
     <td><%= archive.status_of_use %></td>
@@ -38,6 +38,7 @@
   <% end %>
   </tr>
 </table>
+<%= paginate @archives %>
 <%= link_to '全件表示', archives_path %>
 <%= link_to 'アーカイブ登録', new_archive_path %>
 <%= link_to '幼稚園一覧', kindergartens_path %>
