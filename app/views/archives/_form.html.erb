@@ -1,0 +1,11 @@
+<%= form_with(model: @archive, local: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>幼稚園
+  <%= f.label :title %>
+  <%= f.select :title, [[""],["設置認可申請"],["園長選任届"],["位置変更届"],["園地・園舎変更届"],["資産総額変更届"],["廃園届"]] %>
+  <%= f.label :installation_date %>
+  <%= f.date_field :installation_date %>
+  <%= f.label :status_of_use %>
+  <%= f.select :status_of_use, Archive.status_of_uses.keys.to_a, include_blank: true %>
+  <%= f.submit %>
+<% end %>

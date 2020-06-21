@@ -1,0 +1,38 @@
+<h2>アーカイブ一覧</h2>
+<table>
+  <tr>
+    <th>
+      <%= search_form_for @q do |f| %>
+        <%= f.label :name, "学校名で検索(部分一致も可)" %>
+        <%= f.search_field :name_cont %>
+        <%= f.submit %>
+      <% end %>
+    </th>
+    <th>
+      <%= form_with(model: @archive, local: true, url: archives_path, mothod: :get) %>
+        <%= f.label :title, "申請認可名で検索(部分一致も可)" %>
+        <%= f.search_field :name_cont %>
+        <%= f.submit %>
+      <% end %>
+
+    </th>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>No</th>
+    <th>name</th>
+    <th>title</th>
+    <th>installation_date</th>
+    <th>status_of_use</th>
+  </tr>
+  <% @archives.each_with_index do |archive, index| %>
+    <td><%= index + 1 %></td>
+    <td><%= archive.name %></td>
+    <td><%= archive.title %></td>
+    <td><%= archive.installation_date %></td>
+    <td><%= archive.status_of_use %></td>
+    <td><%= link_to '編集', edit_archive_path(archive.id) %></td>
+    <td><%= link_to '削除', archive_path(archive.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+  <% end %>
+</table>
