@@ -34,9 +34,9 @@
     <th><%= sort_link(@q, :address, "Address") %></th>
     <th>phone_number</th>
   </tr>
-<% @kindergartens.each_with_index do |kindergarten, i| %>
+<% @kindergartens.each.with_index(1) do |kindergarten, index| %>
   <tr>
-    <td><%= i += 1 %></td>
+    <td><%= index %></td>
     <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %>幼稚園</td>
     <td><%= kindergarten.address %></td>
     <td><%= kindergarten.phone_number %></td>
@@ -48,4 +48,3 @@
 </div>
 <%= paginate @kindergartens %>
 <%= link_to "全園表示", root_path %>
-<%= link_to "メッセージ一覧", conversations_path %>

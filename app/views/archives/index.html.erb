@@ -26,19 +26,20 @@
     <th><%= sort_link(@q, :installation_date, "認可日")%></th>
     <th><%= sort_link(@q, :status_of_use, "使用状況")%></th>
   </tr>
-  <% @archives.each_with_index do |archive, index| %>
+  <% @archives.each.with_index(1) do |archive, index| %>
   <tr>
-    <td><%= index + 1 %></td>
+    <td><%= index %></td>
     <td><%= archive.name %>幼稚園</td>
     <td><%= archive.title %></td>
     <td><%= archive.installation_date %></td>
     <td><%= archive.status_of_use %></td>
-    <td><%= link_to '編集', edit_archive_path(archive.id) %></td>
-    <td><%= link_to '削除', archive_path(archive.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-  <% end %>
+    <td><%= link_to '編集', edit_archive_path(archive.id) if current_user.try(:admin?) %></td>
+    <td><%= link_to '削除', archive_path(archive.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
   </tr>
+  <% end %>
 </table>
 <%= paginate @archives %>
 <%= link_to '全件表示', archives_path %>
 <%= link_to 'アーカイブ登録', new_archive_path %>
 <%= link_to '幼稚園一覧', kindergartens_path %>
+<%= link_to "アーカイブ使用・返却報告はこちらから", conversations_path %>

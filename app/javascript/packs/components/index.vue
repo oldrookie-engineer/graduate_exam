@@ -1,10 +1,14 @@
 <template>
   <div>
     <tr>
+      <h4>学校名で検索</h4>
+      <input type="text" v-model="keyword" placeholder="入力してください">
+    </tr>
+    <tr>
       <th>園の課題点</th>
       <th>対応案</th>
     </tr>
-    <tr v-for="(task, index) in tasks" v-bind:key="task.id">
+    <tr v-for="task in filteredTasks" v-bind:key="task.id">
       <td>{{ task.title }}</td>
       <td>{{task.content}}</td>
       <td><button v-on:click="deleteTask(task.id, index)">削除</button></td>
@@ -32,6 +36,7 @@
   export default {
     data: function () {
       return {
+        keyword: '',
         tasks: [],
         newTitle: '',
         newContent: ''
@@ -74,6 +79,18 @@
         }, (error) => {
           console.log(error);
         });
+      }
+    },
+    computed: {
+      filteredTasks: function() {
+        var tasks = [];
+        for(var i in this.tasks) {
+          var task = this.tasks[i];
+          if(task.title.indexOf(this.keyword) !== -1) {
+            tasks.push(task);
+          }
+        }
+        return tasks;
       }
     }
   }

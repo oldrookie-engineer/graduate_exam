@@ -1,14 +1,25 @@
+<h2>メッセージ一覧</h2>
 <table class="table table_hover">
   <thead>
-    <h2>メッセージ一覧</h2>
+    <% if current_user.try(:admin?) %>
+      <tr>
+        <th>ユーザー</th>
+      </tr>
+    <% else %>
+      <tr>
+        <th>管理者</th>
+      </tr>
+    <% end %>
   </thead>
   <tbody>
     <% @conversations.each do |conversations| %>
+    <tr>
       <td>
         <% if conversations.target_user(current_user).present? %>
           <%= link_to conversations.target_user(current_user).name, conversation_messages_path(conversations)  %>
         <% end %>
       </td>
+    </tr>
     <% end %>
   </tbody>
 </table>
