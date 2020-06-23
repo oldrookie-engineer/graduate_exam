@@ -5,12 +5,14 @@
       <input type="text" v-model="keyword" placeholder="入力してください">
     </tr>
     <tr>
+      <th colspan=1></th>
       <th>園の課題点</th>
       <th>対応案</th>
     </tr>
     <tr v-for="task in filteredTasks" v-bind:key="task.id">
-      <td>{{ task.title }}</td>
-      <td>{{task.content}}</td>
+      <input type="checkbox" v-model="task.isDone" v-on:click="update(task.id, index)">
+      <td><span v-bind:class="{done: task.isDone}">{{ task.title }}</span></td>
+      <td><span v-bind:class="{done: task.isDone}">{{ task.content }}</span></td>
       <td><button v-on:click="deleteTask(task.id, index)">削除</button></td>
     </tr>
     <h4>追加の課題点があれば入力してください。</h4>

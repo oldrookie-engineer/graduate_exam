@@ -68,7 +68,6 @@
                   });
         var transitLayer = new google.maps.TransitLayer();
         transitLayer.setMap(map);
-
         var contentString = '住所：<%= @kindergarten.address %>';
         var infowindow = new google.maps.InfoWindow({
           content: contentString

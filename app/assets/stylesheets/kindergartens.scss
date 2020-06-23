@@ -1,3 +1,21 @@
-// Place all the styles related to the kindergartens controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 幼稚園詳細画面のタブ切替デザイン
+.nav-tabs .nav-link.active {
+  color: #fff!important;
+  background-color: gray!important;
+}
+
+.nav-tabs {
+  border: none;
+}
+
+.nav-tabs .nav-link {
+  border-radius: 3px;
+  border: 1px solid #000;
+  margin-right: 1px;
+}
+
+// 担当者メモチェック後の見え消し線
+span.done {
+  text-decoration: line-through;
+  color: red;
+}
