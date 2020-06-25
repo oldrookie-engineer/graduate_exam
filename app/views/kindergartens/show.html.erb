@@ -36,11 +36,11 @@
       </tr>
       <tr>
         <th>園地面積</th>
-        <td><%= @kindergarten.authorization.school_area %>㎡</td>
+        <td><%= @kindergarten.authorization.school_area.to_s(:delimited) %>㎡</td>
       </tr>
       <tr>
         <th>園舎延床面積</th>
-        <td><%= @kindergarten.authorization.school_floor_area %>㎡</td>
+        <td><%= @kindergarten.authorization.school_floor_area.to_s(:delimited) %>㎡</td>
       </tr>
     </table>
   </div>
