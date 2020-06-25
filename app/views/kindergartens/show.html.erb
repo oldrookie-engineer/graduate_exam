@@ -5,14 +5,13 @@
   <li class="nav-item"><a href="#ContentB" class="nav-link" data-toggle="tab">担当者メモ</a></li>
   <li class="nav-item"><a href="#ContentC" class="nav-link" data-toggle="tab">アクセス</a></li>
   <li class="nav-item"><a href="#ContentD" class="nav-link" data-toggle="tab">外観写真</a></li>
-</ul>
+</ul><br>
 <!-- タブのヘッダーコード(終) -->
 
 <!--------  タブのコンテンツコード(始) -------->
 <div class="tab-content">
 <!--------  show画面(認可情報)のコード 始まり -------->
   <div class="tab-pane active" id="ContentA">
-    <h2>認可情報画面</h2>
     <table>
       <tr>
         <th>園長</th>
@@ -48,7 +47,6 @@
 
 <!-- ------  show画面(担当者メモ)のコード 始まり ------ -->
   <div class="tab-pane" id="ContentB">
-    <h2>担当者メモ画面</h2>
     <div id="app">
       <contents></contents>
     </div>
@@ -58,7 +56,6 @@
 
 <!-- ------  show画面(アクセス)のコード 始まり ------ -->
   <div class="tab-pane" id="ContentC">
-    <h2>アクセス画面</h2>
     <script type="text/javascript">
       function initMap() {
         var test ={lat: <%= @kindergarten.latitude %>, lng: <%= @kindergarten.longitude %>};
@@ -94,12 +91,13 @@
     </style>
 
     <div id="map"></div>
+    <h4>最寄駅</h4>
     <% @kindergarten.stations.each do |station| %>
       <table>
         <tr>
-          <td><%= station.route %>線</td>
-          <td><%= station.station_name %>駅</td>
-          <td>徒歩<%= station.walk_time %>分</td>
+          <td><h5><%= station.route %>線</h5></td>
+          <td><h5><%= station.station_name %>駅</h5</td>
+          <td><h5>徒歩<%= station.walk_time %>分</h5></td>
         </tr>
       </table>
     <% end %>
@@ -108,11 +106,10 @@
 
 <!-- ------  show画面(外観写真)のコード 始まり ------ -->
   <div class="tab-pane" id="ContentD">
-    <h2>外観写真画面</h2>
     <table>
       <tr>
-        <th>園地</th>
-        <th>園舎</th>
+        <th><h3>園地</h3></th>
+        <th><h3>園舎</h3></th>
       </tr>
       <tr>
         <td><%= image_tag @kindergarten.image.url %></td>

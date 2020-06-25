@@ -1,15 +1,13 @@
 <h2>メッセージ一覧</h2>
-<table class="table table_hover">
+<table>
   <thead>
+    <tr>
     <% if current_user.try(:admin?) %>
-      <tr>
         <th>ユーザー</th>
-      </tr>
     <% else %>
-      <tr>
         <th>管理者</th>
-      </tr>
     <% end %>
+    </tr>
   </thead>
   <tbody>
     <% @conversations.each do |conversations| %>
@@ -23,4 +21,4 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to '幼稚園一覧', kindergartens_path  %>
+<%= link_to '幼稚園一覧', kindergartens_path, class: "btn btn-danger"  %>

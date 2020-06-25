@@ -1,7 +1,7 @@
 <template>
   <div>
     <tr>
-      <h4>学校名で検索</h4>
+      <h5>学校名で検索</h5>
       <input type="text" v-model="keyword" placeholder="入力してください">
     </tr>
     <tr>
@@ -15,7 +15,7 @@
       <td><span v-bind:class="{done: task.isDone}">{{ task.content }}</span></td>
       <td><button v-on:click="deleteTask(task.id, index)">削除</button></td>
     </tr>
-    <h4>追加の課題点があれば入力してください。</h4>
+    <h5>追加の課題点があれば入力してください。</h5>
     <table>
       <tr>
         <th>
@@ -58,9 +58,13 @@
         });
       },
       createTask: function () {
-        if(this.newTitle == '') return;
-        if(this.newContent == '') return;
-
+        if(this.newTitle == '') {
+          alert('課題点の入力欄が空欄です！');
+          return;
+        } else if(this.newContent == '') {
+          alert('対応案の入力欄が空欄です！');
+          return;
+        }
         axios.post('/api/tasks', { task: { title: this.newTitle, content: this.newContent } }).then((response) => {
           this.tasks.unshift(response.data);
           this.newTitle = '';
@@ -71,7 +75,9 @@
       },
       deleteTask: function (task_id, index) {
         axios.delete('/api/tasks/' + task_id).then((response) => {
-          this.tasks.splice(index, 1);
+          if(confirm('本当に削除していいですか？')) {
+            this.tasks.splice(index, 1);
+          }
         }, (error) => {
           console.log(error, response);
         });
