@@ -58,6 +58,13 @@ ja:
         status_of_use: 使用状況
     models:
       user: ユーザ
+  views:
+    pagination:
+      first: "最初"
+      last: "最後"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
