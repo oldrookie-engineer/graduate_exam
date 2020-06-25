@@ -6,25 +6,31 @@
     <% if message.body.present? %>
       <div class="item">
         <div class="content">
-          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+          <div class="header"><strong><%= message.user.name %></strong><br>
+          送信日時:
+          <%= message.message_time %></div>
           <div class="list">
             <div class="item">
               <i class="right triangle icon"></i>
-              <%= message.body %>
+              メッセージ:
+              <strong>「<%= message.body %>」</strong><br>
               <% if message.user == current_user %>
-                <%= message.read ? '既読' : '未読' %>
-              <% end %>
+                状態:
+                <%= message.read ? '既読' : '未読' %><br>
               <%= link_to '削除', conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %>
+              <% end %>
+
             </div>
           </div>
         </div>
       </div>
     <% end %>
   <% end %>
-</div>
+</div><br>
 <%= form_with(model: [@conversation, @message]) do |f| %>
  <div class="field">
-   <%= f.text_area :body, class: "form-control" %>
+   <strong><%= f.label :"メッセージ入力フォーム" %></strong><br>
+   <%= f.text_area :body, size: "40x4", placeholder: "メッセージを入力してください" %>
  </div>
    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
  <div>
