@@ -1,4 +1,5 @@
 class ApplicationDocumentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_application_document, only: [:edit, :update, :destroy]
 
   def index
