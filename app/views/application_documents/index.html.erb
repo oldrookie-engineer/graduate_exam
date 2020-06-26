@@ -1,7 +1,7 @@
 <h2>申請状況一覧</h2>
 <div class="alert alert-danger">
   <% if @around_deadlines.present? %>
-    <h4>本日(<%= Date.current %>)、申請処理期限が間近もしくは、過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h4>
+    <h5>本日(<%= l Date.current %>)、申請処理期限が間近もしくは、過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h5>
     <table>
       <tr>
         <th>No</th>
@@ -15,7 +15,7 @@
         <td><%= index %></td>
         <td><%= deadline.name %>幼稚園</td>
         <td><%= deadline.title %></td>
-        <td><%= deadline.processing_deadline %></td>
+        <td><%= l deadline.processing_deadline %></td>
         <td><%= deadline.user.name %></td>
       </tr>
       <% end %>
@@ -54,8 +54,8 @@
     <td><%= index + 1 %></td>
     <td><%= application_document.name %>幼稚園</td>
     <td><%= application_document.title %></td>
-    <td><%= application_document.application_date %></td>
-    <td><%= application_document.processing_deadline %></td>
+    <td><%= l application_document.application_date %></td>
+    <td><%= l application_document.processing_deadline %></td>
     <td><%= application_document.user.name %></td>
     <td><%= link_to t("link.Edit"), edit_application_document_path(application_document.id) if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
     <td><%= link_to t("link.Destroy"), application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>

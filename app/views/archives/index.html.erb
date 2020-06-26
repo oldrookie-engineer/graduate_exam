@@ -31,7 +31,7 @@
     <td><%= index %></td>
     <td><%= archive.name %>幼稚園</td>
     <td><%= archive.title %></td>
-    <td><%= archive.installation_date %></td>
+    <td><%= l archive.installation_date %></td>
     <td><%= archive.status_of_use %></td>
     <td><%= link_to t("link.Edit"), edit_archive_path(archive.id) if current_user.try(:admin?) %></td>
     <td><%= link_to t("link.Destroy"), archive_path(archive.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
