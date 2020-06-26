@@ -16,3 +16,14 @@
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
+
+function showClock() {
+  let nowTime = new Date();
+  // let nowDate = nowTime.getDates();
+  let nowHour = nowTime.getHours();
+  let nowMin = nowTime.getMinutes();
+  let nowSec = nowTime.getSeconds();
+  let msg = "現在時刻は、" + nowHour + "時" + nowMin + "分" + nowSec + "秒です。";
+  document.getElementById("Realtime").innerHTML = msg;
+}
+setInterval('showClock()', 1000);
