@@ -5,6 +5,7 @@ class ApplicationDocumentsController < ApplicationController
   def index
     @q = ApplicationDocument.ransack(params[:q])
     @application_documents = @q.result(distinct: true).page(params[:page]).per(5).includes(:user)
+    @around_deadlines = @application_documents.deadline
   end
 
   def new
