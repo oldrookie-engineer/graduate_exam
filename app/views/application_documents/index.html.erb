@@ -33,8 +33,9 @@
     <td><%= application_document.title %></td>
     <td><%= application_document.application_date %></td>
     <td><%= application_document.processing_deadline %></td>
-    <td><%= link_to t("link.Edit"), edit_application_document_path(application_document.id) if current_user.try(:admin?) %></td>
-    <td><%= link_to t("link.Destroy"), application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
+    <td><%= application_document.user.name %></td>
+    <td><%= link_to t("link.Edit"), edit_application_document_path(application_document.id) if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
+    <td><%= link_to t("link.Destroy"), application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
   </tr>
   <% end %>
 </table>

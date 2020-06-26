@@ -4,7 +4,7 @@ class ApplicationDocumentsController < ApplicationController
 
   def index
     @q = ApplicationDocument.ransack(params[:q])
-    @application_documents = @q.result(distinct: true).page(params[:page]).per(5)
+    @application_documents = @q.result(distinct: true).page(params[:page]).per(5).includes(:user)
   end
 
   def new
@@ -13,6 +13,7 @@ class ApplicationDocumentsController < ApplicationController
 
   def create
     @application_document = ApplicationDocument.new(application_document_params)
+    @application_document.user_id = current_user.id
     if @application_document.save
       redirect_to application_documents_path, notice: '申請を作成しました！'
     else
