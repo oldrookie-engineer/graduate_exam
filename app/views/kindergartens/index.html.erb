@@ -40,8 +40,8 @@
     <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %>幼稚園</td>
     <td><%= kindergarten.address %></td>
     <td><%= kindergarten.phone_number %></td>
-    <td><%= link_to 'edit', edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
-    <td><%= link_to 'destroy', kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
+    <td><%= link_to t("link.Edit"), edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
+    <td><%= link_to t("link.Destroy"), kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
   </tr>
 <% end %>
 </table>

@@ -24,6 +24,7 @@
     <th><%= sort_link(@q, :title, "申請認可名") %></th>
     <th><%= sort_link(@q, :application_date, "申請日") %></th>
     <th><%= sort_link(@q, :processing_deadline, "申請処理期限") %></th>
+    <th><%= sort_link(@q, :user_id, "申請処理者") %></th>
   </tr>
   <% @application_documents.each_with_index do |application_document, index| %>
   <tr>
@@ -32,8 +33,8 @@
     <td><%= application_document.title %></td>
     <td><%= application_document.application_date %></td>
     <td><%= application_document.processing_deadline %></td>
-    <td><%= link_to '編集', edit_application_document_path(application_document.id) if current_user.try(:admin?) %></td>
-    <td><%= link_to '削除', application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
+    <td><%= link_to t("link.Edit"), edit_application_document_path(application_document.id) if current_user.try(:admin?) %></td>
+    <td><%= link_to t("link.Destroy"), application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
   </tr>
   <% end %>
 </table>
