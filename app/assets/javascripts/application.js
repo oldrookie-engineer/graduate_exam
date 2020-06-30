@@ -19,11 +19,15 @@
 
 function showClock() {
   let nowTime = new Date();
-  // let nowDate = nowTime.getDates();
+  let nowYear = nowTime.getFullYear();
+  let nowMonth = nowTime.getMonth() + 1;
+  let nowDate = nowTime.getDate();
+  let week = ["日", "月", "火", "水", "木", "金", "土"]
+  let wday = week[nowTime.getDay()];
   let nowHour = nowTime.getHours();
   let nowMin = nowTime.getMinutes();
   let nowSec = nowTime.getSeconds();
-  let msg = "現在時刻は、" + nowHour + "時" + nowMin + "分" + nowSec + "秒です。";
+  let msg = "現在の日時は、" + nowYear + "年" + nowMonth + "月" + nowDate + "日" + "(" + wday + ")" + nowHour + "時" + nowMin + "分" + nowSec + "秒です。";
   document.getElementById("Realtime").innerHTML = msg;
 }
 setInterval('showClock()', 1000);
