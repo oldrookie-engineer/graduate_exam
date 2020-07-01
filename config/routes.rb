@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     root "users/sessions#new"
   end
   devise_for :users, controllers: {
-    # sessions: 'users/sessions',
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
