@@ -6,11 +6,13 @@
     </tr>
     <tr>
       <th colspan=1></th>
+      <th>幼稚園名</th>
       <th>園の課題点</th>
       <th>対応案</th>
     </tr>
     <tr v-for="task in filteredTasks" v-bind:key="task.id">
       <input type="checkbox" v-model="task.isDone" v-on:click="update(task.id, index)">
+      <td><span v-bind:class="{done: task.isDone}">{{ task.name }}幼稚園</span></td>
       <td><span v-bind:class="{done: task.isDone}">{{ task.title }}</span></td>
       <td><span v-bind:class="{done: task.isDone}">{{ task.content }}</span></td>
       <td><button v-on:click="deleteTask(task.id, index)">削除</button></td>
@@ -18,6 +20,10 @@
     <h5>追加の課題点があれば入力してください。</h5>
     <table>
       <tr>
+        <th>
+          <p>幼稚園名</p>
+          <input type="text" v-model="newName" placeholder="入力して下さい">
+        </th>
         <th>
           <p>課題点</p>
           <textarea v-model="newTitle" placeholder="入力して下さい"></textarea>
@@ -40,6 +46,7 @@
       return {
         keyword: '',
         tasks: [],
+        newName: '',
         newTitle: '',
         newContent: ''
       }
@@ -58,15 +65,19 @@
         });
       },
       createTask: function () {
-        if(this.newTitle == '') {
+        if(this.newName == '') {
+          alert('幼稚園名の入力欄が空欄です！');
+          return;
+        } else if(this.newTiele == '') {
           alert('課題点の入力欄が空欄です！');
           return;
         } else if(this.newContent == '') {
           alert('対応案の入力欄が空欄です！');
           return;
         }
-        axios.post('/api/tasks', { task: { title: this.newTitle, content: this.newContent } }).then((response) => {
+        axios.post('/api/tasks', { task: { name: this.newName, title: this.newTitle, content: this.newContent } }).then((response) => {
           this.tasks.unshift(response.data);
+          this.newName = '';
           this.newTitle = '';
           this.newContent = '';
         }, (error) => {
@@ -94,7 +105,7 @@
         var tasks = [];
         for(var i in this.tasks) {
           var task = this.tasks[i];
-          if(task.title.indexOf(this.keyword) !== -1) {
+          if(task.name.indexOf(this.keyword) !== -1) {
             tasks.push(task);
           }
         }
