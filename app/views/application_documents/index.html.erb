@@ -1,11 +1,33 @@
 <h2>申請状況一覧</h2>
 <div class="alert alert-warning">
   <% if @complete_documents.present? && current_user.try(:admin?) %>
-    <h4></h4>
+    <h4>【管理者へのアラーム】</h4>
+    <h5>以下のとおり、処理済の申請案件があるので、削除もしくは、アーカイブへ移動してください！</h5>
+    <table>
+      <tr>
+        <th>No</th>
+        <th>幼稚園名</th>
+        <th>申請認可名</th>
+        <th>申請処理期限</th>
+        <th>申請処理者</th>
+        <th>処理状況</th>
+      </tr>
+      <% @complete_documents.each.with_index(1) do |complete_document, index| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= complete_document.name %>幼稚園</td>
+          <td><%= complete_document.title %></td>
+          <td><%= complete_document.processing_deadline %></td>
+          <td><%= complete_document.user.name %></td>
+          <td><%= complete_document.processing %></td>
+        </tr>
+      <% end %>
+    </table>
   <% end %>
 </div>
 <div class="alert alert-danger">
   <% if @around_deadlines.present? %>
+    <h4>【申請処理アラーム】</h4>
     <h5>本日(<%= l Date.current %>)、申請処理期限が間近もしくは、過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h5>
     <table>
       <tr>
