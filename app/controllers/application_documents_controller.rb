@@ -6,6 +6,7 @@ class ApplicationDocumentsController < ApplicationController
     @q = ApplicationDocument.ransack(params[:q])
     @application_documents = @q.result(distinct: true).page(params[:page]).per(5).includes(:user)
     @around_deadlines = @application_documents.deadline
+    @complete_documents = @application_documents.where(processing: 2)
   end
 
   def new
@@ -40,7 +41,7 @@ class ApplicationDocumentsController < ApplicationController
 
   private
   def application_document_params
-    params.require(:application_document).permit(:name, :title, :application_date, :processing_deadline)
+    params.require(:application_document).permit(:name, :title, :application_date, :processing_deadline, :processing)
   end
 
   def set_application_document

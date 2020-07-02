@@ -7,5 +7,7 @@
   <%= f.date_field :application_date %>
   <%= f.label :processing_deadline %>
   <%= f.date_field :processing_deadline %>
+  <%= f.label :processing %>
+  <%= f.select :processing, ApplicationDocument.processings.keys.to_a, include_blank: true %>
   <%= f.submit %>
 <% end %>

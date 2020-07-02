@@ -1,4 +1,9 @@
 <h2>申請状況一覧</h2>
+<div class="alert alert-warning">
+  <% if @complete_documents.present? && current_user.try(:admin?) %>
+    <h4></h4>
+  <% end %>
+</div>
 <div class="alert alert-danger">
   <% if @around_deadlines.present? %>
     <h5>本日(<%= l Date.current %>)、申請処理期限が間近もしくは、過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h5>
@@ -48,6 +53,7 @@
     <th><%= sort_link(@q, :application_date, "申請日") %></th>
     <th><%= sort_link(@q, :processing_deadline, "申請処理期限") %></th>
     <th><%= sort_link(@q, :user_id, "申請処理者") %></th>
+    <th><%= sort_link(@q, :processing, "処理状況") %></th>
   </tr>
   <% @application_documents.each_with_index do |application_document, index| %>
   <tr>
@@ -57,6 +63,7 @@
     <td><%= l application_document.application_date %></td>
     <td><%= l application_document.processing_deadline %></td>
     <td><%= application_document.user.name %></td>
+    <td><%= application_document.processing %></td>
     <td><%= link_to t("link.Edit"), edit_application_document_path(application_document.id) if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
     <td><%= link_to t("link.Destroy"), application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
   </tr>
