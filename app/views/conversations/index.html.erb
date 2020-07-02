@@ -14,7 +14,7 @@
     <tr>
       <td>
         <% if conversations.target_user(current_user).present? %>
-          <%= link_to conversations.target_user(current_user).name, conversation_messages_path(conversations)  %>
+          <%= link_to conversations.target_user(current_user).name, conversation_messages_path(conversations) %>
         <% end %>
       </td>
     </tr>

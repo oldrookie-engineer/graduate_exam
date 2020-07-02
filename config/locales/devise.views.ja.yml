@@ -30,6 +30,8 @@ ja:
         name: 名前
         address: 住所
         phone_number: 電話番号
+        school_area_image: 園地写真
+        school_floor_image: 園舎写真
       stations:
         route: 路線名
         station_name: 駅名
@@ -58,14 +60,15 @@ ja:
         status_of_use: 使用状況
     models:
       user: ユーザ
-    views:
-      pagination:
-        first: 最初
-        last: 最後
-        previous: "&lsaquo; 前"
-        next: "次 &rsaquo;"
-        truncate: ...
+  views:
+    pagination:
+      first: 最初
+      last: 最後
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: ...
   link:
+    phone_number: 電話番号
     Edit: 編集
     Destroy: 削除
   devise:

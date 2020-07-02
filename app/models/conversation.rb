@@ -11,6 +11,6 @@ class Conversation < ApplicationRecord
       User.find(recipient_id)
     elsif recipient_id == current_user.id
       User.find(sender_id)
-    end 
+    end
   end
 end

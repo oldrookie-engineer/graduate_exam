@@ -3,7 +3,6 @@
 <% else %>
   <h1>幼稚園一覧</h1>
 <% end %>
-<%= notice %>
 <%= link_to '申請登録', new_application_document_path %>
 <%= link_to '申請状況', application_documents_path %>
 <%= link_to "新規登録", new_kindergarten_path %>
@@ -30,9 +29,9 @@
 <table>
   <tr>
     <th colspan="1">No</th>
-    <th><%= sort_link(@q, :name, "Name") %></th>
-    <th><%= sort_link(@q, :address, "Address") %></th>
-    <th>phone_number</th>
+    <th><%= sort_link(@q, :name, "名前") %></th>
+    <th><%= sort_link(@q, :address, "住所") %></th>
+    <th>電話番号</th>
   </tr>
 <% @kindergartens.each.with_index(1) do |kindergarten, index| %>
   <tr>
