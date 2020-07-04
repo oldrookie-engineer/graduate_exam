@@ -1,3 +1,40 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.sign-log {
+  // border: 2px double green;
+  border: 3mm ridge rgba(173, 216, 230, .5);
+  width: 30%;
+  margin: 30px auto;
+  border-radius: 20px;
+  padding: 30px 0;
+  background-image: linear-gradient(#FFF5EE, #AFEEEE, #FFF0F5
+);
+}
+
+.field {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.field input {
+  border-radius: 10px;
+  width: auto;
+  background-color: #eee;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.sign {
+  border-radius: 10px;
+  padding: 8px;
+  background-color: #FAFAD2;
+}
+
+.sign_in {
+  text-align: center;
+}
+
+.sign_up {
+  text-align: center;
+}

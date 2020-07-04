@@ -1,4 +1,5 @@
-// 幼稚園詳細画面のタブ切替デザイン
+
+// show画面のタブ切替デザイン
 .nav-tabs .nav-link.active {
   color: #fff!important;
   background-color: gray!important;
@@ -18,4 +19,81 @@
 span.done {
   text-decoration: line-through;
   color: red;
+}
+
+// index画面デザイン
+.index-title {
+  text-align: center;
+}
+
+#kindergarten-info {
+  width: 95%;
+  margin: 0 auto;
+}
+
+#kindergarten-list {
+  text-align: center;
+}
+// index画面のサイドバー
+#sidebar {
+  // border: 2px solid #eee;
+  // background-color: red;
+  // margin: 0;
+  // padding: 0;
+}
+
+#sidebar ul {
+  list-style: none;
+  border-radius: 5px;
+  padding-top: 20px;
+  border: 1px solid #eee;
+
+}
+
+#sidebar h4 {
+  text-align: center;
+}
+
+#sidebar li {
+  margin: 30px 0;
+  text-align: center;
+}
+
+// index画面の検索フォーム
+.search-form {
+  border-radius: 5px;
+}
+
+.index-search {
+  border-radius: 5px;
+}
+
+// new画面の登録フォーム
+#new-form {
+  margin: 0 auto;
+  width: 70%;
+}
+
+#kindergarten_profile {
+  text-align: center;
+}
+
+#kindergarten_profile input {
+  border-radius: 5px;
+}
+
+#kindergarten_authorization {
+  text-align: center;
+}
+
+#kindergarten_authorization input {
+  border-radius: 5px;
+}
+
+.school_image {
+  cursor: pointer;
+}
+
+#upfile {
+  display: none;
 }

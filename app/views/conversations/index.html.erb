@@ -1,4 +1,12 @@
 <h2>メッセージ一覧</h2>
+<!-- if文で管理者にメッセージがあればアラートを通知する -->
+<% if @message.present? %>
+  <div class="alert alert-warning">
+    <span><h4 class="blinking">【管理者へのアラーム】</h4></span>
+    <h5>アーカイブの使用報告メッセージが届いているので、確認してください！</h5>
+  </div>
+<% end %>
+
 <table>
   <thead>
     <tr>

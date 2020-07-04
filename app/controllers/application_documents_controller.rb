@@ -6,7 +6,7 @@ class ApplicationDocumentsController < ApplicationController
     @q = ApplicationDocument.ransack(params[:q])
     @application_documents = @q.result(distinct: true).page(params[:page]).per(5).includes(:user)
     @around_deadlines = @application_documents.deadline
-    @complete_documents = @application_documents.where(processing: 2)
+    @complete_documents = @application_documents.processing_complete
   end
 
   def new

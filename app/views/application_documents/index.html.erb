@@ -1,45 +1,41 @@
 <h2>申請状況一覧</h2>
-<div class="alert alert-warning">
-  <% if @complete_documents.present? && current_user.try(:admin?) %>
-    <h4>【管理者へのアラーム】</h4>
+<% if @complete_documents.present? && current_user.try(:admin?) %>
+  <div class="alert alert-warning">
+    <span><h4 class="blinking">【管理者へのアラーム】</h4></span>
     <h5>以下のとおり、処理済の申請案件があるので、削除もしくは、アーカイブへ移動してください！</h5>
     <table>
       <tr>
-        <th>No</th>
         <th>幼稚園名</th>
         <th>申請認可名</th>
         <th>申請処理期限</th>
         <th>申請処理者</th>
         <th>処理状況</th>
       </tr>
-      <% @complete_documents.each.with_index(1) do |complete_document, index| %>
+      <% @complete_documents.each do |complete_document| %>
         <tr>
-          <td><%= index %></td>
           <td><%= complete_document.name %>幼稚園</td>
           <td><%= complete_document.title %></td>
-          <td><%= complete_document.processing_deadline %></td>
+          <td><%= l complete_document.processing_deadline %></td>
           <td><%= complete_document.user.name %></td>
           <td><%= complete_document.processing %></td>
         </tr>
       <% end %>
     </table>
-  <% end %>
-</div>
-<div class="alert alert-danger">
-  <% if @around_deadlines.present? %>
-    <h4>【申請処理アラーム】</h4>
-    <h5>本日(<%= l Date.current %>)、申請処理期限が間近もしくは、過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h5>
+  </div>
+<% end %>
+<% if @around_deadlines.present? %>
+  <div class="alert alert-danger">
+    <span><h4 class="blinking">【申請処理アラーム】</h4></span>
+    <h5>本日(<%= l Date.current %>)、申請処理期限まで３日以内もしくは、過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h5>
     <table>
       <tr>
-        <th>No</th>
         <th>幼稚園名</th>
         <th>申請認可名</th>
         <strong><th>申請処理期限</th></strong>
         <th>申請処理者</th>
       </tr>
-      <% @around_deadlines.each.with_index(1) do |deadline, index| %>
+      <% @around_deadlines.each do |deadline| %>
       <tr>
-        <td><%= index %></td>
         <td><%= deadline.name %>幼稚園</td>
         <td><%= deadline.title %></td>
         <td><%= l deadline.processing_deadline %></td>
@@ -47,8 +43,8 @@
       </tr>
       <% end %>
     </table>
-  <% end %>
-</div>
+  </div>
+<% end %>
 <table>
   <tr>
     <th>

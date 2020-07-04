@@ -1,49 +1,62 @@
-<% if current_user.try(:admin?) %>
-  <h1>幼稚園一覧(管理者用)</h1>
-<% else %>
-  <h1>幼稚園一覧</h1>
-<% end %>
-<%= link_to '申請登録', new_application_document_path %>
-<%= link_to '申請状況', application_documents_path %>
-<%= link_to "新規登録", new_kindergarten_path %>
-<%= link_to "アーカイブ", archives_path %>
-
-<table>
-  <tr>
-    <th>
-      <%= search_form_for @q do |f| %>
-        <%= f.label :name, "幼稚園名で検索(部分検索も可)" %>
-        <%= f.search_field :name_cont %>
-        <%= f.submit "検索" %>
-      <% end %>
-    </th>
-    <th>
-      <%= search_form_for @q do |f| %>
-        <%= f.label :address, "住所で検索(部分検索も可)" %>
-        <%= f.search_field :address_cont, placeholder: "(例)中野区" %>
-        <%= f.submit "検索" %>
-      <% end %>
-    </th>
-  </tr>
-</table>
-<table>
-  <tr>
-    <th colspan="1">No</th>
-    <th><%= sort_link(@q, :name, "名前") %></th>
-    <th><%= sort_link(@q, :address, "住所") %></th>
-    <th>電話番号</th>
-  </tr>
-<% @kindergartens.each.with_index(1) do |kindergarten, index| %>
-  <tr>
-    <td><%= index %></td>
-    <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %>幼稚園</td>
-    <td><%= kindergarten.address %></td>
-    <td><%= kindergarten.phone_number %></td>
-    <td><%= link_to t("link.Edit"), edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
-    <td><%= link_to t("link.Destroy"), kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
-  </tr>
-<% end %>
-</table>
+<div class="index-title">
+  <% if current_user.try(:admin?) %>
+    <h1>幼 稚 園 一 覧 ( 管 理 者 用 )</h1>
+  <% else %>
+    <h1>幼稚園一覧</h1>
+  <% end %>
+</div><br>
+<div class="row" id="kindergarten-info">
+  <div class="col-3" id="sidebar">
+    <ul>
+      <h4 class="w-75"></h4>
+      <li><%= link_to '申請登録', new_application_document_path, class: "btn btn-info w-75 p-3 rounded-pill" %></li>
+      <li><%= link_to '申請状況', application_documents_path, class: "btn btn-info w-75 p-3 rounded-pill" %></li>
+      <li><%= link_to "新規登録", new_kindergarten_path, class: "btn btn-info w-75 p-3 rounded-pill" %></li>
+      <li><%= link_to "アーカイブ", archives_path, class: "btn btn-info w-75 p-3 rounded-pill" %></li>
+    </ul>
+  </div>
+  <div class="col-9" id="kindergarten-list">
+    <nav class="navbar navbar-light">
+      <table class="table table-borderless">
+        <tr>
+          <th>
+            <%= search_form_for @q do |f| %>
+              <%= f.label :name, "幼稚園名で検索(部分検索も可)" %>
+              <%= f.search_field :name_cont, class: "search-form" %>
+              <%= f.submit "検索", class: "index-search" %>
+            <% end %>
+          </th>
+          <th>
+            <%= search_form_for @q do |f| %>
+              <%= f.label :address, "住所で検索(部分検索も可)" %>
+              <%= f.search_field :address_cont, placeholder: "(例)中野区", class: "search-form" %>
+              <%= f.submit "検索", class: "index-search" %>
+            <% end %>
+          </th>
+        </tr>
+      </table>
+    </nav><br>
+    <table class="table table-striped">
+      <tr>
+        <th class="table-success">No</th>
+        <th class="table-success"><%= sort_link(@q, :name, "名前") %></th>
+        <th class="table-success"><%= sort_link(@q, :address, "住所") %></th>
+        <th class="table-success">電話番号</th>
+        <th class="table-success">編集</th>
+        <th class="table-success">削除</th>
+      </tr>
+    <% @kindergartens.each.with_index(1) do |kindergarten, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %>幼稚園</td>
+        <td><%= kindergarten.address %></td>
+        <td><%= kindergarten.phone_number %></td>
+        <td><%= link_to image_tag("edit_icon.png"), edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
+        <td><%= link_to image_tag("delete_icon"), kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
+      </tr>
+    <% end %>
+    </table>
+    <%= paginate @kindergartens %>
+    <%= link_to "全園表示", root_path %>
+  </div>
 </div>
-<%= paginate @kindergartens %>
-<%= link_to "全園表示", root_path %>
