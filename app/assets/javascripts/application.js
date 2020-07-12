@@ -31,11 +31,3 @@ function showClock() {
   document.getElementById("Realtime").innerHTML = msg;
 }
 setInterval('showClock()', 1000);
-
-// $(":check").click(function() {
-//   if ($(this).is(":checked")) {
-//     $(this).closest("td.check").css("text-decoration", "line-through");
-//   } else {
-//     $(this).closest("td.check").css("text-decoration", "none");
-//   }
-//   });

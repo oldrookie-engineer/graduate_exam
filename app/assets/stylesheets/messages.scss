@@ -1,3 +1,16 @@
-// Place all the styles related to the Messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.message-content {
+  margin-bottom: 40px;
+}
+
+.ui {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.item-left {
+  text-align: left;
+}
+
+.item-right {
+  text-align: right;
+}

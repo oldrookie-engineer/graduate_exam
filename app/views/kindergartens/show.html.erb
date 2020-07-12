@@ -1,124 +1,132 @@
-<h1><%= @kindergarten.name %>幼稚園</h1>
-<!-- タブのヘッダーコード(始) -->
-<ul class="nav nav-tabs">
-  <li class="nav-item"><a href="#ContentA" class="nav-link active" data-toggle="tab">認可情報</a></li>
-  <li class="nav-item"><a href="#ContentB" class="nav-link" data-toggle="tab">担当者メモ</a></li>
-  <li class="nav-item"><a href="#ContentC" class="nav-link" data-toggle="tab">アクセス</a></li>
-  <li class="nav-item"><a href="#ContentD" class="nav-link" data-toggle="tab">外観写真</a></li>
-</ul><br>
-<!-- タブのヘッダーコード(終) -->
-
-<!--------  タブのコンテンツコード(始) -------->
-<div class="tab-content">
-<!--------  show画面(認可情報)のコード 始まり -------->
-  <div class="tab-pane active" id="ContentA">
-    <table>
-      <tr>
-        <th>園長</th>
-        <td><%= @kindergarten.authorization.principal %></td>
-      </tr>
-      <tr>
-        <th>設置認可日</th>
-        <td><%= @kindergarten.authorization.installation_date %></td>
-      </tr>
-      <tr>
-        <th>学級数</th>
-        <td><%= @kindergarten.authorization.number_of_classes %>学級</td>
-      </tr>
-      <tr>
-        <th>定員</th>
-        <td><%= @kindergarten.authorization.capacity %>人</td>
-      </tr>
-      <tr>
-        <th>園児数</th>
-        <td><%= @kindergarten.authorization.number_of_students %>人</td>
-      </tr>
-      <tr>
-        <th>園地面積</th>
-        <td><%= @kindergarten.authorization.school_area.to_s(:delimited) %>㎡</td>
-      </tr>
-      <tr>
-        <th>園舎延床面積</th>
-        <td><%= @kindergarten.authorization.school_floor_area.to_s(:delimited) %>㎡</td>
-      </tr>
-    </table>
-  </div>
-<!-- ------  show画面(認可情報)のコード 終わり ------ -->
-
-<!-- ------  show画面(担当者メモ)のコード 始まり ------ -->
-  <div class="tab-pane" id="ContentB">
-    <div id="app">
-      <contents></contents>
+<div class="show_image">
+  <div class="show_mask">
+    <div class="content-title">
+      <h1><%= @kindergarten.name %>幼稚園</h1>
     </div>
+    <!-- タブのヘッダーコード(始) -->
+    <div class="tab_list">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="#ContentA" class="nav-link active" data-toggle="tab">認 可 情 報</a></li>
+        <li class="nav-item"><a href="#ContentB" class="nav-link" data-toggle="tab">担 当 者 メ モ</a></li>
+        <li class="nav-item"><a href="#ContentC" class="nav-link" data-toggle="tab">ア ク セ ス</a></li>
+        <li class="nav-item"><a href="#ContentD" class="nav-link" data-toggle="tab">外 観 写 真</a></li>
+      </ul><br>
+    </div>
+    <!-- タブのヘッダーコード(終) -->
+
+    <!--------  タブのコンテンツコード(始) -------->
+    <div class="tab-content">
+    <!--------  show画面(認可情報)のコード 始まり -------->
+      <div class="tab-pane active" id="ContentA">
+        <table class="table table-striped" id="authorization-profile">
+          <tr>
+            <th>園長</th>
+            <td><%= @kindergarten.authorization.principal %></td>
+          </tr>
+          <tr>
+            <th>設置認可日</th>
+            <td><%= @kindergarten.authorization.installation_date %></td>
+          </tr>
+          <tr>
+            <th>学級数</th>
+            <td><%= @kindergarten.authorization.number_of_classes %>学級</td>
+          </tr>
+          <tr>
+            <th>定員</th>
+            <td><%= @kindergarten.authorization.capacity %>人</td>
+          </tr>
+          <tr>
+            <th>園児数</th>
+            <td><%= @kindergarten.authorization.number_of_students %>人</td>
+          </tr>
+          <tr>
+            <th>園地面積</th>
+            <td><%= @kindergarten.authorization.school_area.to_s(:delimited) %>㎡</td>
+          </tr>
+          <tr>
+            <th>園舎延床面積</th>
+            <td><%= @kindergarten.authorization.school_floor_area.to_s(:delimited) %>㎡</td>
+          </tr>
+        </table>
+      </div>
+    <!-- ------  show画面(認可情報)のコード 終わり ------ -->
+
+    <!-- ------  show画面(担当者メモ)のコード 始まり ------ -->
+      <div class="tab-pane" id="ContentB">
+        <div id="app">
+          <contents></contents>
+        </div>
+      </div>
+      <%= javascript_pack_tag "todo" %>
+    <!-- ------  show画面(担当者メモ)のコード 終わり ------ -->
+
+    <!-- ------  show画面(アクセス)のコード 始まり ------ -->
+      <div class="tab-pane" id="ContentC">
+        <script type="text/javascript">
+          function initMap() {
+            var test ={lat: <%= @kindergarten.latitude %>, lng: <%= @kindergarten.longitude %>};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 15,
+                      center: test
+                      });
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
+            var contentString = '住所：<%= @kindergarten.address %>';
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+         // #Map上の指定した位置にピンを挿して表示する
+            var marker = new google.maps.Marker({
+                          position:test,
+                          map: map,
+                          title: contentString
+                         });
+
+             marker.addListener('click', function() {
+               infowindow.open(map, marker);
+             });
+          }
+        </script>
+        <script async defer
+                      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDiFNHHbrZedm3v5I-4eY20PgG9Bn8BEE8&callback=initMap">
+        </script>
+        <style type="text/css">
+          #map { height: 500px;
+                 width: 70%;}
+        </style>
+
+        <div id="map"></div>
+        <h4>最寄駅</h4>
+        <% @kindergarten.stations.each do |station| %>
+          <table>
+            <tr>
+              <td><h5><%= station.route %>線</h5></td>
+              <td><h5><%= station.station_name %>駅</h5</td>
+              <td><h5>徒歩<%= station.walk_time %>分</h5></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    <!-- ------  show画面(アクセス)のコード 終わり ------ -->
+
+    <!-- ------  show画面(外観写真)のコード 始まり ------ -->
+      <div class="tab-pane" id="ContentD">
+        <table class="table table-borderless">
+          <tr>
+            <th><h3>園 地</h3></th>
+            <th><h3>園 舎</h3></th>
+          </tr>
+          <tr>
+            <td><%= image_tag @kindergarten.image.url %></td>
+            <td><%= image_tag @kindergarten.cover_image.url %></td>
+          </tr>
+        </table>
+      </div>
+    <!-- ------  show画面(外観写真)のコード 終わり ------ -->
+    </div>
+    <!--------  タブのコンテンツコード(始) -------->
+
+    <%= link_to '幼稚園一覧', kindergartens_path %>
   </div>
-  <%= javascript_pack_tag "todo" %>
-<!-- ------  show画面(担当者メモ)のコード 終わり ------ -->
-
-<!-- ------  show画面(アクセス)のコード 始まり ------ -->
-  <div class="tab-pane" id="ContentC">
-    <script type="text/javascript">
-      function initMap() {
-        var test ={lat: <%= @kindergarten.latitude %>, lng: <%= @kindergarten.longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 15,
-                  center: test
-                  });
-        var transitLayer = new google.maps.TransitLayer();
-        transitLayer.setMap(map);
-        var contentString = '住所：<%= @kindergarten.address %>';
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
-
-     // #Map上の指定した位置にピンを挿して表示する
-        var marker = new google.maps.Marker({
-                      position:test,
-                      map: map,
-                      title: contentString
-                     });
-
-         marker.addListener('click', function() {
-           infowindow.open(map, marker);
-         });
-      }
-    </script>
-    <script async defer
-                  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDiFNHHbrZedm3v5I-4eY20PgG9Bn8BEE8&callback=initMap">
-    </script>
-    <style type="text/css">
-      #map { height: 500px;
-             width: 50%;}
-    </style>
-
-    <div id="map"></div>
-    <h4>最寄駅</h4>
-    <% @kindergarten.stations.each do |station| %>
-      <table>
-        <tr>
-          <td><h5><%= station.route %>線</h5></td>
-          <td><h5><%= station.station_name %>駅</h5</td>
-          <td><h5>徒歩<%= station.walk_time %>分</h5></td>
-        </tr>
-      </table>
-    <% end %>
-  </div>
-<!-- ------  show画面(アクセス)のコード 終わり ------ -->
-
-<!-- ------  show画面(外観写真)のコード 始まり ------ -->
-  <div class="tab-pane" id="ContentD">
-    <table>
-      <tr>
-        <th><h3>園地</h3></th>
-        <th><h3>園舎</h3></th>
-      </tr>
-      <tr>
-        <td><%= image_tag @kindergarten.image.url %></td>
-        <td><%= image_tag @kindergarten.cover_image.url %></td>
-      </tr>
-    </table>
-  </div>
-<!-- ------  show画面(外観写真)のコード 終わり ------ -->
 </div>
-<!--------  タブのコンテンツコード(始) -------->
-
-<%= link_to '幼稚園一覧', kindergartens_path %>

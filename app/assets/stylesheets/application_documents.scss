@@ -1,4 +1,5 @@
-// アラーム通知の点滅
+
+// アラート通知の点滅
 .blinking {
   animation: 1.5s linear infinite condemned_blink_effect; // for Safari 4.0 - 8.0
   animation: 1.5s linear infinite condemned_blink_effect;
@@ -24,4 +25,65 @@
   100% {
     visibility: visible;
   }
+}
+
+// アラートのデザイン
+.alert {
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 95%;
+  border-radius: 25px;
+  margin-bottom: 50px;
+}
+
+.alert-table {
+  text-align: center;
+  font-size: 14px;
+}
+
+.alert-table th, .alert-table td {
+  width: 22%;
+  border: 1px solid gray;
+}
+
+// index画面
+.application-title {
+  text-align: center;
+  font-size:3rem;
+  line-height:0.95em;
+  font-weight:bold;
+  color: #DEB887;
+  text-shadow: 0 0.05em 0.08em rgba(0,0,0,0.9);
+  padding-top: 120px;
+}
+
+// new・edit画面
+.application_image {
+  background-image: url('document_image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.application_mask {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.kindergarten-application {
+  text-align: center;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.kindergarten-application dd {
+  margin-bottom: 30px;
+}
+
+.kindergarten-application input[type="text"] {
+  border-radius: 5px;
+  margin-left: 62px;
+}
+
+.kindergarten-application input[type="date"] {
+  border-radius: 5px;
 }

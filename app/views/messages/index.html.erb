@@ -1,40 +1,64 @@
-<% if @over_ten %>
-  <%= link_to '以前のメッセージ', '?m=all'  %>
-<% end %>
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body.present? %>
-      <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= message.user.name %></strong><br>
-          送信日時:
-          <%= message.message_time %></div>
-          <div class="list">
-            <div class="item">
-              <i class="right triangle icon"></i>
-              メッセージ:
-              <strong>「<%= message.body %>」</strong><br>
-              <% if message.user == current_user %>
-                状態:
-                <%= message.read ? '既読' : '未読' %><br>
-              <%= link_to '削除', conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %>
-              <% end %>
-
+<div class="message_image">
+  <div class="message_mask">
+    <div class="content-title">
+      <h1>メ ッ セ ー ジ</h1>
+    </div>
+    <% if @over_ten %>
+      <%= link_to '以前のメッセージ', '?m=all'  %>
+    <% end %>
+    <div class="ui segment">
+        <% @messages.each do |message| %>
+        <% if message.body.present? %>
+          <% if message.user_id == current_user.id %>
+          <div class="item-right">
+            <div class="message-content">
+              <div class="header"><strong><%= message.user.name %></strong><br>
+              送信日時:
+              <%= message.message_time %></div>
+              <div class="list">
+                <div class="item">
+                  <i class="right triangle icon"></i>
+                  メッセージ:
+                  <strong>「<%= message.body %>」</strong><br>
+                  <% if message.user == current_user %>
+                    状態:
+                    <%= message.read ? '既読' : '未読' %><br>
+                  <%= link_to '削除', conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div><br>
-<%= form_with(model: [@conversation, @message]) do |f| %>
- <div class="field">
-   <strong><%= f.label :"メッセージ入力フォーム" %></strong><br>
-   <%= f.text_area :body, size: "40x4", placeholder: "メッセージを入力してください" %>
- </div>
-   <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
- <div>
-   <%= f.submit "メッセージを送る" %>
- </div>
- <% end %>
- <%= link_to "メッセージ一覧", conversations_path %>
+          <% else %>
+            <div class="item-left">
+              <div class="message-content">
+                <div class="header"><strong><%= message.user.name %></strong><br>
+                送信日時:
+                <%= message.message_time %></div>
+                <div class="list">
+                  <div class="item">
+                    <i class="right triangle icon"></i>
+                    メッセージ:
+                    <strong>「<%= message.body %>」</strong><br>
+                    <%= link_to '削除', conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div><br>
+    <%= form_with(model: [@conversation, @message]) do |f| %>
+     <div class="field">
+       <strong><%= f.label :"メッセージ入力フォーム" %></strong><br>
+       <%= f.text_area :body, size: "40x4", placeholder: "メッセージを入力してください" %>
+     </div>
+       <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+     <div>
+       <%= f.submit "メッセージを送る" %>
+     </div>
+     <% end %>
+     <%= link_to "メッセージ一覧", conversations_path %>
+  </div>
+</div>

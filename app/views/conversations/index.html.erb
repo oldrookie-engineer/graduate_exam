@@ -1,32 +1,37 @@
-<h2>メッセージ一覧</h2>
-<!-- if文で管理者にメッセージがあればアラートを通知する -->
-<% if @message.present? %>
-  <div class="alert alert-warning">
-    <span><h4 class="blinking">【管理者へのアラーム】</h4></span>
-    <h5>アーカイブの使用報告メッセージが届いているので、確認してください！</h5>
-  </div>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-    <% if current_user.try(:admin?) %>
-        <th>ユーザー</th>
-    <% else %>
-        <th>管理者</th>
+<div class="conversation_image">
+  <div class="conversation_mask">
+    <div class="content-title">
+      <h1>メッセージ一覧</h1>
+    </div>
+    <!-- if文で管理者にメッセージがあればアラートを通知する -->
+    <% if @message.present? %>
+      <div class="alert alert-warning">
+        <span><h4 class="blinking">【管理者へのアラーム】</h4></span>
+        <h5>アーカイブの使用報告メッセージが届いているので、確認してください！</h5>
+      </div>
     <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @conversations.each do |conversations| %>
-    <tr>
-      <td>
-        <% if conversations.target_user(current_user).present? %>
-          <%= link_to conversations.target_user(current_user).name, conversation_messages_path(conversations) %>
+    <table class="table table-hover" id="conversation-index">
+      <thead>
+        <tr class="table-success">
+        <% if current_user.try(:admin?) %>
+            <th><h3>送 信 先</h3></th>
+        <% else %>
+            <th><h3>送 信 先(管 理 者)</h3></th>
         <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to '幼稚園一覧', kindergartens_path, class: "btn btn-danger"  %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @conversations.each do |conversations| %>
+        <tr>
+          <td>
+            <% if conversations.target_user(current_user).present? %>
+              <h4><%= link_to conversations.target_user(current_user).name, conversation_messages_path(conversations) %></h4>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to '幼 稚 園 一 覧', kindergartens_path %>
+  </div>
+</div>

@@ -1,3 +1,20 @@
-// Place all the styles related to the Conversations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#conversation-index {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.conversation_image {
+  background-image: url('conversation-image.jpg');
+  // background-image: url('index.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+  text-align: center;
+}
+
+.conversation_mask {
+  background-color: rgba(255,255,255,0.6);
+  height: 600px;
+}

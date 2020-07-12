@@ -1,93 +1,118 @@
-<h2>申請状況一覧</h2>
-<% if @complete_documents.present? && current_user.try(:admin?) %>
-  <div class="alert alert-warning">
-    <span><h4 class="blinking">【管理者へのアラーム】</h4></span>
-    <h5>以下のとおり、処理済の申請案件があるので、削除もしくは、アーカイブへ移動してください！</h5>
-    <table>
-      <tr>
-        <th>幼稚園名</th>
-        <th>申請認可名</th>
-        <th>申請処理期限</th>
-        <th>申請処理者</th>
-        <th>処理状況</th>
-      </tr>
-      <% @complete_documents.each do |complete_document| %>
-        <tr>
-          <td><%= complete_document.name %>幼稚園</td>
-          <td><%= complete_document.title %></td>
-          <td><%= l complete_document.processing_deadline %></td>
-          <td><%= complete_document.user.name %></td>
-          <td><%= complete_document.processing %></td>
+<div class="index_image">
+  <div class="index_mask">
+  <h1 class="application-title">申 請 状 況 一 覧</h1>
+    <div class="row">
+      <div class="col-6">
+      <% if @around_deadlines.present? %>
+        <div class="alert alert-danger">
+          <span><h5 class="blinking">【申請処理アラーム】</h5></span>
+          <h6><br>本日(<%= l Date.current %>)、申請処理期限まで３日以内もしくは、処理期限を過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h6>
+          <table class="alert-table">
+            <tr>
+              <th>幼稚園名</th>
+              <th>申請認可名</th>
+              <th><%= sort_link(@q, :processing_deadline, "申 請 処 理 期 限") %></th>
+              <th>申請処理者</th>
+            </tr>
+            <% @around_deadlines.each do |deadline| %>
+            <tr>
+              <td><%= deadline.name %>幼稚園</td>
+              <td><%= deadline.title %></td>
+              <td><%= l deadline.processing_deadline %></td>
+              <td><strong><%= deadline.user.name %></strong></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+      </div>
+      <div class="col-6">
+      <% if @complete_documents.present? && current_user.try(:admin?) %>
+        <div class="alert alert-warning">
+          <span><h5 class="blinking">【管理者へのアラーム】</h5></span>
+          <h6><br>以下のとおり、処理済の申請案件があるので、アーカイブへの登録を完了後、リストから削除してください！</h6>
+          <table class="alert-table">
+            <tr>
+              <th>幼稚園名</th>
+              <th>申請認可名</th>
+              <th>申請処理期限</th>
+              <th>申請処理者</th>
+              <th>処理状況</th>
+            </tr>
+            <% @complete_documents.each do |complete_document| %>
+              <tr>
+                <td><%= complete_document.name %>幼稚園</td>
+                <td><%= complete_document.title %></td>
+                <td><%= l complete_document.processing_deadline %></td>
+                <td><%= complete_document.user.name %></td>
+                <td><%= complete_document.processing %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    <div class="row" id="kindergarten-info">
+      <div class="col-3" id="sidebar">
+        <ul>
+          <h4 class="w-100">M e n u</h4>
+          <li><%= link_to '申 請 認 可 登 録', new_application_document_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
+          <li><%= link_to '幼 稚 園 一 覧', kindergartens_path, class: "btn btn-warning w-100 p-4 rounded-pill"  %></li>
+          <li><%= link_to "ア ー カ イ ブ 一 覧", archives_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
+          <li><%= link_to 'ア ー カ イ ブ 登 録', new_archive_path, class: "btn btn-warning w-100 p-4 rounded-pill"  %></li>
+        </ul>
+      </div>
+      <div class="col-9" id="kindergarten-list">
+        <div class="search_behind">
+        <table class="table table-borderless">
+          <tr>
+            <th>
+              <%= search_form_for @q do |f| %>
+              <%= f.label :name, "学 校 名 で 検 索 (部 分 一 致 も 可)" %><br>
+              <%= f.search_field :name_cont %>
+              <%= f.submit "検 索", class: "search" %>
+              <% end %>
+            </th>
+            <th>
+              <%= search_form_for @q do |f| %>
+              <%= f.label :title, "申 請 名 で 検 索 (部 分 一 致 も 可)" %><br>
+              <%= f.search_field :title_cont %>
+              <%= f.submit "検 索", class: "search" %>
+              <% end %>
+            </th>
+          </tr>
+        </table>
+        </div>
+      <table class="table table-hover">
+        <tr class="table-success">
+          <th>No</th>
+          <th><%= sort_link(@q, :name, "幼 稚 園 名") %></th>
+          <th><%= sort_link(@q, :title, "申 請 認 可 名") %></th>
+          <th><%= sort_link(@q, :application_date, "申 請 日") %></th>
+          <th><%= sort_link(@q, :processing_deadline, "申請処理期限") %></th>
+          <th><%= sort_link(@q, :user_id, "申請処理者") %></th>
+          <th><%= sort_link(@q, :processing, "処 理 状 況") %></th>
+          <th>編集</th>
+          <th>削 除</th>
         </tr>
-      <% end %>
-    </table>
+        <% @application_documents.each_with_index do |application_document, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= application_document.name %>幼稚園</td>
+          <td><%= application_document.title %></td>
+          <td><%= l application_document.application_date %></td>
+          <td><%= l application_document.processing_deadline %></td>
+          <td><%= application_document.user.name %></td>
+          <td><%= application_document.processing %></td>
+          <td><%= link_to image_tag("edit_icon"), edit_application_document_path(application_document.id) if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
+          <td><%= link_to image_tag("delete_icon"), application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
+        </tr>
+        <% end %>
+      </table>
+        <%= paginate @application_documents, class: "page" %>
+        <%= link_to '全 件 表 示', application_documents_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
   </div>
-<% end %>
-<% if @around_deadlines.present? %>
-  <div class="alert alert-danger">
-    <span><h4 class="blinking">【申請処理アラーム】</h4></span>
-    <h5>本日(<%= l Date.current %>)、申請処理期限まで３日以内もしくは、過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h5>
-    <table>
-      <tr>
-        <th>幼稚園名</th>
-        <th>申請認可名</th>
-        <strong><th>申請処理期限</th></strong>
-        <th>申請処理者</th>
-      </tr>
-      <% @around_deadlines.each do |deadline| %>
-      <tr>
-        <td><%= deadline.name %>幼稚園</td>
-        <td><%= deadline.title %></td>
-        <td><%= l deadline.processing_deadline %></td>
-        <td><%= deadline.user.name %></td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-<% end %>
-<table>
-  <tr>
-    <th>
-      <%= search_form_for @q do |f| %>
-      <%= f.label :name, "学校名で検索(部分一致も可)" %>
-      <%= f.search_field :name_cont %>
-      <%= f.submit %>
-      <% end %>
-    </th>
-    <th>
-      <%= search_form_for @q do |f| %>
-      <%= f.label :title, "申請名で検索(部分一致も可)" %>
-      <%= f.search_field :title_cont %>
-      <%= f.submit %>
-      <% end %>
-    </th>
-  </tr>
-</table>
-<table>
-  <tr>
-    <th>No</th>
-    <th><%= sort_link(@q, :name, "幼稚園名") %></th>
-    <th><%= sort_link(@q, :title, "申請認可名") %></th>
-    <th><%= sort_link(@q, :application_date, "申請日") %></th>
-    <th><%= sort_link(@q, :processing_deadline, "申請処理期限") %></th>
-    <th><%= sort_link(@q, :user_id, "申請処理者") %></th>
-    <th><%= sort_link(@q, :processing, "処理状況") %></th>
-  </tr>
-  <% @application_documents.each_with_index do |application_document, index| %>
-  <tr>
-    <td><%= index + 1 %></td>
-    <td><%= application_document.name %>幼稚園</td>
-    <td><%= application_document.title %></td>
-    <td><%= l application_document.application_date %></td>
-    <td><%= l application_document.processing_deadline %></td>
-    <td><%= application_document.user.name %></td>
-    <td><%= application_document.processing %></td>
-    <td><%= link_to t("link.Edit"), edit_application_document_path(application_document.id) if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
-    <td><%= link_to t("link.Destroy"), application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
-  </tr>
-  <% end %>
-</table>
-<%= paginate @application_documents %>
-<%= link_to '全件表示', application_documents_path %>
-<%= link_to '申請登録へ', new_application_document_path %>
-<%= link_to '幼稚園一覧へ', kindergartens_path %>
+</div>

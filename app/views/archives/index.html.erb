@@ -1,45 +1,68 @@
-<h2>アーカイブ一覧</h2>
-<table>
-  <tr>
-    <th>
-      <%= search_form_for @q do |f| %>
-        <%= f.label :name, "学校名で検索(部分一致も可)" %>
-        <%= f.search_field :name_cont %>
-        <%= f.submit %>
-      <% end %>
-    </th>
-    <th>
-      <%= form_with(model: @archive, local: true, url: archives_path, method: :get) do |f| %>
-        <%= f.label :title, "申請認可名で検索(部分一致も可)" %>
-        <%= f.select :title, [[""],["設置認可申請"],["園長選任届"],["位置変更届"],["園地・園舎変更届"],["資産総額変更届"],["廃園届"]] %>
-        <%= f.hidden_field :search, value: 'true' %>
-        <%= f.submit '検索' %>
-      <% end %>
-    </th>
-  </tr>
-</table>
-<table>
-  <tr>
-    <th>No</th>
-    <th>幼稚園名</th>
-    <th>申請認可名</th>
-    <th><%= sort_link(@q, :installation_date, "認可日")%></th>
-    <th><%= sort_link(@q, :status_of_use, "使用状況")%></th>
-  </tr>
-  <% @archives.each.with_index(1) do |archive, index| %>
-  <tr>
-    <td><%= index %></td>
-    <td><%= archive.name %>幼稚園</td>
-    <td><%= archive.title %></td>
-    <td><%= l archive.installation_date %></td>
-    <td><%= archive.status_of_use %></td>
-    <td><%= link_to t("link.Edit"), edit_archive_path(archive.id) if current_user.try(:admin?) %></td>
-    <td><%= link_to t("link.Destroy"), archive_path(archive.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
-  </tr>
-  <% end %>
-</table>
-<%= paginate @archives %>
-<%= link_to '全件表示', archives_path %>
-<%= link_to 'アーカイブ登録', new_archive_path %>
-<%= link_to '幼稚園一覧', kindergartens_path %>
-<%= link_to "アーカイブ使用・返却報告はこちらから", conversations_path %>
+<div class="index_image">
+  <div class="index_mask">
+  <h1 class="archive-title">ア ー カ イ ブ 一 覧</h1>
+    <div class="row" id="kindergarten-info">
+      <div class="col-3" id="sidebar">
+        <ul>
+          <h4 class="w-100">M e n u</h4>
+          <li><%= link_to 'ア ー カ イ ブ 登 録', new_archive_path, class: "btn btn-warning w-100 p-4 rounded-pill"  %></li>
+          <li><%= link_to "ア ー カ イ ブ 使 用", conversations_path, class: "btn btn-warning w-100 p-4 rounded-pill"  %></li>
+          <li><%= link_to '幼 稚 園 一 覧', kindergartens_path, class: "btn btn-warning w-100 p-4 rounded-pill"  %></li>
+          <li><%= link_to '申 請 処 理 状 況', application_documents_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
+        </ul>
+      </div>
+      <div class="col-9" id="kindergarten-list">
+        <div class="search_behind">
+        <table class="table table-borderless">
+          <tr class="archive-search">
+            <th>
+              <%= search_form_for @q do |f| %>
+                <%= f.label :name, "学 校 名 で 検 索 (部 分 一 致 も 可)" %><br>
+                <%= f.search_field :name_cont, class: "form" %>
+                <%= f.submit "検 索", class: "search" %>
+              <% end %>
+            </th>
+            <th>
+              <%= form_with(model: @archive, local: true, url: archives_path, method: :get) do |f| %>
+                <%= f.label :title, "申 請 認 可 名 で 検 索 (部 分 一 致 も 可)" %><br>
+                <%= f.select :title, [[""],["設置認可申請"],["園長選任届"],["位置変更届"],["園地・園舎変更届"],["資産総額変更届"],["廃園届"]], class: "form" %>
+                <%= f.hidden_field :search, value: 'true' %>
+                <%= f.submit '検 索', class: "search" %>
+              <% end %>
+            </th>
+          </tr>
+        </table>
+        </div>
+        <table class="table table-hover">
+          <tr class="table-success">
+            <th>No</th>
+            <th>幼 稚 園 名</th>
+            <th>申 請 認 可 名</th>
+            <th><%= sort_link(@q, :installation_date, "認 可 日")%></th>
+            <th><%= sort_link(@q, :status_of_use, "使 用 状 況")%></th>
+            <th><% if current_user.try(:admin?) %>
+                編集
+                <% end %>
+            </th>
+            <th><% if current_user.try(:admin?) %>
+                削 除
+                <% end %>
+            </th>
+          </tr>
+          <% @archives.each.with_index(1) do |archive, index| %>
+          <tr>
+            <td><%= index %></td>
+            <td><%= archive.name %>幼稚園</td>
+            <td><%= archive.title %></td>
+            <td><%= l archive.installation_date %></td>
+            <td><%= archive.status_of_use %></td>
+            <td><%= link_to image_tag("edit_icon") , edit_archive_path(archive.id) if current_user.try(:admin?) %></td>
+            <td><%= link_to image_tag("delete_icon"), archive_path(archive.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
+          </tr>
+          <% end %>
+        </table>
+    <%= paginate @archives, class: "page" %>
+    <%= link_to '全 件 表 示', archives_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

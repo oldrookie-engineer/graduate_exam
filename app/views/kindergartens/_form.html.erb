@@ -10,24 +10,27 @@
     </div>
   <% end %>
   <div class="row" id="new-form">
-    <div class="col-6" id="kindergarten_profile">
-      <h2>概要情報</h2>
+    <div class="col-4" id="kindergarten_profile">
+      <h2>概 要 情 報</h2>
       <dl>
-        <dt><strong></strong><%= form.label :name %></dt>
-        <dd><%= form.text_field :name %></dd>
+        <dt><%= form.label :name %></dt>
+        <dd><%= form.text_field :name, size: 24 %>幼稚園</dd>
         <dt><%= form.label :address %></dt>
-        <dd><%= form.text_field :address %></dd>
+        <dd><%= form.text_field :address, size: 30 %></dd>
         <dt><%= form.label :phone_number %></dt>
         <dd><%= form.telephone_field :phone_number %></dd>
         <dt><%= form.label :school_area_image %></dt>
-        <dd><%= image_tag 'image_icon.png', onClick:"$('#upfile').click()", class: "school_image", size: "80x80" %></dd>
+        <dd><%= image_tag 'image_icon.png', onClick:"$('#upfile1').click()", class: "school_image", size: "80x80" %></dd>
         <dd>アイコンをクリック</dd>
-        <dd><%= form.file_field :image, id: "upfile" %></dd>
+        <dd><%= form.file_field :image, id: "upfile1" %></dd>
         <dt><%= form.label :school_floor_image %></dt>
-        <dd><%= image_tag 'image_icon.png', onClick:"$('#upfile').click()", class: "school_image", size: "80x80" %></dd>
+        <dd><%= image_tag 'image_icon.png', onClick:"$('#upfile2').click()", class: "school_image", size: "80x80" %></dd>
         <dd>アイコンをクリック</dd>
-        <dd><%= form.file_field :cover_image, id: "upfile" %></dd>
+        <dd><%= form.file_field :cover_image, id: "upfile2" %></dd>
       </dl>
+    </div>
+    <div class="col-4" id="kindergarten_access">
+      <h2>最 寄 駅 情 報</h2>
       <%= form.fields_for :stations do |f| %>
       <dl>
         <dt><%= f.label :route %></dt>
@@ -40,29 +43,31 @@
       </dl>
       <% end %>
     </div>
-    <div class="col-6" id="kindergarten_authorization">
-      <h2>認可情報</h2>
+    <div class="col-4" id="kindergarten_authorization">
+      <h2>認 可 情 報</h2>
       <%= form.fields_for :authorization do |f| %>
       <dl>
         <dt><%= f.label :principal %></dt>
-        <dd><%= f.text_field :principal %></dd>
+        <dd><%= f.text_field :principal, size: 22 %></dd>
         <dt><%= f.label :installation_date %></dt>
         <dd><%= f.date_field :installation_date %></dd>
         <dt><%= f.label :number_of_classes %></dt>
-        <dd><%= f.text_field :number_of_classes %></dd>
+        <dd><%= f.text_field :number_of_classes, size: 18 %>学級</dd>
         <dt><%= f.label :capacity %></dt>
-        <dd><%= f.text_field :capacity %></dd>
+        <dd><%= f.text_field :capacity %>人</dd>
         <%= f.hidden_field :id %>
         <dt><%= f.label :number_of_students %></dt>
-        <dd><%= f.text_field :number_of_students %></dd>
+        <dd><%= f.text_field :number_of_students %>人</dd>
         <dt><%= f.label :school_area %></dt>
-        <dd><%= f.text_field :school_area %></dd>
+        <dd><%= f.text_field :school_area %>㎡</dd>
         <dt><%= f.label :school_floor_area %></dt>
-        <dd><%= f.text_field :school_floor_area %></dd>
+        <dd><%= f.text_field :school_floor_area %>㎡</dd>
         <%= f.hidden_field :id %>
       </dl>
       <% end %>
     </div>
   </div>
-<%= form.submit %>
+  <div class="form-submit">
+    <%= form.submit %>
+  </div>
 <% end %>

@@ -1,23 +1,100 @@
+// ヘッダー
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  text-align: right;
+  background-image: url('header.jpg');
+  border-bottom: 1px solid #eee;
+}
+
+.sticky_mask {
+  background-color: rgba(255,255,255,0.6);
+  height: 100px;
+  padding: 10px 0;
+}
+
+header h2 {
+  font-size: 3.5rem;
+  position: absolute;
+  top: 40%;
+  left: -8%;
+  transform: translate(50%,-50%);
+  text-transform: uppercase;
+  font-family: verdana;
+  font-weight: 600;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px #919191,
+    1px 2px 1px #919191,
+    1px 3px 1px #919191,
+    1px 4px 1px #919191,
+    1px 5px 1px #919191,
+    1px 6px 1px #919191,
+    1px 7px 1px #919191,
+    1px 8px 1px #919191,
+    1px 9px 1px #919191,
+    1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+
+header span {
+  margin-right: 30px;
+}
+
+.header_link {
+  margin-right: 20px;
+}
+
+#Realtime {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ログイン背景 */
+.login_image {
+  background-image: url('login_image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.login_mask {
+  background-color: rgba(255,255,255,0.3);
+}
+
 .sign-log {
-  // border: 2px double green;
-  border: 3mm ridge rgba(173, 216, 230, .5);
   width: 30%;
-  margin: 30px auto;
+  margin: 0 auto;
   border-radius: 20px;
-  padding: 30px 0;
-  background-image: linear-gradient(#FFF5EE, #AFEEEE, #FFF0F5
-);
+  padding: 120px 0 90px 0;
 }
 
 .field {
   text-align: center;
   padding: 10px 0;
+  color: #808080;
+  border: none;
+  text-shadow: 0px 0px 1px #000,
+  4px 4px 2px rgba(0,0,0,0.2);
+  box-sizing:border-box;
 }
 
 .field input {
-  border-radius: 10px;
+  border-radius: 30px;
   width: auto;
   background-color: #eee;
+  outline: none;
+  text-align: center;
 }
 
 .actions {
@@ -26,15 +103,57 @@
 }
 
 .sign {
-  border-radius: 10px;
-  padding: 8px;
+  border-radius: 25px;
+  padding: 10px 25px;
   background-color: #FAFAD2;
+  text-shadow: 0px 0px 1px #000,
+  4px 4px 2px rgba(0,0,0,0.2);
+  color: #808080;
 }
 
 .sign_in {
   text-align: center;
+  color: #808080;
+  text-shadow:0px 0px 2px #FFF, 4px 4px 2px rgba(0,0,0,0.3);
 }
 
 .sign_up {
   text-align: center;
+  color: #808080;
+  text-shadow:0px 0px 2px #FFF, 4px 4px 2px rgba(0,0,0,0.3);
+}
+
+// サインアップ背景
+.signup_image {
+  background-image: url('login_image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.signup_mask {
+  background-color: rgba(255,255,255,0.3);
+}
+
+// アラートメッセージ
+.alert_message {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+// エラーメッセージ
+#error_explanation h2,ul {
+  color: red;
+}
+
+// フッター
+footer {
+  height: 60px;
+  background-image: url('header.jpg');
+}
+
+.footer_mask {
+  background-color: rgba(255,255,255,0.6);
+  height: 60px;
 }

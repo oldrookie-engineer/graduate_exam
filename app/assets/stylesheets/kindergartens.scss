@@ -2,7 +2,7 @@
 // show画面のタブ切替デザイン
 .nav-tabs .nav-link.active {
   color: #fff!important;
-  background-color: gray!important;
+  background-color: #DB7093!important;
 }
 
 .nav-tabs {
@@ -10,9 +10,15 @@
 }
 
 .nav-tabs .nav-link {
-  border-radius: 3px;
   border: 1px solid #000;
-  margin-right: 1px;
+  margin-right: 5px;
+  padding: 20px 100px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.tab_list ul {
+  margin-left: 165px;
 }
 
 // 担当者メモチェック後の見え消し線
@@ -21,57 +27,188 @@ span.done {
   color: red;
 }
 
+// 各show画面
+.show_image {
+  background-image: url('show3.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.show_mask {
+  background-color: rgba(255,255,255,0.6);
+}
+
+#authorization-profile {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#ContentB {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#ContentC {
+  margin-left: 300px;
+}
+
+#ContentC h4 {
+  margin-top: 20px;
+}
+
+#ContentC h5 {
+  margin-right: 10px;
+}
+
+#ContentD table {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+}
+
+
 // index画面デザイン
+.index_image {
+  background-image: url('index.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.index_mask {
+  background-color: rgba(255,255,255,0.4);
+}
+
 .index-title {
   text-align: center;
+  font-size:3em;
+  line-height:0.95em;
+  font-weight:bold;
+  color: #DEB887;
+  text-shadow: 0 0.05em 0.08em rgba(0,0,0,0.9);
+  padding-top: 120px;
 }
 
 #kindergarten-info {
   width: 95%;
+  height: 100%;
   margin: 0 auto;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+.pagination {
+  height: 100px;
+  justify-content: center;
+  display: flex;
+}
+
+.pagination a {
+  background-color: skyblue;
+}
+
+.pagination * {
+  color: white;
+  font-weight: bold;
+  padding: 12.5px 18.5px;
+  border-radius: 25px;
+}
+
+.pagination a:hover {
+  background: #93c9ff;
 }
 
 #kindergarten-list {
   text-align: center;
+  height: 100%;
 }
-// index画面のサイドバー
+
+.to_show span {
+  text-decoration: underline;
+}
+
+// 各index画面のサイドバー
 #sidebar {
-  // border: 2px solid #eee;
-  // background-color: red;
-  // margin: 0;
-  // padding: 0;
+  border: 5px double gray;
+  border-radius: 30px;
+  // background-color: #FDF5E6;
 }
 
 #sidebar ul {
   list-style: none;
-  border-radius: 5px;
   padding-top: 20px;
-  border: 1px solid #eee;
-
+  font-weight: bold;
 }
 
-#sidebar h4 {
+#kindergarten-info h4 {
   text-align: center;
+  text-decoration: underline;
+  color: #fff;
+  font-size: 3em;
+  font-weight: bold;
+  font-family: Helvetica;
+  text-shadow:
+   0 1px 0 #ccc,
+   0 2px 0 #c9c9c9,
+   0 3px 0 #bbb,
+   0 4px 0 #b9b9b9,
+   0 5px 0 #aaa,
+   0 6px 1px rgba(0,0,0,.1),
+   0 0 5px rgba(0,0,0,.1),
+   0 1px 3px rgba(0,0,0,.3),
+   0 3px 5px rgba(0,0,0,.2),
+   0 5px 10px rgba(0,0,0,.25),
+   0 10px 10px rgba(0,0,0,.2),
+   0 20px 20px rgba(0,0,0,.15);
 }
 
 #sidebar li {
-  margin: 30px 0;
+  margin: 50px 0;
+  margin-left: 25px;
+  padding-right: 30px;
   text-align: center;
 }
 
-// index画面の検索フォーム
-.search-form {
+#sidebar a {
+  font-weight: bold;
+  color: white;
+}
+
+// 各index画面の検索フォーム
+.form {
   border-radius: 5px;
 }
 
-.index-search {
-  border-radius: 5px;
+.search {
+  border-radius: 10px;
+  margin-left: 10px;
+  padding: 2px 7px;
+}
+
+.search_behind {
+  background-color: #EEEEEE;
+  border-radius: 10px;
 }
 
 // new画面の登録フォーム
+.kindergarten_image {
+  background-image: url('test_image.JPG');
+  background-position: center;
+  background-size: cover;
+}
+
+.kindergarten_mask {
+  background-color: rgba(255,255,255,0.7);
+}
+
 #new-form {
   margin: 0 auto;
-  width: 70%;
+  width: 95%;
+}
+
+#new-form h2 {
+  margin-bottom: 30px;
 }
 
 #kindergarten_profile {
@@ -80,6 +217,20 @@ span.done {
 
 #kindergarten_profile input {
   border-radius: 5px;
+  margin-bottom: 12px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+#kindergarten_access {
+  text-align: center;
+}
+
+#kindergarten_access input {
+  border-radius: 5px;
+  margin-bottom: 30px;
+  margin-right: 5px;
+  text-align: center;
 }
 
 #kindergarten_authorization {
@@ -88,12 +239,57 @@ span.done {
 
 #kindergarten_authorization input {
   border-radius: 5px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  text-align: center;
 }
 
 .school_image {
   cursor: pointer;
 }
 
-#upfile {
+#upfile1 {
   display: none;
+}
+
+#upfile2 {
+  display: none;
+}
+
+// new,edit画面のsubmit
+.form-submit {
+  text-align: center;
+  margin: 20px;
+}
+
+.form-submit input {
+  font-weight: bold;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border-left: solid 6px #668ad8;
+  border-right: solid 6px #668ad8;
+  color: #668ad8;
+  background-color: #e1f3ff;
+}
+
+.form-submit input:hover {
+  background: #668ad8;
+  color: #FFF;
+}
+
+// 各画面のtitle
+.content-title h1 {
+  text-align: center;
+  padding-top: 120px;
+  margin-bottom: 30px;
+  font-size:3em;
+  text-align:center;
+  line-height:0.95em;
+  font-weight:bold;
+  color: #DEB887;
+  text-shadow: 0 0.05em 0.08em rgba(0,0,0,0.9);
+}
+
+.content-title h5 {
+  text-align: center;
 }

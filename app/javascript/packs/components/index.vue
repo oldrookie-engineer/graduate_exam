@@ -1,40 +1,43 @@
 <template>
   <div>
-    <tr>
-      <h5>学校名で検索</h5>
+    <table class="table table-hover">
+    <tr class="search">
+      <h6>幼 稚 園 名 で 検 索<br>(部 分 検 索 も 可)</h6>
       <input type="text" v-model="keyword" placeholder="入力してください">
-    </tr>
+    </tr><br>
     <tr>
-      <th colspan=1></th>
-      <th>幼稚園名</th>
-      <th>園の課題点</th>
-      <th>対応案</th>
+      <th class="table-success">幼 稚 園 名</th>
+      <th class="table-success">課 題 点</th>
+      <th class="table-success">対 応 案</th>
+      <th colspan=1 class="table-success">対 応 状 況</th>
+      <th class="table-success">削 除</th>
     </tr>
     <tr v-for="task in filteredTasks" v-bind:key="task.id">
-      <input type="checkbox" v-model="task.isDone" v-on:click="update(task.id, index)">
       <td><span v-bind:class="{done: task.isDone}">{{ task.name }}幼稚園</span></td>
       <td><span v-bind:class="{done: task.isDone}">{{ task.title }}</span></td>
       <td><span v-bind:class="{done: task.isDone}">{{ task.content }}</span></td>
-      <td><button v-on:click="deleteTask(task.id, index)">削除</button></td>
+      <td><input type="checkbox" v-model="task.isDone" v-on:click="update(task.id, index)"></td>
+      <td><button v-on:click="deleteTask(task.id, index)">🗑</button></td>
     </tr>
-    <h5>追加の課題点があれば入力してください。</h5>
-    <table>
+    </table><br>
+    <h5>追加の課題点等があれば入力してください。</h5><br>
+    <table class="table">
       <tr>
         <th>
-          <p>幼稚園名</p>
-          <input type="text" v-model="newName" placeholder="入力して下さい">
+          <p>幼 稚 園 名</p>
+          <input type="text" v-model="newName" placeholder="入力して下さい"> 幼 稚 園
         </th>
         <th>
-          <p>課題点</p>
-          <textarea v-model="newTitle" placeholder="入力して下さい"></textarea>
+          <p>課 題 点</p>
+          <textarea v-model="newTitle" placeholder="入力して下さい" :rows="rows"></textarea>
         </th>
         <th>
-          <p>対応案</p>
-          <textarea v-model="newContent" placeholder="入力して下さい"></textarea><br>
+          <p>対 応 案</p>
+          <textarea v-model="newContent" placeholder="入力して下さい" :rows="rows"></textarea><br>
         </th>
       </tr>
     </table>
-      <button v-on:click="createTask">入力</button>
+      <button v-on:click="createTask"  variant="danger" class="btn btn-info">入 力</button>
   </div>
 </template>
 
@@ -68,7 +71,7 @@
         if(this.newName == '') {
           alert('幼稚園名の入力欄が空欄です！');
           return;
-        } else if(this.newTiele == '') {
+        } else if(this.newTitle == '') {
           alert('課題点の入力欄が空欄です！');
           return;
         } else if(this.newContent == '') {
@@ -110,7 +113,20 @@
           }
         }
         return tasks;
+      },
+      rows: function() {
+        var num = this.newTitle.split("\n").length;
+        return (num > 4) ? num :4;
+        this.newContent.split("\n").length;
+        return (num > 4) ? num :4;
       }
     }
   }
 </script>
+
+<style>
+  tr.search {
+    margin-left: 200px;
+  }
+
+</style>
