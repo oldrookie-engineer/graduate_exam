@@ -17,6 +17,7 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
 
+// 現在の日時表示
 function showClock() {
   let nowTime = new Date();
   let nowYear = nowTime.getFullYear();
@@ -32,6 +33,7 @@ function showClock() {
 }
 setInterval('showClock()', 1000);
 
+// フラッシュメッセージ表示時間設定
 $(function() {
-  setTimeout("$('.alert_message').fadeOut('slow')", 1000);
+  setTimeout("$('.alert_message').fadeOut('slow')", 1500);
 })
