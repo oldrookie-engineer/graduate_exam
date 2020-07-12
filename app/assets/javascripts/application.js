@@ -31,3 +31,7 @@ function showClock() {
   document.getElementById("Realtime").innerHTML = msg;
 }
 setInterval('showClock()', 1000);
+
+$(function() {
+  setTimeout("$('.alert_message').fadeOut('slow')", 1000);
+})
