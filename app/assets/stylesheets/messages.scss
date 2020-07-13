@@ -1,5 +1,7 @@
+
+
 .message-content {
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
 .ui {
@@ -21,40 +23,55 @@
 }
 
 .message_image {
+  background-image: url('message_image.jpg');
+  background-size: cover;
+  background-position: center;
   text-align: center;
 }
 
+.message_mask {
+  background-color: rgba(255,255,255,0.5);
+}
+
 .message-left {
-  border: 3px solid #555;
   border-radius: 10px;
-  position: relative;
-  display: inline-block;
   padding: 12px 10px;
   min-width: 120px;
   max-width: 100%;
-  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  border: 3px solid #000000;
+  z-index: 0;
 }
 
 .message-left:before {
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #fff transparent transparent;
   content: "";
   position: absolute;
-  top: 50%;
-  left: -24px;
-  margin-top: -12px;
-  border: 12px solid transparent;
-  border-right: 12px solid #FFF;
-  z-index: 2;
+  top: 50%; left: -8px;
+  margin-top: -9px;
+  display: block;
+  width: 0px;
+  height: 0px;
+  z-index: 0;
 }
 
 .message-left:after {
+  border-style: solid;
+  border-width: 11px 11px 11px 0;
+  border-color: transparent #000000 transparent transparent;
   content: "";
   position: absolute;
-  top: 50%;
-  left: -30px;
-  margin-top: -14px;
-  border: 14px solid transparent;
-  border-right: 14px solid #555;
-  z-index: 1;
+  top: 50%; left: -12px;
+  margin-top: -10px;
+  display: block;
+  width: 0px;
+  height: 0px;
+  z-index: -1;
 }
 
 .message-right {
@@ -62,34 +79,38 @@
   display: inline-block;
   min-width: 120px;
   max-width: 100%;
-  border: 3px solid white;
+  border: 3px solid #000000;
   padding: 12px 10px;
   border-radius: 10px;
   background: #66FF66;
+  text-align: center;
+  z-index: 0;
 }
 
 .message-right:before {
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #44FF44;
   content: "";
   position: absolute;
-  top: 50%;
-  right: -24px;
-  margin-top: -12px;
-  border: 12px solid transparent;
-  border-left: 12px solid #66FF66;
-  z-index: 2;
-}
-
-.message-right p {
-  margin: 0;
-  padding: 0;
+  top: 50%; right: -8px;
+  margin-top: -9px;
+  display: block;
+  width: 0px;
+  height: 0px;
+  z-index: 0;
 }
 
 .message-right:after {
+  border-style: solid;
+  border-width: 11px 0 11px 11px;
+  border-color: transparent transparent transparent #000000;
   content: "";
   position: absolute;
-  top: 50%;
-  right: -30px;
-  margin-top: -14px;
-  border-left: 14px solid #66FF66;
-  z-index: 1;
+  top: 50%; right: -12px;
+  margin-top: -10px;
+  display: block;
+  width: 0px;
+  height: 0px;
+  z-index: -1;
 }

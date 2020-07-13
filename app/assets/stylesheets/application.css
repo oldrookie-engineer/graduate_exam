@@ -14,3 +14,11 @@
  *= require_tree .
  *= require_self
  */
+
+/* 各ページのlink */
+
+.link {
+  font-weight: bold;
+  color: red;
+  text-decoration: underline;
+}
