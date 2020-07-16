@@ -55,6 +55,7 @@ header span {
   margin-right: 20px;
 }
 
+// 現在日時
 #Realtime {
   text-align: center;
   margin-top: 10px;
@@ -79,6 +80,7 @@ header span {
   padding: 120px 0 90px 0;
 }
 
+// ログインフォーム
 .field {
   text-align: center;
   padding: 10px 0;
@@ -97,6 +99,7 @@ header span {
   text-align: center;
 }
 
+// ログイン・登録ボタン
 .actions {
   text-align: center;
   margin-top: 30px;
@@ -111,14 +114,18 @@ header span {
   color: #808080;
 }
 
+// ログインタイトル
 .sign_in {
   text-align: center;
+  font-weight: bold;
   color: #808080;
   text-shadow:0px 0px 2px #FFF, 4px 4px 2px rgba(0,0,0,0.3);
 }
 
+// アカウント登録タイトル
 .sign_up {
   text-align: center;
+  font-weight: bold;
   color: #808080;
   text-shadow:0px 0px 2px #FFF, 4px 4px 2px rgba(0,0,0,0.3);
 }

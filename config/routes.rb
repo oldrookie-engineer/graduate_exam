@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'homes/top'
+  # トップ画面用
+  root 'homes#top'
+  resources :homes, only: [:top]
   # ログイン画面をroot設定
-  devise_scope :user do
-    root "users/sessions#new"
-  end
+  # devise_scope :user do
+  #   root "users/sessions#new"
+  # end
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'

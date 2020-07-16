@@ -1,3 +1,82 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// トップ画面
+
+#top-image1 {
+  background-image: url('top1.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  height: 630px;
+}
+
+#top-image2 {
+  background-image: url('top2.jpg');
+  background-size: cover;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  height: 630px;
+}
+
+#top-image3 {
+  background-image: url('top3.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  height: 630px;
+}
+
+#top-image4 {
+  background-image: url('top4.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  height: 630px;
+}
+
+.top-mask {
+  background-color: rgba(255,255,255,0.4);
+  height: 630px;
+}
+
+.col-3 {
+  padding: 0;
+}
+
+.col-3 h1 {
+  padding-top: 20px;
+  font-size: 9rem;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #919191,
+    1px 2px 1px #919191,
+    1px 3px 1px #919191,
+    1px 4px 1px #919191,
+    1px 5px 1px #919191,
+    1px 6px 1px #919191,
+    1px 7px 1px #919191,
+    1px 8px 1px #919191,
+    1px 9px 1px #919191,
+    1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+
+.title-adjust {
+  text-align: left;
+}
+
+.title-adjust h1 {
+  color: red;
+}
+
+.top-link {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.top-link .btn {
+  padding: 10px 20px;
+  font-weight: bold;
+}

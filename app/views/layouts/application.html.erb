@@ -8,29 +8,31 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header>
-      <div class="sticky-top">
-        <div class="sticky_mask">
-        <h2>ASAP BOX</h2>
-        <p id="Realtime"></p>
-        <% if user_signed_in? %>
-          <span>現在のログインユーザー：<strong><%= current_user.name %></strong></span>
-          <span><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'header_link btn btn-primary' %></span>
-        <% else %>
-          <%= link_to "新規登録", new_user_registration_path, class: 'header_link btn btn-danger' %>
-          <%= link_to "ログイン", new_user_session_path, class: 'header_link btn btn-info' %>
-        <% end %>
+    <% unless action_name == "top" %>
+      <header>
+        <div class="sticky-top">
+          <div class="sticky_mask">
+          <h2>ASAP BOX</h2>
+          <p id="Realtime"></p>
+          <% if user_signed_in? %>
+            <span>現在のログインユーザー：<strong><%= current_user.name %></strong></span>
+            <span><%= link_to "ロ グ ア ウ ト", destroy_user_session_path, method: :delete, class: 'header_link btn btn-primary' %></span>
+          <% else %>
+            <%= link_to "アカウント登録", new_user_registration_path, class: 'header_link btn btn-danger' %>
+            <%= link_to "ロ グ イ ン", new_user_session_path, class: 'header_link btn btn-info' %>
+          <% end %>
+          </div>
+        <div class="alert_message">
+          <% if notice %>
+            <p class="alert alert-notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-error"><%= alert %></p>
+          <% end %>
         </div>
-      <div class="alert_message">
-        <% if notice %>
-          <p class="alert alert-notice"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-error"><%= alert %></p>
-        <% end %>
       </div>
-    </div>
-    </header>
+      </header>
+    <% end %>
     <%= yield %>
     <footer>
       <div class="footer_mask">
