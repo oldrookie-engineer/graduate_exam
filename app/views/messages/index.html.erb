@@ -20,7 +20,8 @@
                   <i class="right triangle icon"></i><br>
                   <div class="message-right">
                     <strong><%= message.body %></strong>
-                  </div><br><br>
+                  </div>
+                  <%= image_tag ("right-face.jpeg"), class: "face-image" %><br><br>
                   <% if message.user == current_user %>
                     状態:
                     <%= message.read ? '既 読' : '未 読' %><br>
@@ -39,6 +40,7 @@
                 <div class="list">
                   <div class="item">
                     <i class="right triangle icon"></i><br>
+                    <%= image_tag ("left-face.jpeg"), class: "face-image" %>
                     <strong class="message-left"><%= message.body %></strong><br><br>
                     <%= link_to image_tag("delete_icon"), conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || message.user_id == current_user.id %>
                   </div>
@@ -52,7 +54,7 @@
     <%= form_with(model: [@conversation, @message]) do |f| %>
      <div class="field">
        <h4><strong><%= f.label :"メ ッ セ ー ジ 入 力 フ ォ ー ム" %></strong></h4><br>
-       <%= f.text_area :body, size: "40x4", placeholder: "メッセージを入力してください" %>
+       <%= f.text_area :body, size: "40x4", maxlength: "140", rows: "7", placeholder: "メッセージを入力してください(140文字まで)" %>
      </div>
        <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
      <div class="message-submit">

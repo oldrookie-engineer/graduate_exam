@@ -43,15 +43,17 @@
         <th><%= sort_link(@q, :name, "幼 稚 園 名") %></th>
         <th><%= sort_link(@q, :address, "住 所") %></th>
         <th>電 話 番 号</th>
+        <th>詳 細</th>
         <th>編 集</th>
         <th>削 除</th>
       </tr>
     <% @kindergartens.each.with_index(1) do |kindergarten, index| %>
       <tr>
         <td><%= index %></td>
-        <td class="to_show"><span><%= link_to kindergarten.name, kindergarten_path(kindergarten.id) %></span>幼稚園</td>
+        <td><%= kindergarten.name %>幼稚園</td>
         <td><%= kindergarten.address %></td>
         <td><%= kindergarten.phone_number %></td>
+        <td><%= link_to image_tag("profile.jpeg"), kindergarten_path(kindergarten.id) %></td>
         <td><%= link_to image_tag("edit_icon.png"), edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
         <td><%= link_to image_tag("delete_icon"), kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
       </tr>
