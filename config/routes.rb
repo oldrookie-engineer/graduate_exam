@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'homes/top'
   # ログイン画面をroot設定
   devise_scope :user do
     root "users/sessions#new"
