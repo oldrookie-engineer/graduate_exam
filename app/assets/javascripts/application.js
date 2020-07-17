@@ -37,3 +37,7 @@ setInterval('showClock()', 1000);
 $(function() {
   setTimeout("$('.alert_message').fadeOut('slow')", 1500);
 })
+
+$(function() {
+  setTimeout("$('#error_explanation').fadeOut('slow')", 5000);
+})

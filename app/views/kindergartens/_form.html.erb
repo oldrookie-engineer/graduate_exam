@@ -21,7 +21,7 @@
         <dd><%= form.telephone_field :phone_number %></dd>
         <dt><%= form.label :school_area_image %></dt>
         <dd><%= image_tag 'image_icon.png', onClick:"$('#upfile1').click()", class: "school_image", size: "80x80" %></dd>
-        <dd>アイコンをクリック</dd>
+        <dd class="school-adjust">アイコンをクリック</dd>
         <dd><%= form.file_field :image, id: "upfile1" %></dd>
         <dt><%= form.label :school_floor_image %></dt>
         <dd><%= image_tag 'image_icon.png', onClick:"$('#upfile2').click()", class: "school_image", size: "80x80" %></dd>
