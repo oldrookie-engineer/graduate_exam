@@ -12,8 +12,8 @@
       <h4 class="w-100">M e n u</h4>
       <li><%= link_to "幼 稚 園 新 規 登 録", new_kindergarten_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
       <li><%= link_to '申 請 認 可 登 録', new_application_document_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
-      <li><%= link_to '申 請 認 可 処 理 状 況', application_documents_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
-      <li><%= link_to "ア ー カ イ ブ", archives_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
+      <li><%= link_to '申 請 状 況 一 覧', application_documents_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
+      <li><%= link_to "ア ー カ イ ブ 一 覧", archives_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
     </ul>
   </div>
   <div class="col-9" id="kindergarten-list">
@@ -24,14 +24,14 @@
             <%= search_form_for @q do |f| %>
               <%= f.label :name, "幼 稚 園 名 で 検 索 (部 分 検 索 も 可)" %><br>
               <%= f.search_field :name_cont, class: "form" %>
-              <%= f.submit "検 索", class: "search" %>
+              <%= f.submit "  ", class: "search" %>
             <% end %>
           </th>
           <th>
             <%= search_form_for @q do |f| %>
               <%= f.label :address, "住 所 で 検 索 (部 分 検 索 も 可)" %><br>
               <%= f.search_field :address_cont, placeholder: "(例)中野区", class: "form" %>
-              <%= f.submit "検 索", class: "search" %>
+              <%= f.submit "  ", class: "search" %>
             <% end %>
           </th>
         </tr>
@@ -44,16 +44,22 @@
         <th><%= sort_link(@q, :address, "住 所") %></th>
         <th>電 話 番 号</th>
         <th>詳 細</th>
-        <th>編 集</th>
-        <th>削 除</th>
+        <th><% if current_user.try(:admin?) %>
+            編集
+            <% end %>
+        </th>
+        <th><% if current_user.try(:admin?) %>
+            削 除
+            <% end %>
+        </th>
       </tr>
     <% @kindergartens.each.with_index(1) do |kindergarten, index| %>
-      <tr>
+      <tr class="table table-hover">
         <td><%= index %></td>
         <td><%= kindergarten.name %>幼稚園</td>
         <td><%= kindergarten.address %></td>
         <td><%= kindergarten.phone_number %></td>
-        <td><%= link_to image_tag("profile.jpeg"), kindergarten_path(kindergarten.id) %></td>
+        <td><%= link_to image_tag("info.jpeg"), kindergarten_path(kindergarten.id) %></td>
         <td><%= link_to image_tag("edit_icon.png"), edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
         <td><%= link_to image_tag("delete_icon"), kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
       </tr>

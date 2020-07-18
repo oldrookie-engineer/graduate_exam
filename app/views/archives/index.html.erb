@@ -8,7 +8,7 @@
           <li><%= link_to 'ア ー カ イ ブ 登 録', new_archive_path, class: "btn btn-warning w-100 p-4 rounded-pill"  %></li>
           <li><%= link_to "ア ー カ イ ブ 使 用・返 却", conversations_path, class: "btn btn-warning w-100 p-4 rounded-pill"  %></li>
           <li><%= link_to '幼 稚 園 一 覧', kindergartens_path, class: "btn btn-warning w-100 p-4 rounded-pill"  %></li>
-          <li><%= link_to '申 請 処 理 状 況', application_documents_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
+          <li><%= link_to '申 請 状 況 一 覧', application_documents_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
         </ul>
       </div>
       <div class="col-9" id="kindergarten-list">
@@ -19,7 +19,7 @@
               <%= search_form_for @q do |f| %>
                 <%= f.label :name, "学 校 名 で 検 索 (部 分 一 致 も 可)" %><br>
                 <%= f.search_field :name_cont, class: "form" %>
-                <%= f.submit "検 索", class: "search" %>
+                <%= f.submit "  ", class: "search" %>
               <% end %>
             </th>
             <th>
@@ -27,7 +27,7 @@
                 <%= f.label :title, "申 請 認 可 名 で 検 索 (部 分 一 致 も 可)" %><br>
                 <%= f.select :title, [[""],["設置認可申請"],["園長選任届"],["位置変更届"],["園地・園舎変更届"],["資産総額変更届"],["廃園届"]], class: "form" %>
                 <%= f.hidden_field :search, value: 'true' %>
-                <%= f.submit '検 索', class: "search" %>
+                <%= f.submit "  ", class: "search" %>
               <% end %>
             </th>
           </tr>
