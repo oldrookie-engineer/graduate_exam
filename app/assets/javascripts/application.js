@@ -42,6 +42,10 @@ $(function() {
   setTimeout("$('#error_explanation').fadeOut('slow')", 5000);
 })
 
+$(function() {
+  setTimeout("$('.error_explanation').fadeOut('slow')", 5000);
+})
+
 // top画面のアニメーション
 // タイトル
 window.onload = function() {

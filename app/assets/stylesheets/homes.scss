@@ -34,7 +34,7 @@
 }
 
 .top-mask {
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255,255,255,0.5);
   height: 630px;
 }
 
@@ -95,8 +95,8 @@
 
 .effect-submit {
   opacity: 0;
-  transform: translate(100px, 0);
-  transition: all 7000ms;
+  transform: translate(1500px, 0);
+  transition: all 6000ms;
 }
 
 .effect-submit.effect-scroll {
