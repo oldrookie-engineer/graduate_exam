@@ -13,6 +13,41 @@ RSpec.describe 'アカウント登録・ログイン・ログアウト機能', t
         expect(page).to have_content 'アカウント登録が完了しました。'
         sleep 2.0
       end
+      it 'ログインしていない時はログイン画面に飛ぶテスト' do
+        visit kindergartens_path
+        sleep 2.0
+        expect(current_path).to eq new_user_session_path
+        sleep 2.0
+      end
+    end
+  end
+
+  describe 'セッション機能のテスト' do
+    before do
+      @user = create(:user)
+    end
+    context 'ユーザーのデータがあり、ログインしていない場合' do
+      it 'ログインのテスト' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
+        sleep 2.0
+        click_on 'commit'
+        expect(page).to have_content 'ログインしました。'
+        sleep 2.0
+      end
+    end
+    context '既にログインしている場合' do
+      it 'ログアウトのテスト' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
+        sleep 2.0
+        click_on 'commit'
+        click_on 'ロ グ ア ウ ト'
+        expect(page).to have_content 'ログアウトしました。'
+        sleep 2.0
+      end
     end
   end
 end
