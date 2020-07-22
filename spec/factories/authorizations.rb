@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :authorization do
+    association :kindergarten, factory: :kindergarten
     principal { '中野太朗' }
     installation_date { '1973/01/01' }
     number_of_classes { '3' }

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <table class="table table-hover">
-    <tr class="search">
+    <div class="searching">
       <h6>幼 稚 園 名 で 検 索<br>(部 分 検 索 も 可)</h6>
-      <input type="text" v-model="keyword" placeholder="入力してください">
-    </tr><br>
+      <input type="text" v-model="keyword" placeholder="入力して下さい">
+    </div>
+    <table class="table table-hover">
     <tr>
       <th class="table-success">幼 稚 園 名</th>
       <th class="table-success">課 題 点</th>
@@ -22,7 +22,7 @@
     </table><br>
     <h5>追加の課題点等があれば入力してください。</h5><br>
     <table class="table">
-      <tr>
+      <tr class="memo">
         <th>
           <p>幼 稚 園 名</p>
           <input type="text" v-model="newName" placeholder="入力して下さい"> 幼 稚 園
@@ -125,8 +125,29 @@
 </script>
 
 <style>
-  tr.search {
-    margin-left: 200px;
+  .searching {
+    margin-bottom: 20px;
+  }
+
+  .searching h6 {
+    font-weight: bold;
+  }
+
+  .searching input {
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .memo input {
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .memo textarea {
+    border-radius: 5px;
+    padding: 5px;
   }
 
 </style>
