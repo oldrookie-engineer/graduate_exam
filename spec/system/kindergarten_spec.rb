@@ -4,12 +4,13 @@ RSpec.describe '幼稚園情報管理機能', type: :system do
     before do
       @user = create(:user)
       @kindergarten = create(:kindergarten)
+      @second_kindergarten = create(:second_kindergarten)
       @station = create(:station)
       @authorization = create(:authorization)
       visit new_user_session_path
       fill_in 'user[email]', with: @user.email
       fill_in 'user[password]', with: @user.password
-      sleep 2.0
+      sleep 1.5
       click_on 'commit'
     end
     context '幼稚園情報を作成した場合' do
@@ -17,7 +18,7 @@ RSpec.describe '幼稚園情報管理機能', type: :system do
         expect(page).to have_content @kindergarten.name
         expect(page).to have_content @kindergarten.address
         expect(page).to have_content @kindergarten.phone_number
-        sleep 2.0
+        sleep 1.5
       end
       it '作成済みの幼稚園認可情報が表示される' do
         find(:xpath, "/html/body/div/div/div/div[2]/table/tbody/tr[2]/td[5]/a/img").click
@@ -31,31 +32,33 @@ RSpec.describe '幼稚園情報管理機能', type: :system do
       end
       it '作成済みの幼稚園アクセス情報が表示される' do
         find(:xpath, "/html/body/div/div/div/div[2]/table/tbody/tr[2]/td[5]/a/img").click
-        sleep 2.0
+        sleep 1.5
         click_on 'ア ク セ ス'
         execute_script('window.scrollBy(0,10000)')
-        sleep 2.0
+        sleep 1.5
         expect(page).to have_content @station.route
         expect(page).to have_content @station.station_name
         expect(page).to have_content @station.walk_time
-        sleep 2.0
+        sleep 1.5
       end
       it '作成済みの幼稚園外観写真が表示される' do
         find(:xpath, "/html/body/div/div/div/div[2]/table/tbody/tr[2]/td[5]/a/img").click
-        sleep 2.0
+        sleep 1.5
         click_on '外 観 写 真'
         execute_script('window.scrollBy(0,5000)')
-        sleep 2.0
+        sleep 1.5
         assert page.has_xpath?("/html/body/div[1]/div/div[3]/div[4]/table/tbody/tr[2]/td[1]/img")
         assert page.has_xpath?("/html/body/div[1]/div/div[3]/div[4]/table/tbody/tr[2]/td[2]/img")
       end
     end
     context '幼稚園情報を検索した場合' do
       it '幼稚園名で検索できる' do
-        expect(page).to have_content @kindergarten.name
-        expect(page).to have_content @kindergarten.address
-        expect(page).to have_content @kindergarten.phone_number
-        sleep 2.0
+        fill_in "q[name_cont]", with: "二"
+        sleep 1.5
+        find(:xpath, "/html/body/div/div/div/div[2]/div/table/tbody/tr/th[1]/form/input[3]").click
+        sleep 1.5
+        expect(page).to have_content @second_kindergarten.name
+        sleep 1.5
       end
     end
   end
