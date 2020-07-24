@@ -76,7 +76,7 @@
             </th>
             <th>
               <%= search_form_for @q do |f| %>
-              <%= f.label :title, "申 請 名 で 検 索 (部 分 一 致 も 可)" %><br>
+              <%= f.label :title, "申 請 認 可 名 で 検 索 (部 分 一 致 も 可)" %><br>
               <%= f.search_field :title_cont, class: "form" %>
               <%= f.submit "  ", class: "search" %>
               <% end %>

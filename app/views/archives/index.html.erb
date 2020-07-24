@@ -17,7 +17,7 @@
           <tr class="archive-search">
             <th>
               <%= search_form_for @q do |f| %>
-                <%= f.label :name, "学 校 名 で 検 索 (部 分 一 致 も 可)" %><br>
+                <%= f.label :name, "幼 稚 園 名 で 検 索 (部 分 一 致 も 可)" %><br>
                 <%= f.search_field :name_cont, class: "form" %>
                 <%= f.submit "  ", class: "search" %>
               <% end %>

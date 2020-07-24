@@ -1,6 +1,6 @@
 require 'rails_helper'
 RSpec.describe '申請認可管理機能', type: :system do
-  describe '幼稚園一覧画面' do
+  describe '申請状況一覧画面' do
     before do
       @user = create(:user)
       @application_document = create(:application_document, user: @user)
@@ -41,7 +41,7 @@ RSpec.describe '申請認可管理機能', type: :system do
         expect(page).to have_content @second_application_document.name
         sleep 1.5
       end
-      it '申請名で検索できる' do
+      it '申請認可名で検索できる' do
         click_on '申 請 状 況 一 覧'
         sleep 1.0
         fill_in "q[title_cont]", with: "資"
