@@ -60,6 +60,14 @@ RSpec.describe '幼稚園情報管理機能', type: :system do
         expect(page).to have_content @second_kindergarten.name
         sleep 1.5
       end
+      it '住所で検索できる' do
+        fill_in "q[address_cont]", with: "杉"
+        sleep 1.5
+        find(:xpath, "/html/body/div/div/div/div[2]/div/table/tbody/tr/th[2]/form/input[3]").click
+        sleep 1.5
+        expect(page).to have_content @second_kindergarten.address
+        sleep 1.5
+      end
     end
   end
 end

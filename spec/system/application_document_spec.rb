@@ -3,6 +3,8 @@ RSpec.describe '申請認可管理機能', type: :system do
   describe '幼稚園一覧画面' do
     before do
       @user = create(:user)
+      @application_document = create(:application_document, user: @user)
+      @second_application_document = create(:second_application_document, user: @user)
       visit new_user_session_path
       fill_in 'user[email]', with: @user.email
       fill_in 'user[password]', with: @user.password
@@ -13,7 +15,7 @@ RSpec.describe '申請認可管理機能', type: :system do
       it '作成済みの認可情報が表示される' do
         click_on '申 請 認 可 登 録'
         sleep 1.0
-        fill_in 'application_document[name]', with: "第一"
+        fill_in 'application_document[name]', with: "第三"
         select '廃園届', from: 'application_document[title]'
         fill_in "application_document[application_date]", with: "0020200724"
         fill_in "application_document[processing_deadline]", with: "0020200731"
@@ -23,38 +25,32 @@ RSpec.describe '申請認可管理機能', type: :system do
         expect(page).to have_content "第一"
         expect(page).to have_content "2020年7月24日"
         expect(page).to have_content "2020年7月31日"
+        expect(page).to have_content @user.name
         expect(page).to have_content "未処理"
+        sleep 2.0
       end
-      # it '作成済みの幼稚園認可情報が表示される' do
-      #   find(:xpath, "/html/body/div/div/div/div[2]/table/tbody/tr[2]/td[5]/a/img").click
-      #   expect(page).to have_content @authorization.principal
-      #   expect(page).to have_content "1973年1月1日"
-      #   expect(page).to have_content @authorization.number_of_classes
-      #   expect(page).to have_content @authorization.capacity
-      #   expect(page).to have_content @authorization.number_of_students
-      #   expect(page).to have_content @authorization.school_area
-      #   expect(page).to have_content @authorization.school_floor_area
-      # end
-      # it '作成済みの幼稚園アクセス情報が表示される' do
-      #   find(:xpath, "/html/body/div/div/div/div[2]/table/tbody/tr[2]/td[5]/a/img").click
-      #   sleep 2.0
-      #   click_on 'ア ク セ ス'
-      #   execute_script('window.scrollBy(0,10000)')
-      #   sleep 2.0
-      #   expect(page).to have_content @station.route
-      #   expect(page).to have_content @station.station_name
-      #   expect(page).to have_content @station.walk_time
-      #   sleep 2.0
-      # end
-      # it '作成済みの幼稚園外観写真が表示される' do
-      #   find(:xpath, "/html/body/div/div/div/div[2]/table/tbody/tr[2]/td[5]/a/img").click
-      #   sleep 2.0
-      #   click_on '外 観 写 真'
-      #   execute_script('window.scrollBy(0,5000)')
-      #   sleep 2.0
-      #   assert page.has_xpath?("/html/body/div[1]/div/div[3]/div[4]/table/tbody/tr[2]/td[1]/img")
-      #   assert page.has_xpath?("/html/body/div[1]/div/div[3]/div[4]/table/tbody/tr[2]/td[2]/img")
-      # end
+    end
+    context '認可情報を検索した場合' do
+      it '幼稚園名で検索できる' do
+        click_on '申 請 状 況 一 覧'
+        sleep 1.0
+        fill_in "q[name_cont]", with: "二"
+        sleep 1.5
+        find(:xpath, "/html/body/div/div/div/div[2]/div/table/tbody/tr/th[1]/form/input[3]").click
+        sleep 1.5
+        expect(page).to have_content @second_application_document.name
+        sleep 1.5
+      end
+      it '申請名で検索できる' do
+        click_on '申 請 状 況 一 覧'
+        sleep 1.0
+        fill_in "q[title_cont]", with: "資"
+        sleep 1.5
+        find(:xpath, "/html/body/div/div/div[2]/div[2]/div/table/tbody/tr/th[2]/form/input[3]").click
+        sleep 1.5
+        expect(page).to have_content @second_application_document.title
+        sleep 1.5
+      end
     end
   end
 end
