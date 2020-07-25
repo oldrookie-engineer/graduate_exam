@@ -25,6 +25,9 @@
           <%= f.submit t('.sign_in'), class: "sign" %><br><br>
           <%= render "devise/shared/links" %>
         </div>
+        <div class="actions">
+          <%= link_to 'トップページ', root_path, class: "btn btn-primary" %>
+        </div>
       <% end %>
     </div>
   </div>

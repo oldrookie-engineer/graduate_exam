@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  # トップ画面用
+  # トップ画面(root設定)
   root 'homes#top'
   resources :homes, only: [:top]
-  # ログイン画面をroot設定
-  # devise_scope :user do
-  #   root "users/sessions#new"
-  # end
+  # ゲストログイン設定
+  devise_scope :user do
+    post "users/guest_sign_in", to: "users/sessions#new_guest"
+  end
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
