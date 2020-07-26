@@ -1,12 +1,10 @@
 // トップ画面
-
 #top-image1 {
   background-image: url('top1.jpg');
   background-size: cover;
   background-position: center;
   text-align: center;
   height: 620px;
-  width: 100%;
 }
 
 #top-image2 {
@@ -16,8 +14,6 @@
   background-position: center;
   text-align: center;
   height: 620px;
-  width: 100%;
-
 }
 
 #top-image3 {
@@ -26,8 +22,6 @@
   background-position: center;
   text-align: center;
   height: 620px;
-  width: 100%;
-
 }
 
 #top-image4 {
@@ -36,15 +30,11 @@
   background-position: center;
   text-align: center;
   height: 620px;
-  width: 100%;
-
 }
 
 .top-mask {
   background-color: rgba(255,255,255,0.5);
   height: 620px;
-  width: 100%;
-
 }
 
 .col-3 {
@@ -104,7 +94,6 @@
 
 .effect-submit {
   opacity: 0;
-  // transform: translate(1500px, 0);
   transform: translate(500px, 0);
   transition: all 6000ms;
 }

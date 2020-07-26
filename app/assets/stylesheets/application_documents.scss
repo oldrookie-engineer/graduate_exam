@@ -1,10 +1,10 @@
-
 // アラート通知の点滅
 .blinking {
-  animation: 1.5s linear infinite condemned_blink_effect; // for Safari 4.0 - 8.0
+  animation: 1.5s linear infinite condemned_blink_effect;
   animation: 1.5s linear infinite condemned_blink_effect;
 }
-@keyframes condemned_blink_effect { // for Safari 4.0 - 8.0
+
+@keyframes condemned_blink_effect {
   0% {
     visibility: hidden;
   }
@@ -15,6 +15,7 @@
     visibility: visible;
   }
 }
+
 @keyframes condemned_blink_effect {
   0% {
     visibility: hidden;

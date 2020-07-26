@@ -1,8 +1,10 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
+
   def index
     @conversations = Conversation.all
   end
+
   def create
     if user_signed_in?
       if Conversation.between(params[:sender_id], params[:recipient_id]).present?
@@ -15,6 +17,7 @@ class ConversationsController < ApplicationController
       redirect_to root_path
     end
   end
+  
   private
   def conversation_params
     params.permit(:sender_id, :recipient_id)

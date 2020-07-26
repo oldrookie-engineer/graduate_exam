@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end
+
   def index
     @messages = @conversation.messages
     if @messages.length > 10
@@ -19,6 +20,7 @@ class MessagesController < ApplicationController
     @messages = @messages.includes(:user).order(:created_at)
     @message = @conversation.messages.build
   end
+
   def create
     @message = @conversation.messages.build(message_params)
     if @message.save
@@ -27,14 +29,13 @@ class MessagesController < ApplicationController
       render 'index'
     end
   end
-  # def show
-  #   @message = @conversation.messages.find(params[:id])
-  # end
+
   def destroy
     @message = @conversation.messages.find(params[:id])
     @message.destroy
     redirect_to conversation_messages_path(@conversation)
   end
+  
   private
   def message_params
     params.require(:message).permit(:body, :user_id)
