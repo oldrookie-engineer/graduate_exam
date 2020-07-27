@@ -12,6 +12,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'dotenv-rails'
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'spring'
@@ -23,6 +26,11 @@ group :development, :test do
   gem 'launchy'
   gem 'capybara'
   gem 'webdrivers'
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -30,7 +38,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
-  gem 'dotenv-rails'
 end
 
 group :test do
