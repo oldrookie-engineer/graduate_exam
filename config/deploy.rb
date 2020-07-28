@@ -2,7 +2,7 @@
 lock '3.6.0'
 set :application, 'ASAP_BOX'
 set :repo_url, 'https://github.com/oldrookie-engineer/graduate_exam.git'
-set :branch, ENV['BRANCH'] || 'master'
+# set :branch, ENV['BRANCH'] || 'master'
 set :deploy_to, '/var/www/ASAP_BOX'
 set :linked_files, %w{.env config/secrets.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
