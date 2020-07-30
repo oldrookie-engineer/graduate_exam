@@ -18,4 +18,4 @@
 console.log('Hello World from Webpacker')
 
 // デプロイ用追記
-import "bootstrap"
+// import "bootstrap"

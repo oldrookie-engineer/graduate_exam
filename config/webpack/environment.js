@@ -11,8 +11,8 @@ environment.loaders.prepend('stylus', stylus)
 const webpack = require('webpack')
 
 // デプロイ用追記
-environment.plugins.append('Provide', new webpack.ProvidePlugin({
-    $: 'jquery/src/jquery',
-    jQuery: 'jquery/src/jquery',
-    Popper: ['popper.js', 'default']
- }))
+// environment.plugins.append('Provide', new webpack.ProvidePlugin({
+//     $: 'jquery/src/jquery',
+//     jQuery: 'jquery/src/jquery',
+//     Popper: ['popper.js', 'default']
+//  }))
