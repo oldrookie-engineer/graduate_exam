@@ -1,7 +1,8 @@
 // トップ画面
 #top-image1 {
   // background-image: url('top1.jpg');
-  background-image: url(/images/top1.jpg);
+  background-image: image-url('top1.jpg');
+  // background-image: url(/images/top1.jpg);
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -10,7 +11,8 @@
 
 #top-image2 {
   // background-image: url('top3.jpg');
-  background-image: url(/images/top3.jpg);
+  background-image: image-url('top3.jpg');
+  // background-image: url(/images/top3.jpg);
   background-size: cover;
   background-size: cover;
   background-position: center;
@@ -20,7 +22,8 @@
 
 #top-image3 {
   // background-image: url('top2.jpg');
-  background-image: url(/images/top2.jpg);
+  background-image: image-url('top2.jpg');
+  // background-image: url(/images/top2.jpg);
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -29,7 +32,8 @@
 
 #top-image4 {
   // background-image: url('top4.jpg');
-  background-image: url(/images/top4.jpg);
+  background-image: image-url('top4.jpg');
+  // background-image: url(/images/top4.jpg);
   background-size: cover;
   background-position: center;
   text-align: center;
