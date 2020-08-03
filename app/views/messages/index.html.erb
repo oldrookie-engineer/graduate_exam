@@ -21,11 +21,11 @@
                   <div class="message-right">
                     <strong><%= message.body %></strong>
                   </div>
-                  <%= image_tag ("right-face.jpeg"), class: "face-image" %><br><br>
+                  <%= image_tag asset_path ("right-face.jpeg"), class: "face-image" %><br><br>
                   <% if message.user == current_user %>
                     状態:
                     <%= message.read ? '既 読' : '未 読' %><br>
-                    <%= link_to image_tag("delete_icon"), conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || message.user_id == current_user.id %>
+                    <%= link_to image_tag asset_path("delete_icon"), conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || message.user_id == current_user.id %>
                   <% end %>
                 </div>
               </div>
@@ -40,9 +40,9 @@
                 <div class="list">
                   <div class="item">
                     <i class="right triangle icon"></i><br>
-                    <%= image_tag ("left-face.jpeg"), class: "face-image" %>
+                    <%= image_tag asset_path("left-face.jpeg"), class: "face-image" %>
                     <strong class="message-left"><%= message.body %></strong><br><br>
-                    <%= link_to image_tag("delete_icon"), conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || message.user_id == current_user.id %>
+                    <%= link_to image_tag asset_path("delete_icon"), conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || message.user_id == current_user.id %>
                   </div>
                 </div>
               </div>
