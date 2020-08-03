@@ -2,7 +2,9 @@
   <div class="login_mask">
     <div class="sign-log">
       <h2 class="sign_in"><%= t('.sign_in') %></h2>
-      南京錠コード
+      <div class="text-center">
+        <%= image_tag asset_path('access_key.png', size: '60x50') %>
+      </div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field">
