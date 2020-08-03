@@ -3,7 +3,7 @@
     <div class="sign-log">
       <h2 class="sign_up"><%= t('.sign_up') %></h2>
       <div class="text-center">
-        <%= image_tag asset_path('access_key.png', size: '60x50') %>
+        <%= image_tag asset_path('access_key.png', size: '30x25') %>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
