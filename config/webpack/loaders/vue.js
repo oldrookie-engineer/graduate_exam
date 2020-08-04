@@ -3,5 +3,5 @@ module.exports = {
   use: [{
     loader: 'vue-loader'
   }],
-  baseUrl: './'
+  publicPath: './'
 }
