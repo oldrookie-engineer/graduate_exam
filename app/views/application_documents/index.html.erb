@@ -105,8 +105,14 @@
           <td><%= l application_document.processing_deadline %></td>
           <td><%= application_document.user.name %></td>
           <td><%= application_document.processing %></td>
-          <td><%= link_to image_tag asset_path("edit_icon"), edit_application_document_path(application_document.id) if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
-          <td><%= link_to image_tag asset_path("delete_icon"), application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || current_user.id == application_document.user_id %></td>
+          <td><%= link_to edit_application_document_path(application_document.id) if current_user.try(:admin?) || current_user.id == application_document.user_id do %>
+            <%= image_tag asset_path("edit_icon.png") %>
+            <% end %>
+          </td>
+          <td><%= link_to application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || current_user.id == application_document.user_id do %>
+            <%= image_tag asset_path("delete_icon.png") %>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </table>
