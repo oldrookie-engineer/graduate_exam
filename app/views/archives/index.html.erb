@@ -56,13 +56,17 @@
             <td><%= archive.title %></td>
             <td><%= l archive.installation_date %></td>
             <td><%= archive.status_of_use %></td>
-            <td><%= link_to edit_archive_path(archive.id) if current_user.try(:admin?) do %>
-              <%= image_tag asset_path("edit_icon.png") %>
-              <% end %>
+            <td><%= link_to edit_archive_path(archive.id) do %>
+                <% if current_user.try(:admin?) %>
+                  <%= image_tag asset_path("edit_icon.png") %>
+                <% end %>
+                <% end %>
             </td>
-            <td><%= link_to archive_path(archive.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) do %>
-              <%= image_tag asset_path("delete_icon.png") %>
-              <% end %>
+            <td><%= link_to archive_path(archive.id), method: :delete, data: { confirm: '本当に削除していいですか？' } do %>
+                <% if current_user.try(:admin?) %>
+                  <%= image_tag asset_path("delete_icon.png") %>
+                <% end %>
+                <% end %>
             </td>
           </tr>
           <% end %>
