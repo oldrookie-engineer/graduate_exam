@@ -59,9 +59,9 @@
         <td><%= kindergarten.name %>幼稚園</td>
         <td><%= kindergarten.address %></td>
         <td><%= kindergarten.phone_number %></td>
-        <td><%= link_to image_tag("/images/info.jpeg"), kindergarten_path(kindergarten.id) %></td>
-        <td><%= link_to image_tag("/images/edit_icon.png"), edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
-        <td><%= link_to image_tag("/images/delete_icon.png"), kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
+        <td><%= link_to image_tag("/assets/info.jpeg"), kindergarten_path(kindergarten.id) %></td>
+        <td><%= link_to image_tag("/assets/edit_icon.png"), edit_kindergarten_path(kindergarten.id) if current_user.try(:admin?) %></td>
+        <td><%= link_to image_tag("/assets/delete_icon.png"), kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } if current_user.try(:admin?) %></td>
       </tr>
     <% end %>
     </table>
