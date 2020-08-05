@@ -36,8 +36,6 @@ Rails.application.configure do
   # config.assets.compile = false
   config.assets.compile = true
 
-  # 追記(static fileの配信用)⇩
-  config.server_static_files = true
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
