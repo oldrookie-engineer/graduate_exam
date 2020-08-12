@@ -25,7 +25,11 @@
                   <% if message.user == current_user %>
                     状態:
                     <%= message.read ? '既 読' : '未 読' %><br>
-                    <%= link_to image_tag asset_path("delete_icon"), conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || message.user_id == current_user.id %>
+                    <%= link_to conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } do %>
+                      <% if current_user.try(:admin?) || message.user_id == current_user.id %>
+                        <%= image_tag asset_path("delete_icon.png") %>
+                      <% end %>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -42,7 +46,11 @@
                     <i class="right triangle icon"></i><br>
                     <%= image_tag asset_path("left-face.jpeg"), class: "face-image" %>
                     <strong class="message-left"><%= message.body %></strong><br><br>
-                    <%= link_to image_tag asset_path("delete_icon"), conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } if current_user.try(:admin?) || message.user_id == current_user.id %>
+                    <%= link_to conversation_message_path(@conversation, message), method: :delete, data:{ confirm: '本当に削除していいですか？' } do %>
+                      <% if current_user.try(:admin?) || message.user_id == current_user.id %>
+                        <%= image_tag asset_path("delete_icon.png") %>
+                      <% end %>
+                    <% end %>
                   </div>
                 </div>
               </div>

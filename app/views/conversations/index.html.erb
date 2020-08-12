@@ -3,13 +3,6 @@
     <div class="content-title">
       <h1>ア ー カ イ ブ 使 用・返 却</h1>
     </div>
-    <!-- if文で管理者にメッセージがあればアラートを通知する -->
-    <% if @message.present? %>
-      <div class="alert alert-warning">
-        <span><h4 class="blinking">【管理者へのアラーム】</h4></span>
-        <h5>アーカイブの使用報告メッセージが届いているので、確認してください！</h5>
-      </div>
-    <% end %>
     <table class="table table-hover" id="conversation-index">
       <thead>
         <tr class="table-success">
@@ -21,11 +14,11 @@
         </tr>
       </thead>
       <tbody>
-        <% @conversations.each do |conversations| %>
+        <% @conversations.each do |conversation| %>
         <tr>
           <td>
-            <% if conversations.target_user(current_user).present? %>
-              <h4><%= link_to conversations.target_user(current_user).name, conversation_messages_path(conversations) %></h4>
+            <% if conversation.target_user(current_user).present? %>
+              <h4><%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation) %></h4>
             <% end %>
           </td>
         </tr>
