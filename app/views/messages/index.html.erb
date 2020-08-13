@@ -21,7 +21,7 @@
                   <div class="message-right">
                     <strong><%= message.body %></strong>
                   </div>
-                  <%= image_tag asset_path ("right-face.jpeg"), class: "face-image" %><br><br>
+                  <%= image_tag asset_path("right-face.jpeg"), class: "face-image" %><br><br>
                   <% if message.user == current_user %>
                     状態:
                     <%= message.read ? '既 読' : '未 読' %><br>
