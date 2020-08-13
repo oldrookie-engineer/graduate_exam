@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
   def index
     if current_user.try(:admin?)
-      @users = User.all
+      @users = User.all.page(params[:page]).per(5)
     else
-      @users = User.where(admin: true)
+      @users = User.where(admin: true).page(params[:page]).per(5)
     end
   end
 end

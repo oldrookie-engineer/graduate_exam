@@ -1,12 +1,31 @@
-<h2>ユーザー</h2>
-<% @users.each do |user| %>
-  <% if user.id != current_user.id %>
-  <li>
-    <div class="item">
-      <%= user.name %>
-      <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
+<div class="conversation_image">
+  <div class="conversation_mask">
+    <div class="content-title">
+      <h1>ア ー カ イ ブ 使 用・返 却</h1>
     </div>
-  </li>
-  <% end %>
-<% end %>
-<%= link_to "幼稚園一覧", kindergartens_path %>
+    <table class="table table-hover" id="conversation-index">
+      <thead>
+        <tr class="table-success">
+        <% if current_user.try(:admin?) %>
+          <th><h3>送 信 先</h3></th>
+        <% else %>
+          <th><h3>送 信 先(管 理 者)</h3></th>
+        <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+            <% if user.id != current_user.id %>
+              <h4><%= link_to user.name, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></h4>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @users, class: "page" %><br>
+    <%= link_to "幼稚園一覧", kindergartens_path %><br><br>
+  </div>
+</div>

@@ -91,11 +91,3 @@ end
     status_of_use: "使用中"
   )
 end
-
-
-# 1.times do |n|
-#   Conversation.create!(
-#     recipient_id: "5",
-#     sender_id: "5"
-#   )
-# end

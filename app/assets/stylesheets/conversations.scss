@@ -9,11 +9,13 @@
   background-image: image-url('conversation-image.jpg');
   background-position: center;
   background-size: cover;
-  height: 640px;
+  // height: 640px;
+  height: 100%;
   text-align: center;
 }
 
 .conversation_mask {
   background-color: rgba(255,255,255,0.6);
-  height: 640px;
+  // height: 640px;
+  height: 100%;
 }
