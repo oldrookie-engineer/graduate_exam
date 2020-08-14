@@ -101,7 +101,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # letter_opener_webの本番環境での設定
-  config.action_mailer.default_url_options = { host: 'http://18.177.61.251/' }
-
-  config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.default_url_options = { host: 'http://18.177.61.251/'}
+   config.action_mailer.delivery_method = :letter_opener_web
 end
