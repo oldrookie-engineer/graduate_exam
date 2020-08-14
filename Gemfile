@@ -39,6 +39,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
+  # gem 'letter_opener_web'
 end
 
 group :test do
@@ -60,3 +61,4 @@ gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'fog-aws'
+gem 'letter_opener_web'

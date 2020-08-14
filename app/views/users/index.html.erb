@@ -7,9 +7,13 @@
       <thead>
         <tr class="table-success">
         <% if current_user.try(:admin?) %>
-          <th colspan="2"><h3>送 信 先 （登 録 ユ ー ザ ー）</h3></th>
+          <!-- <th colspan="2"><h3>送 信 先 （登 録 ユ ー ザ ー）</h3></th> -->
+          <th><h3>送 信 先 （登 録 ユ ー ザ ー）</h3></th>
+          <th><h3>メ ッ セ ー ジ</h3></th>
         <% else %>
-          <th colspan="2"><h3>送 信 先 （管 理 者）</h3></th>
+          <!-- <th colspan="2"><h3>送 信 先 （管 理 者）</h3></th> -->
+          <th><h3>送 信 先 （管 理 者）</h3></th>
+          <th><h3>メ ッ セ ー ジ</h3></th>
         <% end %>
         </tr>
       </thead>
@@ -25,6 +29,7 @@
                 <%= image_tag asset_path("mail-icon.png") %>
               <% end %>
             </td>
+
             <% end %>
           </tr>
         <% end %>

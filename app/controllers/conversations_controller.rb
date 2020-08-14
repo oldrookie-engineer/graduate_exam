@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @conversations = Conversation.includes(:messages).page(params[:page]).per(5)
+      @conversations = Conversation.page(params[:page]).per(5)
   end
 
   def create
