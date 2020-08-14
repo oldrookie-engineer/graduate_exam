@@ -137,6 +137,7 @@
     border-radius: 5px;
     padding: 5px;
     text-align: center;
+    margin-bottom: 20px;
   }
 
   .memo input {
