@@ -2,7 +2,7 @@
   <div>
     <div class="searching">
       <h6>幼 稚 園 名 で 検 索<br>(部 分 検 索 も 可)</h6>
-      <input type="text" v-model="keyword" placeholder="入力して下さい">
+      <input type="text" v-model="keyword" placeholder="入力して下さい"><br><br>
     </div>
     <table class="table table-hover">
     <tr>
@@ -151,5 +151,3 @@
     padding: 5px;
   }
 </style>
-
-<style src="./assets/stylesheets/main.scss"></style>
