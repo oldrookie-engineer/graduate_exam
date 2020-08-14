@@ -151,3 +151,5 @@
     padding: 5px;
   }
 </style>
+
+<style src="./assets/stylesheets/main.scss"></style>
