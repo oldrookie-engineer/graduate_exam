@@ -22,17 +22,21 @@
         <tr>
           <th>
             <%= search_form_for @q do |f| %>
-              <%= f.label :name, "幼 稚 園 名 で 検 索 (部 分 検 索 も 可)" %><br>
+              <%= f.label :name, "幼 稚 園 名 で 検 索 (部分検索可)" %><br>
               <%= f.search_field :name_cont, class: "form" %>
               <%= f.submit "  ", class: "search" %>
             <% end %>
           </th>
           <th>
             <%= search_form_for @q do |f| %>
-              <%= f.label :address, "住 所 で 検 索 (部 分 検 索 も 可)" %><br>
+              <%= f.label :address, "住 所 で 検 索 (部分検索可)" %><br>
               <%= f.search_field :address_cont, placeholder: "(例)中野区", class: "form" %>
               <%= f.submit "  ", class: "search" %>
+
             <% end %>
+          </th>
+          <th>
+            <br><%= link_to "全 件 表 示", kindergartens_path, class: "btn btn-secondary all-list" %>
           </th>
         </tr>
       </table>
@@ -77,9 +81,8 @@
         </td>
       </tr>
     <% end %>
-    </table>
+    </table><br>
     <%= paginate @kindergartens, class: "page" %><br>
-    <%= link_to "全 園 表 示", kindergartens_path, class: "btn btn-secondary all-list" %>
   </div>
 </div>
 </div>

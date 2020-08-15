@@ -2,21 +2,22 @@
   <div class="conversation_mask">
     <div class="content-title">
       <h1>ア ー カ イ ブ 使 用・返 却</h1>
-      <%= search_form_for @q do |f| %>
-        <%= f.label :name, "登 録 ユ ー ザ ー 名 で 検 索 (部 分 検 索 も 可)" %><br>
-        <%= f.search_field :name_cont, class: "form" %>
-        <%= f.submit "  ", class: "search" %>
+      <% if current_user.try(:admin?) %>
+        <%= search_form_for @q do |f| %>
+          <b><%= f.label :name, "登 録 ユ ー ザ ー 名 で 検 索 (部 分 検 索 も 可)" %></b><br>
+          <%= f.search_field :name_cont, class: "form" %>
+          <%= f.submit "  ", class: "search" %>
+          <%= link_to '全 件 表 示', users_path, class: "btn btn-secondary all-list" %>
+        <% end %>
       <% end %>
     </div><br>
     <table class="table table-hover" id="conversation-index">
       <thead>
         <tr class="table-success">
         <% if current_user.try(:admin?) %>
-          <!-- <th colspan="2"><h3>送 信 先 （登 録 ユ ー ザ ー）</h3></th> -->
           <th><h3>送 信 先 （登 録 ユ ー ザ ー）</h3></th>
           <th><h3>メ ッ セ ー ジ</h3></th>
         <% else %>
-          <!-- <th colspan="2"><h3>送 信 先 （管 理 者）</h3></th> -->
           <th><h3>送 信 先 （管 理 者）</h3></th>
           <th><h3>メ ッ セ ー ジ</h3></th>
         <% end %>

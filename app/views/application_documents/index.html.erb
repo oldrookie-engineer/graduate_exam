@@ -69,24 +69,27 @@
           <tr>
             <th>
               <%= search_form_for @q do |f| %>
-              <%= f.label :name, "幼 稚 園 名 で 検 索 (部 分 一 致 も 可)" %><br>
+              <%= f.label :name, "幼 稚 園 名 で 検 索 (部分検索可)" %><br>
               <%= f.search_field :name_cont, class: "form" %>
               <%= f.submit "  ", class: "search" %>
               <% end %>
             </th>
             <th>
               <%= search_form_for @q do |f| %>
-              <%= f.label :title, "申 請 認 可 名 で 検 索 (部 分 一 致 も 可)" %><br>
+              <%= f.label :title, "申 請 認 可 名 で 検 索 (部分検索可)" %><br>
               <%= f.search_field :title_cont, class: "form" %>
               <%= f.submit "  ", class: "search" %>
               <% end %>
             </th>
             <th>
               <%= search_form_for @q do |f| %>
-              <%= f.label :user_name_cont, "申 請 処 理 者 名 で 検 索 (部 分 一 致 も 可)" %><br>
+              <%= f.label :user_name_cont, "申 請 処 理 者 名 で 検 索 (部分検索可)" %><br>
               <%= f.search_field :user_name_cont, class: "form" %>
               <%= f.submit "  ", class: "search" %>
               <% end %>
+            </th>
+            <th>
+              <br><%= link_to '全 件 表 示', application_documents_path, class: "btn btn-secondary all-list" %>
             </th>
           </tr>
         </table>
@@ -128,7 +131,6 @@
         <% end %>
       </table>
         <%= paginate @application_documents, class: "page" %>
-        <%= link_to '全 件 表 示', application_documents_path, class: "btn btn-secondary all-list" %>
       </div>
     </div>
   </div>
