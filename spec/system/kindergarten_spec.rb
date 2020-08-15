@@ -3,7 +3,7 @@ RSpec.describe '幼稚園情報管理機能', type: :system do
   describe '幼稚園一覧画面' do
     before do
       @user = create(:user)
-      @kindergarten = create!(:kindergarten)
+      @kindergarten = create(:kindergarten)
       @second_kindergarten = create(:second_kindergarten)
       @station = create(:station)
       @authorization = create(:authorization)

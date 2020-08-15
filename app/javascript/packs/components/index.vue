@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="searching">
-      <h6>幼 稚 園 名 で 検 索<br>(部 分 検 索 も 可)</h6>
+      <b><h6>幼 稚 園 名 で 検 索<br>(部 分 検 索 も 可)</h6></b>
       <input type="text" v-model="keyword" placeholder="入力して下さい"><br><br>
     </div>
     <table class="table table-hover">
@@ -20,7 +20,7 @@
       <td><button v-on:click="deleteTask(task.id, index)">🗑</button></td>
     </tr>
     </table><br>
-    <h5>追加の課題点等があれば入力してください。</h5><br>
+    <b><h5>追加の課題点等があれば入力してください。</h5></b><br>
     <table class="table">
       <tr class="memo">
         <th>
