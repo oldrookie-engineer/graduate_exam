@@ -4,6 +4,10 @@
   animation: 1.5s linear infinite condemned_blink_effect;
 }
 
+h5.blinking {
+  text-align: center;
+}
+
 @keyframes condemned_blink_effect {
   0% {
     visibility: hidden;
@@ -40,6 +44,7 @@
 
 .alert-table {
   text-align: center;
+  margin: 0 auto;
   font-size: 14px;
 }
 

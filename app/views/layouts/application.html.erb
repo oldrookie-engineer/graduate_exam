@@ -20,7 +20,7 @@
           <% else %>
             <%= link_to "アカウント登録", new_user_registration_path, class: 'header_link btn btn-danger' %>
             <%= link_to "ロ グ イ ン", new_user_session_path, class: 'header_link btn btn-info' %>
-            <%= link_to "ゲストログイン(機能制限)", users_guest_sign_in_path, class: 'header_link btn btn-warning', method: :post %>
+            <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, class: 'header_link btn btn-warning', method: :post %>
           <% end %>
           </div>
         <div class="alert_message">
