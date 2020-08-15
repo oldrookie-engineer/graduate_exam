@@ -106,9 +106,9 @@
           <th>編集</th>
           <th>削 除</th>
         </tr>
-        <% @application_documents.each_with_index do |application_document, index| %>
+        <% @application_documents.each.with_index(1) do |application_document, index| %>
         <tr>
-          <td><%= index + 1 %></td>
+          <td><%= index %></td>
           <td><%= application_document.name %>幼稚園</td>
           <td><%= application_document.title %></td>
           <td><%= l application_document.application_date %></td>
@@ -129,7 +129,7 @@
           </td>
         </tr>
         <% end %>
-      </table>
+      </table><br><br>
         <%= paginate @application_documents, class: "page" %>
       </div>
     </div>

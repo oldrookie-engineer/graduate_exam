@@ -10,7 +10,7 @@ RSpec.describe 'アーカイブ管理機能', type: :system do
       fill_in 'user[password]', with: @user.password
       sleep 2.0
       click_on 'commit'
-      click_on 'ア ー カ イ ブ 一 覧'
+      click_on 'ア ー カ イ ブ リ ス ト'
     end
     context 'アーカイブ情報を作成した場合' do
       it '作成済みのアーカイブ情報が表示される' do

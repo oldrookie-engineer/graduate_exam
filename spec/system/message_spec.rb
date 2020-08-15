@@ -10,13 +10,14 @@ RSpec.describe 'アーカイブ使用・返却機能', type: :system do
       fill_in 'user[password]', with: @user.password
       sleep 1.5
       click_on 'commit'
-      click_on 'ア ー カ イ ブ 一 覧'
+      click_on 'ア ー カ イ ブ リ ス ト'
       click_on 'ア ー カ イ ブ 使 用・返 却'
     end
     context '管理者にアーカイブの使用報告メッセージを作成した場合' do
       it '作成済みのメッセージ情報が表示される' do
         sleep 2.0
-        click_on @admin_user.name
+        # click_on @admin_user.name
+        find(:xpath, "/html/body/div/div/table/tbody/tr/td[2]/a/img").click
         sleep 1.0
         fill_in 'message[body]', with: "第一幼稚園の廃園届を使用します。"
         sleep 2.0

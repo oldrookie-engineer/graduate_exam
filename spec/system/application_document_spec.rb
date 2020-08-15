@@ -13,7 +13,7 @@ RSpec.describe '申請認可管理機能', type: :system do
     end
     context '申請認可情報を作成した場合' do
       it '作成済みの認可情報が表示される' do
-        click_on '申 請 認 可 登 録'
+        click_on '申 請 認 可 書 類 登 録'
         sleep 1.0
         fill_in 'application_document[name]', with: "第三"
         select '廃園届', from: 'application_document[title]'
