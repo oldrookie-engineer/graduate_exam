@@ -1,9 +1,9 @@
 <div class="index_image">
   <div class="index_mask">
   <% if current_user.try(:admin?) %>
-    <h1 class="index-title">幼 稚 園 一 覧 ( 管 理 者 用 )</h1>
+    <h1 class="index-title">認 可 幼 稚 園 一 覧 ( 管 理 者 用 )</h1>
   <% else %>
-    <h1 class="index-title">幼 稚 園 一 覧</h1>
+    <h1 class="index-title">認 可 幼 稚 園 一 覧</h1>
   <% end %>
 <br>
 <div class="row" id="kindergarten-info">
@@ -11,9 +11,9 @@
     <ul>
       <h4 class="w-100">M e n u</h4>
       <li><%= link_to "幼 稚 園 新 規 登 録", new_kindergarten_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
-      <li><%= link_to '申 請 認 可 登 録', new_application_document_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
+      <li><%= link_to '申 請 認 可 書 類 登 録', new_application_document_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
       <li><%= link_to '申 請 状 況 一 覧', application_documents_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
-      <li><%= link_to "ア ー カ イ ブ 一 覧", archives_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
+      <li><%= link_to "ア ー カ イ ブ リ ス ト", archives_path, class: "btn btn-warning w-100 p-4 rounded-pill" %></li>
     </ul>
   </div>
   <div class="col-9" id="kindergarten-list">

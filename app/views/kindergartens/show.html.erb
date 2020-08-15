@@ -97,13 +97,13 @@
         </style>
 
         <div id="map"></div>
-        <h4>最寄駅</h4>
+        <h4>最 寄 駅</h4>
         <% @kindergarten.stations.each do |station| %>
           <table>
-            <tr>
-              <td><h5><%= station.route %>線</h5></td>
+            <tr class="station-info">
+              <td><h5>【<%= station.route %>線</h5></td>
               <td><h5><%= station.station_name %>駅</h5</td>
-              <td><h5>徒歩<%= station.walk_time %>分</h5></td>
+              <td><h5>徒歩 <%= station.walk_time %>分】</h5></td>
             </tr>
           </table>
         <% end %>
