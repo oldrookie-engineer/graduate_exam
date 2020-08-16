@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 680px;
+  height: 700px;
 }
 
 #top-image2 {
@@ -13,11 +13,18 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 680px;
+  height: 700px;
 }
 
 #top-image2 h2 {
-  text-align: right;
+  font-size: 37px;
+  font-weight: bold;
+  color: red;
+  margin-left: 130px;
+  opacity: 0.8;
+}
+
+#top-image2 h4 {
   font-weight: bold;
   color: white;
 }
@@ -27,18 +34,20 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 680px;
+  height: 700px;
 }
 
-#top-image3 h2 {
-  text-align: left;
+#top-image3 h4 {
   font-weight: bold;
   color: white;
 }
 
-#top-image3 h2 span {
+#top-image3 h2 {
+  font-size: 37px;
+  font-weight: bold;
   color: red;
-  opacity: 0.9;
+  margin-right: 80px;
+  opacity: 0.8;
 }
 
 #top-image4 {
@@ -46,12 +55,12 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 680px;
+  height: 700px;
 }
 
 .top-mask {
   background-color: rgba(255,255,255,0.5);
-  height: 680px;
+  height: 700px;
 }
 
 .col-3 {
