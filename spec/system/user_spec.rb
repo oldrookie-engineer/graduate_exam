@@ -9,15 +9,15 @@ RSpec.describe 'アカウント登録・ログイン・ログアウト機能', t
         fill_in 'user[password]', with: '111111'
         fill_in 'user[password_confirmation]', with: '111111'
         click_on '登 録'
-        sleep 2.0
+        sleep 1.0
         expect(page).to have_content 'アカウント登録が完了しました。'
-        sleep 2.0
+        sleep 0.5
       end
       it 'ログインしていない時はログイン画面に飛ぶテスト' do
         visit kindergartens_path
-        sleep 2.0
+        sleep 1.0
         expect(current_path).to eq new_user_session_path
-        sleep 2.0
+        sleep 0.5
       end
     end
   end
@@ -31,10 +31,9 @@ RSpec.describe 'アカウント登録・ログイン・ログアウト機能', t
         visit new_user_session_path
         fill_in 'user[email]', with: @user.email
         fill_in 'user[password]', with: @user.password
-        sleep 2.0
         click_on 'commit'
         expect(page).to have_content 'ログインしました。'
-        sleep 2.0
+        sleep 0.5
       end
     end
     context '既にログインしている場合' do
@@ -42,11 +41,10 @@ RSpec.describe 'アカウント登録・ログイン・ログアウト機能', t
         visit new_user_session_path
         fill_in 'user[email]', with: @user.email
         fill_in 'user[password]', with: @user.password
-        sleep 2.0
         click_on 'commit'
         click_on 'ロ グ ア ウ ト'
         expect(page).to have_content 'ログアウトしました。'
-        sleep 2.0
+        sleep 0.5
       end
     end
   end

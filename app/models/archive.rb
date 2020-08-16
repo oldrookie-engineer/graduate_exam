@@ -6,8 +6,8 @@ class Archive < ApplicationRecord
     validates :status_of_use
   end
   enum status_of_use: {
-    在庫あり: 0,
-    使用中: 1
+    使用可: 0,
+    使用不可: 1
   }
   scope :title_search, -> (title) {
     where(title: title)

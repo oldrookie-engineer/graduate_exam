@@ -16,6 +16,7 @@
           <p id="Realtime"></p>
           <% if user_signed_in? %>
             <span>現在のログインユーザー：<strong><%= current_user.name %></strong></span>
+            <span><%= link_to "認可幼稚園一覧", kindergartens_path, class: 'header_link btn btn-secondary' %></span>
             <span><%= link_to "ロ グ ア ウ ト", destroy_user_session_path, method: :delete, class: 'header_link btn btn-primary' %></span>
           <% else %>
             <%= link_to "アカウント登録", new_user_registration_path, class: 'header_link btn btn-danger' %>
