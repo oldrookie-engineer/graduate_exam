@@ -20,5 +20,8 @@ CarrierWave.configure do |config|
     when 'development'
       config.fog_directory = 'asap-box-development'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/asap-box-development'
+    when 'test'
+      config.fog_directory = 'asap-box-test'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/asap-box-test'
   end
 end
