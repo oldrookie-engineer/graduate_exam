@@ -4,24 +4,41 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 620px;
+  height: 680px;
 }
 
 #top-image2 {
-  background-image: image-url('top3.jpg');
+  background-image: image-url('top2.jpg');
   background-size: cover;
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 620px;
+  height: 680px;
+}
+
+#top-image2 h2 {
+  text-align: right;
+  font-weight: bold;
+  color: white;
 }
 
 #top-image3 {
-  background-image: image-url('top2.jpg');
+  background-image: image-url('top3.jpg');
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 620px;
+  height: 680px;
+}
+
+#top-image3 h2 {
+  text-align: left;
+  font-weight: bold;
+  color: white;
+}
+
+#top-image3 h2 span {
+  color: red;
+  opacity: 0.9;
 }
 
 #top-image4 {
@@ -29,12 +46,12 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 620px;
+  height: 680px;
 }
 
 .top-mask {
   background-color: rgba(255,255,255,0.5);
-  height: 620px;
+  height: 680px;
 }
 
 .col-3 {
@@ -42,7 +59,7 @@
 }
 
 .col-3 h1 {
-  padding-top: 20px;
+  padding-top: 5px;
   font-size: 9rem;
   color: #fff;
   font-weight: bold;
@@ -71,7 +88,7 @@
 }
 
 .top-link {
-  margin-top: 100px;
+  margin-top: 60px;
   text-align: center;
 }
 
