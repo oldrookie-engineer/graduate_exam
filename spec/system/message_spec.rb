@@ -11,7 +11,7 @@ RSpec.describe 'アーカイブ使用・返却機能', type: :system do
       sleep 1.0
       click_on 'commit'
       click_on 'ア ー カ イ ブ リ ス ト'
-      click_on 'ア ー カ イ ブ 使 用・返 却'
+      click_on 'アーカイブ使用・返却'
     end
     context '管理者にアーカイブの使用報告メッセージを作成した場合' do
       it '作成済みのメッセージ情報が表示される' do
