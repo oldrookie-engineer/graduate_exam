@@ -31,7 +31,8 @@ $(function() {
 // タイトル
 window.onload = function() {
   scroll_effect();
-  $('.fadein').hide().fadeIn(7000);
+  $('.fadein').hide().fadeIn(4000);
+  $('.after-fadein').hide().fadeIn(9000);
 
   $(window).scroll(function(){
    scroll_effect();
@@ -56,5 +57,3 @@ window.onload = function() {
    });
   }
 };
-
-// 説明文
