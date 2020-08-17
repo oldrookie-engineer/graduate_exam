@@ -18,7 +18,7 @@
             <th>
               <%= search_form_for @q do |f| %>
                 <%= f.label :name, "幼 稚 園 名 で 検 索 (部分検索可)" %><br>
-                <%= f.search_field :name_cont, class: "form" %>
+                <%= f.search_field :name_cont, placeholder: "園名のみ入力", class: "form" %>
                 <%= f.submit "  ", class: "search" %>
               <% end %>
             </th>

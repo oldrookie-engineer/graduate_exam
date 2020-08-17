@@ -11,13 +11,13 @@
 .nav-tabs .nav-link {
   border: 1px solid #000;
   margin-right: 5px;
-  padding: 20px 100px;
+  padding: 20px 50px;
   margin-bottom: 40px;
   margin-top: 20px;
 }
 
 .tab_list ul {
-  margin-left: 165px;
+  margin-left: 335px;
 }
 
 // 担当者メモチェック後の見え消し線
@@ -192,6 +192,7 @@ table.table-hover tr:hover {
 .form {
   border-radius: 5px;
   padding: 3px 0;
+  width: 50%;
 }
 
 .search {
