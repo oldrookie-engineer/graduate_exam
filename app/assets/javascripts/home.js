@@ -31,8 +31,8 @@ $(function() {
 // タイトル
 window.onload = function() {
   scroll_effect();
-  $('.fadein').hide().fadeIn(4000);
-  $('.after-fadein').hide().fadeIn(9000);
+  $('.fadein').hide().fadeIn(5000);
+  $('.after-fadein').hide().fadeIn(10000);
 
   $(window).scroll(function(){
    scroll_effect();

@@ -154,7 +154,6 @@ header span {
 // エラーメッセージ
 #error_explanation h2,ul {
   color: red;
-  // text-align: center;
   list-style: none;
 }
 
@@ -167,11 +166,11 @@ header span {
 footer {
   height: 60px;
   background-image: image-url('header.jpg');
+  text-align: center;
 }
 
 footer p {
   padding-top: 20px;
-  padding-left: 20px;
 }
 
 .footer_mask {
