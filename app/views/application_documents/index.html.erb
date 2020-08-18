@@ -5,17 +5,19 @@
       <div class="col-6">
       <% if @around_deadlines.present? %>
         <div class="alert alert-danger">
-          <span><h5 class="blinking">【申請未処理アラーム】</h5></span>
+          <span><h5 class="blinking">【申請処理期限アラーム】</h5></span>
           <h6><br>本日(<%= l Date.current %>)、申請処理期限まで３日以内もしくは、処理期限を過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h6>
           <table class="alert-table">
             <tr>
+              <th>No</th>
               <th>幼稚園名</th>
               <th>申請認可名</th>
               <th><%= sort_link(@q, :processing_deadline, "申 請 処 理 期 限") %></th>
               <th>申請処理者</th>
             </tr>
-            <% @around_deadlines.each do |deadline| %>
+            <% @around_deadlines.each.with_index(1) do |deadline, index| %>
             <tr>
+              <td><%= index %></td>
               <td><%= deadline.name %>幼稚園</td>
               <td><%= deadline.title %></td>
               <td><%= l deadline.processing_deadline %></td>
@@ -34,19 +36,19 @@
           <h6><br>以下のとおり、削除されていない処理済の申請案件があるので、申請処理者は、アーカイブへの登録を完了後、申請状況一覧から削除してください！</h6>
           <table class="alert-table">
             <tr>
+              <th>No</th>
               <th>幼稚園名</th>
               <th>申請認可名</th>
               <th>申請処理期限</th>
               <th>申請処理者</th>
-              <th>処理状況</th>
             </tr>
-            <% @complete_documents.each do |complete_document| %>
+            <% @complete_documents.each.with_index(1) do |complete_document, index| %>
               <tr>
+                <td><%= index %></td>
                 <td><%= complete_document.name %>幼稚園</td>
                 <td><%= complete_document.title %></td>
                 <td><%= l complete_document.processing_deadline %></td>
                 <td><%= complete_document.user.name %></td>
-                <td><%= complete_document.processing %></td>
               </tr>
             <% end %>
           </table>

@@ -9,7 +9,7 @@ class ApplicationDocument < ApplicationRecord
   validate :date_not_before_today
   belongs_to :user
   scope :deadline, -> {
-    where('processing_deadline <= ?', Time.current.next_day(3).end_of_day)
+    where('processing_deadline <= ?', Time.current.next_day(3).end_of_day).where("(processing = ?) OR (processing = ?)", 0 , 1)
   }
   scope :processing_complete, -> {
     where(processing: 2)
