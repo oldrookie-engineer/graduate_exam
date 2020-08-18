@@ -54,7 +54,7 @@
           </tr>
           <% @archives.each.with_index(1) do |archive, index| %>
           <tr>
-            <td><%= index %></td>
+            <td><%= @base_level + index %></td>
             <td><%= archive.name %>幼稚園</td>
             <td><%= archive.title %></td>
             <td><%= l archive.installation_date %></td>

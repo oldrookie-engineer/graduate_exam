@@ -14,14 +14,16 @@
               <th>申請認可名</th>
               <th><%= sort_link(@q, :processing_deadline, "申 請 処 理 期 限") %></th>
               <th>申請処理者</th>
+              <th>処理状況</th>
             </tr>
             <% @around_deadlines.each.with_index(1) do |deadline, index| %>
             <tr>
-              <td><%= index %></td>
+              <td><%= @base_level + index %></td>
               <td><%= deadline.name %>幼稚園</td>
               <td><%= deadline.title %></td>
               <td><%= l deadline.processing_deadline %></td>
               <td><strong><%= deadline.user.name %></strong></td>
+              <td><%= deadline.processing %></td>
             </tr>
             <% end %>
           </table><br>
@@ -44,11 +46,11 @@
             </tr>
             <% @complete_documents.each.with_index(1) do |complete_document, index| %>
               <tr>
-                <td><%= index %></td>
+                <td><%= @base_level + index %></td>
                 <td><%= complete_document.name %>幼稚園</td>
                 <td><%= complete_document.title %></td>
                 <td><%= l complete_document.processing_deadline %></td>
-                <td><%= complete_document.user.name %></td>
+                <td><strong><%= complete_document.user.name %></strong></td>
               </tr>
             <% end %>
           </table>
@@ -115,7 +117,7 @@
         </tr>
         <% @application_documents.each.with_index(1) do |application_document, index| %>
         <tr>
-          <td><%= index %></td>
+          <td><%= @base_level + index %></td>
           <td><%= application_document.name %>幼稚園</td>
           <td><%= application_document.title %></td>
           <td><%= l application_document.application_date %></td>

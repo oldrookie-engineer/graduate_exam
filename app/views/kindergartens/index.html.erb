@@ -59,7 +59,7 @@
       </tr>
     <% @kindergartens.each.with_index(1) do |kindergarten, index| %>
       <tr class="table table-hover">
-        <td><%= index %></td>
+        <td><%= @base_level + index %></td>
         <td><%= kindergarten.name %>幼稚園</td>
         <td><%= kindergarten.address %></td>
         <td><%= kindergarten.phone_number %></td>

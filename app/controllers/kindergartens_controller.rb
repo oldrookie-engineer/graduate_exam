@@ -5,6 +5,8 @@ class KindergartensController < ApplicationController
   def index
     @q = Kindergarten.ransack(params[:q])
     @kindergartens = @q.result(distinct: true).page(params[:page]).per(5)
+    page_num = Kindergarten.page(params[:page]).current_page
+    @base_level = (page_num - 1) * 5
   end
 
   def new

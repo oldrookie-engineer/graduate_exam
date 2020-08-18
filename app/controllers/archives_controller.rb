@@ -1,10 +1,12 @@
 class ArchivesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_archive, only: [:edit, :update, :destroy]
-  
+
   def index
     @q = Archive.ransack(params[:q])
     @archives = @q.result(distinct: true).page(params[:page]).per(5)
+    page_num =Archive.page(params[:page]).current_page
+    @base_level = (page_num - 1) * 5
     if params[:search].present?
       if params[:title].present?
         @archives = Archive.all.title_search(params[:title]).page(params[:page]).per(5)
