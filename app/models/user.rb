@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(google)
   validates :name, presence: true
-  has_many :application_documents
+  has_many :application_documents, dependent: :destroy
 
   def self.create_unique_string
     SecureRandom.uuid

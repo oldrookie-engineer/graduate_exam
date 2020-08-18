@@ -16,11 +16,13 @@
       <thead>
         <tr class="table-success">
         <% if current_user.try(:admin?) %>
-          <th><h3>送 信 先 （登 録 ユ ー ザ ー）</h3></th>
-          <th><h3>メ ッ セ ー ジ</h3></th>
+          <th><h4>送 信 先 （登 録 ユ ー ザ ー）</h4></th>
+          <th><h4>メ ッ セ ー ジ</h4></th>
+          <th><h4>ユ ー ザ ー 削 除</h4></th>
         <% else %>
-          <th><h3>送 信 先 （管 理 者）</h3></th>
-          <th><h3>メ ッ セ ー ジ</h3></th>
+          <th><h4>送 信 先 （管 理 者）</h4></th>
+          <th><h4>メ ッ セ ー ジ</h4></th>
+          <th colspan="1"></th>
         <% end %>
         </tr>
       </thead>
@@ -34,6 +36,13 @@
             <td>
               <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post do %>
                 <%= image_tag asset_path("mail-icon.png") %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to user_path(user.id), method: :delete, data: {confirm: "本当に削除していいですか？"} do %>
+              <% if current_user.try(:admin?) %>
+                <%= image_tag asset_path("delete_icon.png") %>
+              <% end %>
               <% end %>
             </td>
             <% end %>
