@@ -88,6 +88,29 @@ header span {
   color: red;
 }
 
+.tip {
+  position: relative;
+}
+
+.tiparea {
+  background: gray;
+  color: #eee;
+  font-weight: bold;
+  padding: 5px 5px;
+  position: absolute;
+  top: 30px;
+  left: -35px;
+  text-align: left;
+  display: none;
+  // z-index: 10;
+  width: 110px;
+  border-radius: 5px;
+}
+
+.tip:hover .tiparea {
+  display: inline;
+}
+
 // 現在日時
 #Realtime {
   text-align: center;
