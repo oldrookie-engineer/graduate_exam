@@ -59,7 +59,7 @@ header span {
 
 /* プロフィール */
 .profile_image {
-  background-image: image-url('book_image.jpg');
+  // background-image: image-url('book_image.jp');
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -89,7 +89,9 @@ header span {
   padding-left: 50px;
 }
 
-
+#user-profile td {
+  text-align: center;
+}
 
 // 現在日時
 #Realtime {

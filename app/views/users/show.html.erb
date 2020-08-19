@@ -2,7 +2,7 @@
   <div class="profile_mask">
     <div class="content-title">
       <h1>プロフィール</h1>
-      <table class="table table-striped" id="user-profile">
+      <table class="table table-hover" id="user-profile">
         <tr>
           <th class="table-info", width="50%">ユ ー ザ ー 名</th>
           <th><%= @user.name %></th>
@@ -12,18 +12,19 @@
           <th><%= @user.email %></th>
         </tr>
         <tr>
-          <th class="table-info", width="50%">認可申請処理担当件数</th>
+          <th class="table-info", width="50%">認可申請処理件数</th>
           <th><%= @user.application_documents.count %> 件</th>
         </tr>
         <tr>
-          <th class="table-info", width="50%">内訳</th>
+          <td class="table-danger", width="50%">処理件数内訳</td>
+          <td></td>
         </tr>
         <tr>
-          <th class="table-danger", width="50%"> 認可申請処理件数(未処理・処理中)</th>
+          <th class="table-danger", width="50%"> 未処理・処理中件数</th>
           <th><%= @user.application_documents.deadline.count %> 件</th>
         </tr>
         <tr>
-          <th class="table-danger", width="50%"> 認可申請処理件数(処理済)</th>
+          <th class="table-danger", width="50%"> 処理済件数</th>
           <th><%= @user.application_documents.processing_complete.count %> 件</th>
         </tr>
       </table>
