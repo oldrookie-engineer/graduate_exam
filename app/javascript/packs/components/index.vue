@@ -20,7 +20,7 @@
       <td><button v-on:click="deleteTask(task.id, index)">🗑</button></td>
     </tr>
     </table><br>
-    <h5><b>追加の課題点等があれば入力してください。</b></h5><br>
+    <h5><b>課 題 点 等 が あ れ ば 入 力 し て く だ さ い 。</b></h5><br>
     <table class="table">
       <tr class="memo">
         <th>
