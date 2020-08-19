@@ -15,7 +15,7 @@
           <h2>ASAP BOX</h2>
           <p id="Realtime"></p>
           <% if user_signed_in? %>
-            <span>現在のログインユーザー：<strong><%= current_user.name %></strong></span>
+            <span>現在のログインユーザー：<strong class="login-user"><%= current_user.name %></strong></span>
             <span class="tip">
               <%= link_to user_path(current_user.id) do %>
                 <%= image_tag asset_path("profile-icon.png"), size: "39x39" %>
