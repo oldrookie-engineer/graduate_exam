@@ -16,16 +16,16 @@
           <th><%= @user.application_documents.count %> 件</th>
         </tr>
         <tr>
-          <td class="table-danger", width="50%">処理件数内訳</td>
+          <th class="table-info", width="50%">（処理件数内訳）</th>
           <td></td>
         </tr>
         <tr>
-          <th class="table-danger", width="50%"> 未処理・処理中件数</th>
-          <th><%= @user.application_documents.deadline.count %> 件</th>
+          <th class="table-info", width="50%"><span>（未処理・処理中件数）<span></th>
+          <th><span>（<%= @user.application_documents.deadline.count %> 件）</span></th>
         </tr>
         <tr>
-          <th class="table-danger", width="50%"> 処理済件数</th>
-          <th><%= @user.application_documents.processing_complete.count %> 件</th>
+          <th class="table-info", width="50%"> （処理済件数）</th>
+          <th>（<%= @user.application_documents.processing_complete.count %> 件）</th>
         </tr>
       </table>
     </div><br><br>

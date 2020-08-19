@@ -81,16 +81,11 @@ header span {
 
 #user-profile th {
   text-align: left;
-  padding-left: 50px;
+  padding-left: 150px;
 }
 
-#user-profile th {
-  text-align: left;
-  padding-left: 50px;
-}
-
-#user-profile td {
-  text-align: center;
+#user-profile th span {
+  color: red;
 }
 
 // 現在日時
