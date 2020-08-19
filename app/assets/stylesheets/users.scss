@@ -59,18 +59,19 @@ header span {
 
 /* プロフィール */
 .profile_image {
-  // background-image: image-url('book_image.jp');
+  // background-image: image-url('profile.png');
+  background-color: #FFFFAA;
   background-size: cover;
   background-position: center;
   text-align: center;
 }
 
 .profile_mask {
-  background-color: rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.8);
 }
 
 #user-profile {
-  width: 50%;
+  width: 60%;
   text-align: center;
   margin: 0 auto;
 }
