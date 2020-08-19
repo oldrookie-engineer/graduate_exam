@@ -14,6 +14,9 @@ class ApplicationDocument < ApplicationRecord
   scope :processing_complete, -> {
     where(processing: 2)
   }
+  scope :processing_incomplete, -> {
+    where("(processing = ?) OR (processing = ?)", 0 , 1)
+  }
   enum processing: {
     未処理: 0,
     処理中: 1,
