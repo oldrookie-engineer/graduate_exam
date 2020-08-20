@@ -110,11 +110,12 @@ header span {
   padding: 5px 5px;
   position: absolute;
   top: 35px;
-  left: -35px;
-  text-align: left;
+  left: -25px;
+  text-align: center;
   display: none;
-  width: 110px;
+  width: 83px;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 .tip:hover .tiparea {
