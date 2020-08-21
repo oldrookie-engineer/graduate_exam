@@ -124,3 +124,20 @@
 .message_area {
   border-radius: 10px;
 }
+
+.send span {
+  font-weight: bold;
+  color: red;
+  font-size: 20px;
+}
+
+.receive span {
+  font-weight: bold;
+  color: #000;
+  font-size: 20px;
+}
+
+.message-read {
+  font-weight: bold;
+  font-size: 20px;
+}
