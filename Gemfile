@@ -56,3 +56,5 @@ gem 'geocoder'
 gem "kaminari", ">= 1.2.1"
 gem 'fog-aws'
 gem 'letter_opener_web'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
