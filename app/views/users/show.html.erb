@@ -28,8 +28,8 @@
           <th>（<%= @user.application_documents.processing_complete.count %> 件）</th>
         </tr>
       </table><br><br><br>
-      <div class="sa"></div>
       <% if current_user.try(:admin?) %>
+      <div class="admin-border"></div>
       <h3><b>【各ユーザーの申請処理件数一覧(管理者用)】</b></h3><br>
       <table class="table table-striped" id="user-profile">
         <tr class="table-danger">
