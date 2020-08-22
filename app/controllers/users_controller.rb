@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users = User.page(params[:page]).per(10)
   end
 
   def destroy

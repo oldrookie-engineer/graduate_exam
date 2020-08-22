@@ -27,7 +27,24 @@
           <th class="profile-title"> （処理済の件数）</th>
           <th>（<%= @user.application_documents.processing_complete.count %> 件）</th>
         </tr>
-      </table>
+      </table><br><br><br>
+      <div class="sa"></div>
+      <% if current_user.try(:admin?) %>
+      <h3><b>【各ユーザーの申請処理件数一覧(管理者用)】</b></h3><br>
+      <table class="table table-striped" id="user-profile">
+        <tr class="table-danger">
+          <th>ユーザー名</th>
+          <th>認可申請件数</th>
+        </tr>
+        <% @users.each do |user| %>
+        <tr class="task-count">
+          <td><%= user.name %></td>
+          <td><%= user.application_documents.count %> 件</td>
+        </tr>
+        <% end %>
+      </table><br>
+      <%= paginate @users, class: "page" %>
+      <% end %>
     </div><br><br>
     <%= link_to '戻 る', kindergartens_path, class: "link" %><br><br>
   </div>
