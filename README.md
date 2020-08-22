@@ -1,7 +1,7 @@
 # README
 
 # ASAP BOX
-![asap-box](images/asap-box.png)
+![asap-box](https://user-images.githubusercontent.com/62285033/90954512-cee8e280-e4af-11ea-802c-64a2aeea4430.png)
 
 ## 概要
 
@@ -11,7 +11,7 @@
 #### なる早情報探索アプリ
 
 ## 使用技術
-#### ・Ruby 2.6.5 Rails 5.2.4
+#### ・Ruby 2.6.5
 #### ・Rails 5.2.4
 #### ・Rspec
 #### ・jQuery
@@ -19,6 +19,8 @@
 #### ・Bootstrap4
 #### ・PostgreSQL
 #### ・AWS(VPC,EC2,S3,ALB,Route53,ACM)
+#### ・Nginx(webサーバー)
+#### ・unicorn(アプリケーションサーバー)
 + devise
 + メッセージ機能
 
@@ -74,8 +76,11 @@
 #### ・carrierwave
 #### ・mini_magic
 #### ・webpacker
-#### ・geocoder
+#### ・Geocoder
 #### ・kaminari
 #### ・letter_opener_web
 #### ・bullet
 #### ・fog-aws
+
+## 使用API
+#### ・Google Maps API
