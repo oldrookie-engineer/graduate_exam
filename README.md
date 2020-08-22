@@ -1,6 +1,7 @@
 # README
 
 # ASAP BOX
+![asap-box](images/asap-box.png)
 
 ## 概要
 
