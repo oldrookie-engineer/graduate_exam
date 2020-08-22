@@ -4,19 +4,34 @@
 
 ## 概要
 
-#### 前職(公務員)で役所のデータ管理が、非効率的だと感じていた実務経験を基に、紙媒体で保管している台帳などをデータベースで管理し、調べたい情報を素早く取得することができます。
+#### 前職(公務員)で役所のデータ管理が、非効率的だと感じていた実務経験を基に、紙媒体で保管している認可幼稚園情報の台帳などをデータベースで管理し、調べたい情報を素早く取得することができます。また、職員が行う認可業務の進捗管理も行い、タスク漏れを防ぐことができます。
 ## コンセプト
 
 #### なる早情報探索アプリ
-## バージョン
 
-#### Ruby 2.6.5 Rails 5.2.4
+## 使用技術
+#### ・Ruby 2.6.5 Rails 5.2.4
+#### ・Rails 5.2.4
+#### ・Rspec
+#### ・jQuery
+#### ・Vue.js
+#### ・Bootstrap4
+#### ・PostgreSQL
+#### ・AWS(VPC,EC2,S3,ALB,Route53,ACM)
++ devise
++ メッセージ機能
+
+### カリキュラム外などから１つ以上
++ google API
++ Vue.js
+
 ## 機能一覧
 
-* [ ] ログイン機能
-  * [ ] 外部サービスのアカウントでもログインできる
-* [ ] ユーザー登録機能
-  * [ ] 名前、メールアドレス、パスワードは必須
+### ・ ユーザー登録機能
+* [ ] #### ・名前、メールアドレス、パスワードは必須
+### ・ ログイン機能(devise)
+ ####  ・email、パスワードによる認証
+ ####  ・ゲストログインによる認証も可
 * [ ] 幼稚園一覧表示機能
 * [ ] 幼稚園検索機能
 * [ ] 幼稚園所在地スクロール機能
@@ -53,24 +68,13 @@
 <https://docs.google.com/spreadsheets/d/e/2PACX-1vSVcNq42wBWN9Q6NWiuFELkVaISA5nrj-KsbajAo2JaTvG5L9naN29ragspilV1eyXn7Wh0Iv9-zhPu/pubhtml>
 
 ## 使用Gem
-
-+ devise
-+ ransack
-+ carrierwave
-+ mini_magic
-+ webpacker
-+ geocoder
-+ kaminari
-+ letter_opener_web
-+ bullet
-+ fog-aws
-
-## 使用技術
-### 就業Termから２つ以上
-+ AWS
-+ devise
-+ メッセージ機能
-
-### カリキュラム外などから１つ以上
-+ google API
-+ Vue.js
+#### ・devise
+#### ・ransack
+#### ・carrierwave
+#### ・mini_magic
+#### ・webpacker
+#### ・geocoder
+#### ・kaminari
+#### ・letter_opener_web
+#### ・bullet
+#### ・fog-aws
