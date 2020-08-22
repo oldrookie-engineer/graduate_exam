@@ -1,9 +1,9 @@
 # README
 
 # ASAP BOX
-![asap-box](https://user-images.githubusercontent.com/62285033/90954512-cee8e280-e4af-11ea-802c-64a2aeea4430.png)
+<!-- ![asap-box](https://user-images.githubusercontent.com/62285033/90954512-cee8e280-e4af-11ea-802c-64a2aeea4430.png)
 ## URL
-<https://www.asap-box.work>
+<https://www.asap-box.work> -->
 ## 概要
 
 #### 前職(公務員)で役所のデータ管理が、非効率的だと感じていた実務経験を基に、大量に紙媒体で保管している認可幼稚園情報の台帳などをデータベースで管理し、調べたい情報を素早く探し出すことができます。また、職員が行う認可業務の進捗管理も行い、タスク漏れを防ぐことができます。

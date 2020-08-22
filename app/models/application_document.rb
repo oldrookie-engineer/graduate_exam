@@ -7,7 +7,8 @@ class ApplicationDocument < ApplicationRecord
     validates :processing
   end
   validate :date_not_before_today
-  belongs_to :user
+  # belongs_to :user
+  belongs_to :user, optional: true
   scope :deadline, -> {
     where('processing_deadline <= ?', Time.current.next_day(3).end_of_day).where("(processing = ?) OR (processing = ?)", 0 , 1)
   }
