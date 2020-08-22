@@ -52,16 +52,18 @@
 
 <https://docs.google.com/spreadsheets/d/e/2PACX-1vSVcNq42wBWN9Q6NWiuFELkVaISA5nrj-KsbajAo2JaTvG5L9naN29ragspilV1eyXn7Wh0Iv9-zhPu/pubhtml>
 
-## 使用予定Gem
+## 使用Gem
 
 + devise
 + ransack
 + carrierwave
 + mini_magic
++ webpacker
 + geocoder
++ kaminari
 + letter_opener_web
-+ omniauth
-+ omniauth-google-oauth2
++ bullet
++ fog-aws
 
 ## 使用技術
 ### 就業Termから２つ以上

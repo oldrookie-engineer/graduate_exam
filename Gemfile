@@ -39,14 +39,10 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
-  # gem 'letter_opener_web'
 end
 
 group :test do
-  # gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-
-  # gem 'chromedriver-helper'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -58,7 +54,5 @@ gem 'mini_magick'
 gem 'webpacker'
 gem 'geocoder'
 gem 'kaminari'
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
 gem 'fog-aws'
 gem 'letter_opener_web'
