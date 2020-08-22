@@ -53,6 +53,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'webpacker'
 gem 'geocoder'
-gem 'kaminari'
+gem "kaminari", ">= 1.2.1"
 gem 'fog-aws'
 gem 'letter_opener_web'
