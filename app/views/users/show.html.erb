@@ -32,8 +32,8 @@
       <div class="admin-border"></div>
       <h3 class="task-title"><b>【各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</b></h3><br>
       <h4 class="total-tasks">現 在 の 申 請 総 数：<span><%= @tasks.count %></span> 件</h4><br>
-      <div class="pie-chart">
-        <%= pie_chart @chart, class: "pie" %>
+      <div class="task-column">
+        <%= column_chart @chart %>
       </div><br><br>
       <table class="table table-bordered" id="task-count">
         <tr>
@@ -51,7 +51,6 @@
       </table><br><br>
       <%= paginate @users, class: "page" %>
       <% end %>
-    </div>
     <%= link_to '戻 る', kindergartens_path, class: "link" %><br><br><br>
   </div>
 </div>
