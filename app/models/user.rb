@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(google)
   validates :name, presence: true
   has_many :application_documents, dependent: :destroy
-  # has_many :application_documents, ->{order('application_documents.count DESC')}, dependent: :destroy
 
   def self.create_unique_string
     SecureRandom.uuid
