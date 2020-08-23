@@ -31,6 +31,7 @@
       <% if current_user.try(:admin?) %>
       <div class="admin-border"></div>
       <h3 class="task-title"><b>【各ユーザーの認可申請件数(管理者用)】</b></h3><br>
+      <%= pie_chart @chart, class: "pie" %><br><br>
       <table class="table table-bordered" id="task-count">
         <tr>
           <th class="task-content" width="15%">ユーザー名</th>

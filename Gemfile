@@ -58,3 +58,5 @@ gem 'fog-aws'
 gem 'letter_opener_web'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem "chartkick"
+gem 'chartable'
