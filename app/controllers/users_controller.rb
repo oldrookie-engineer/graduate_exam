@@ -9,12 +9,12 @@ class UsersController < ApplicationController
     else
       @users = User.where(admin: true).page(params[:page]).per(5)
     end
+    page_num = User.page(params[:page]).current_page
+    @base_level = (page_num - 1) * 5
   end
 
   def show
-    # @q = User.ransack(params[:q])
-    # @users = @q.result(distinct: true).joins(:application_documents).page(params[:page]).per(10)
-    @users = User.page(params[:page]).per(10)
+    @users = User.joins(:application_documents).group("users.id").order("count(application_documents.id) desc").page(params[:page]).per(5)
   end
 
   def destroy
