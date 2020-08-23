@@ -13,9 +13,10 @@ class UsersController < ApplicationController
 
   def show
     # @q = User.ransack(params[:q])
-    # @users = @q.result(distinct: true).page(params[:page]).per(10)
+    # @users = @q.result(distinct: true).joins(:application_documents).page(params[:page]).per(10)
     # @users = User.all.includes(:application_documents).page(params[:page]).per(10)
     @users = User.page(params[:page]).per(10)
+    # @users = User.joins(:application_documents).group("application_documents").order("count_all DESC").count.page(params[:page]).per(10)
   end
 
   def destroy
