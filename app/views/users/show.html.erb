@@ -30,22 +30,24 @@
       </table><br><br><br>
       <% if current_user.try(:admin?) %>
       <div class="admin-border"></div>
-      <h3><b>【各ユーザーの申請処理件数一覧(管理者用)】</b></h3><br>
-      <table class="table table-striped" id="user-profile">
-        <tr class="table-danger">
-          <th>ユーザー名</th>
-          <th>認可申請件数</th>
-        </tr>
-        <% @users.each do |user| %>
-        <tr class="task-count">
+      <h3 class="task-title"><b>【各ユーザーの申請処理件数一覧(管理者用)】</b></h3><br>
+      <table class="table table-border" id="task-count">
+        <tr>
+          <th class="task-content" width="15%">名 前</th>
+          <% @users.each do |user| %>
           <td><%= user.name %></td>
-          <td><%= user.application_documents.count %> 件</td>
+          <% end %>
         </tr>
-        <% end %>
-      </table><br>
+        <tr>
+          <th class="task-content" width="15%">件 数</th>
+          <% @users.each do |user| %>
+          <td><%= user.application_documents.count %>件</td>
+          <% end %>
+        </tr>
+      </table><br><br>
       <%= paginate @users, class: "page" %>
       <% end %>
-    </div><br><br>
+    </div>
     <%= link_to '戻 る', kindergartens_path, class: "link" %><br><br>
   </div>
 </div>

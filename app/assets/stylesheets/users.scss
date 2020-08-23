@@ -128,12 +128,37 @@ header span {
   border: 2px ridge skyblue;
   width: 95%;
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-.task-count td {
+#task-count {
+  width: 95%;
   text-align: center;
-  padding-right: 40px;
+  margin: 0 auto;
+  height: 80%;
+}
+
+#task-count tr {
+  text-align: center;
+  border: 3px solid #dfe2e7;
+}
+
+#task-count th {
+  text-align: center;
+}
+
+#task-count td {
+  text-align: center;
+  border: 1px solid #dfe2e7;
+}
+
+.task-title {
+  margin-bottom: 30px;
+}
+
+.task-content {
+  background: #AEFFBD	;
+  text-align: center;
 }
 
 // 現在日時
