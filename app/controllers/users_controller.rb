@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def show
     @users = User.joins(:application_documents).group("users.id").order("count(application_documents.id) desc").page(params[:page]).per(5)
     @chart = User.joins(:application_documents).group("users.name").count
-    @tasks = User.all
+    @tasks = User.joins(:application_documents)
   end
 
   def destroy

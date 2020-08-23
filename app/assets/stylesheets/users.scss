@@ -169,6 +169,12 @@ header span {
   border-radius: 10px;
 }
 
+.total-tasks span {
+  font-size: 35px;
+  font-weight: bold;
+  color: red;
+}
+
 // 現在日時
 #Realtime {
   text-align: center;
