@@ -9,8 +9,7 @@ class UsersController < ApplicationController
     else
       @users = User.where(admin: true).page(params[:page]).per(5)
     end
-    page_num = User.page(params[:page]).current_page
-    @base_level = (page_num - 1) * 5
+    @member_users = User.all
   end
 
   def show

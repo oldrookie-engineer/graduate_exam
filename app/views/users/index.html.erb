@@ -12,16 +12,17 @@
         <% end %>
       <% end %>
     </div><br>
+    <% if current_user.try(:admin?) %>
+      <h5 class="member_count">現 在 の 登 録 ユ ー ザ ー 数：<span><%= @member_users.count %></span> 人</h5>
+    <% end %><br>
     <table class="table table-hover" id="conversation-index">
       <thead>
         <tr class="table-success">
         <% if current_user.try(:admin?) %>
-          <th><h4>N o</h4></th>
           <th><h4>送 信 先 （登 録 ユ ー ザ ー）</h4></th>
           <th><h4>メ ッ セ ー ジ</h4></th>
           <th><h4>ユ ー ザ ー 削 除</h4></th>
         <% else %>
-          <th><h4>N o</h4></th>
           <th><h4>送 信 先 （管 理 者）</h4></th>
           <th><h4>メ ッ セ ー ジ</h4></th>
           <th colspan="1"></th>
@@ -29,12 +30,9 @@
         </tr>
       </thead>
       <tbody>
-        <% @users.each.with_index(0) do |user, index| %>
+        <% @users.each do |user, index| %>
           <tr>
             <% if user.id != current_user.id %>
-            <td>
-              <h4 class="messenger"><%= @base_level + index %></h4>
-            </td>
             <td>
               <h4 class="messenger"><%= user.name %></h4>
             </td>
