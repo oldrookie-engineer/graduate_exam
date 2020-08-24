@@ -70,76 +70,78 @@
         </ul>
       </div>
       <div class="col-9" id="kindergarten-list">
-        <div class="search_behind">
-        <table class="table table-borderless">
-          <tr>
-            <th>
-              <%= search_form_for @q do |f| %>
-              <%= f.label :name, "幼稚園名で検索" %><br>
-              <%= f.label :name, "(部分検索可)" %><br>
-              <%= f.search_field :name_cont, placeholder: "園名のみ入力", class: "form" %>
-              <%= f.submit "  ", class: "search" %>
-              <% end %>
-            </th>
-            <th>
-              <%= search_form_for @q do |f| %>
-              <%= f.label :title, "申請認可名で検索" %><br>
-              <%= f.label :title, "(部分検索可)" %><br>
-              <%= f.search_field :title_cont, class: "form" %>
-              <%= f.submit "  ", class: "search" %>
-              <% end %>
-            </th>
-            <th>
-              <%= search_form_for @q do |f| %>
-              <%= f.label :user_name_cont, "申請処理者名で検索" %><br>
-              <%= f.label :user_name_cont, "(部分検索可)" %><br>
-              <%= f.search_field :user_name_cont, class: "form" %>
-              <%= f.submit "  ", class: "search" %>
-              <% end %>
-            </th>
-            <th>
-              <br><br><%= link_to '全件表示', application_documents_path, class: "btn btn-secondary all-list" %>
-            </th>
+        <div id="pagenate">
+          <div class="search_behind">
+          <table class="table table-borderless">
+            <tr>
+              <th>
+                <%= search_form_for @q do |f| %>
+                <%= f.label :name, "幼稚園名で検索" %><br>
+                <%= f.label :name, "(部分検索可)" %><br>
+                <%= f.search_field :name_cont, placeholder: "園名のみ入力", class: "form" %>
+                <%= f.submit "  ", class: "search" %>
+                <% end %>
+              </th>
+              <th>
+                <%= search_form_for @q do |f| %>
+                <%= f.label :title, "申請認可名で検索" %><br>
+                <%= f.label :title, "(部分検索可)" %><br>
+                <%= f.search_field :title_cont, class: "form" %>
+                <%= f.submit "  ", class: "search" %>
+                <% end %>
+              </th>
+              <th>
+                <%= search_form_for @q do |f| %>
+                <%= f.label :user_name_cont, "申請処理者名で検索" %><br>
+                <%= f.label :user_name_cont, "(部分検索可)" %><br>
+                <%= f.search_field :user_name_cont, class: "form" %>
+                <%= f.submit "  ", class: "search" %>
+                <% end %>
+              </th>
+              <th>
+                <br><br><%= link_to '全件表示', application_documents_path, class: "btn btn-secondary all-list" %>
+              </th>
+            </tr>
+          </table>
+          </div>
+        <table class="table table-hover">
+          <tr class="table-success">
+            <th>No</th>
+            <th><%= sort_link(@q, :name, "幼 稚 園 名") %></th>
+            <th><%= sort_link(@q, :title, "申 請 認 可 名") %></th>
+            <th><%= sort_link(@q, :application_date, "申 請 日") %></th>
+            <th><%= sort_link(@q, :processing_deadline, "申請処理期限") %></th>
+            <th><%= sort_link(@q, :user_id, "申請処理者") %></th>
+            <th><%= sort_link(@q, :processing, "処 理 状 況") %></th>
+            <th>編集</th>
+            <th>削 除</th>
           </tr>
-        </table>
+          <% @application_documents.each.with_index(1) do |application_document, index| %>
+          <tr>
+            <td><%= @base_level + index %></td>
+            <td><%= application_document.name %>幼稚園</td>
+            <td><%= application_document.title %></td>
+            <td><%= l application_document.application_date %></td>
+            <td><%= l application_document.processing_deadline %></td>
+            <td><%= application_document.user.name %></td>
+            <td><%= application_document.processing %></td>
+            <td><%= link_to edit_application_document_path(application_document.id) do %>
+                <% if current_user.try(:admin?) || current_user.id == application_document.user_id %>
+                  <%= image_tag asset_path("edit_icon.png") %>
+                <% end %>
+                <% end %>
+            </td>
+            <td><%= link_to application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } do %>
+                <% if current_user.try(:admin?) || current_user.id == application_document.user_id %>
+                <%= image_tag asset_path("delete_icon.png") %>
+                <% end %>
+                <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </table><br><br>
+        <%= paginate @application_documents, class: "page", remote: true %>
         </div>
-      <table class="table table-hover">
-        <tr class="table-success">
-          <th>No</th>
-          <th><%= sort_link(@q, :name, "幼 稚 園 名") %></th>
-          <th><%= sort_link(@q, :title, "申 請 認 可 名") %></th>
-          <th><%= sort_link(@q, :application_date, "申 請 日") %></th>
-          <th><%= sort_link(@q, :processing_deadline, "申請処理期限") %></th>
-          <th><%= sort_link(@q, :user_id, "申請処理者") %></th>
-          <th><%= sort_link(@q, :processing, "処 理 状 況") %></th>
-          <th>編集</th>
-          <th>削 除</th>
-        </tr>
-        <% @application_documents.each.with_index(1) do |application_document, index| %>
-        <tr>
-          <td><%= @base_level + index %></td>
-          <td><%= application_document.name %>幼稚園</td>
-          <td><%= application_document.title %></td>
-          <td><%= l application_document.application_date %></td>
-          <td><%= l application_document.processing_deadline %></td>
-          <td><%= application_document.user.name %></td>
-          <td><%= application_document.processing %></td>
-          <td><%= link_to edit_application_document_path(application_document.id) do %>
-              <% if current_user.try(:admin?) || current_user.id == application_document.user_id %>
-                <%= image_tag asset_path("edit_icon.png") %>
-              <% end %>
-              <% end %>
-          </td>
-          <td><%= link_to application_document_path(application_document.id), method: :delete, data: { confirm: '本当に削除していいですか？' } do %>
-              <% if current_user.try(:admin?) || current_user.id == application_document.user_id %>
-              <%= image_tag asset_path("delete_icon.png") %>
-              <% end %>
-              <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </table><br><br>
-        <%= paginate @application_documents, class: "page" %>
       </div>
     </div>
   </div>

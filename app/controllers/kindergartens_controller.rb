@@ -7,6 +7,10 @@ class KindergartensController < ApplicationController
     @kindergartens = @q.result(distinct: true).page(params[:page]).per(5)
     page_num = Kindergarten.page(params[:page]).current_page
     @base_level = (page_num - 1) * 5
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

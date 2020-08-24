@@ -12,6 +12,7 @@
         </ul>
       </div>
       <div class="col-9" id="kindergarten-list">
+        <div id="pagenate">
         <div class="search_behind">
         <table class="table table-borderless">
           <tr class="archive-search">
@@ -74,7 +75,9 @@
           </tr>
           <% end %>
         </table><br><br>
-    <%= paginate @archives, class: "page" %>
+    <%= paginate @archives, class: "page", remote: true %>
     </div>
+  </div>
+
   </div>
 </div>
