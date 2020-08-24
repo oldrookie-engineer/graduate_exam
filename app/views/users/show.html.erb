@@ -14,7 +14,7 @@
         <div class="tab-pane active" id="ContentA">
       <table class="table table-border" id="user-profile">
         <tr>
-          <th class="profile-title" width="50%">ユ ー ザ ー 名</th>
+          <th class="profile-title">ユ ー ザ ー 名</th>
           <th><%= @user.name %></th>
         </tr>
         <tr>
@@ -49,13 +49,13 @@
         </div><br><br>
         <table class="table table-bordered" id="task-count">
           <tr>
-            <th class="task-content" width="20%">ユーザー名</th>
+            <th class="task-content">ユーザー名</th>
             <% @users.each do |user| %>
             <td><%= user.name %></td>
             <% end %>
           </tr>
           <tr>
-            <th class="task-content" width="20%">件 数</th>
+            <th class="task-content">件 数</th>
             <% @users.each do |user| %>
             <td><%= user.application_documents.count %>件</td>
             <% end %>

@@ -92,21 +92,13 @@ header span {
   margin: 0 auto;
 }
 
-#user-profile tr {
-  text-align: left;
-}
-
-#user-profile th {
-  text-align: left;
-  padding-left: 150px;
-}
-
 #user-profile th span {
   color: red;
 }
 
 .profile-title {
   background: #AEFFBD	;
+  width: 50%;
 }
 
 .tip {
@@ -167,6 +159,7 @@ header span {
 .task-content {
   background: #AEFFBD	;
   text-align: center;
+  width: 20%;
 }
 
 .task-column {
