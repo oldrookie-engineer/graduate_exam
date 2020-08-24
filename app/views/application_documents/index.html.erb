@@ -5,8 +5,8 @@
       <div class="col-6">
       <% if @around_deadlines.present? %>
         <div class="alert alert-danger">
-          <span><h5 class="blinking">【申請処理期限アラーム】</h5></span>
-          <h6><br>現在(<%= l Date.current %>)、申請処理期限まで３日以内もしくは、処理期限を過ぎている申請案件がありますので、申請処理者は速やかに対応願います！</h6>
+          <span><h5 class="blinking">【申 請 処 理 期 限 ア ラ ー ム】</h5></span>
+          <h6><br>現在(<%= l Date.current %>)、<span>申請処理期限まで３日以内</span>もしくは、<span>処理期限を過ぎている</span>申請案件がありますので、申請処理者は速やかに対応願います！</h6>
           <table class="alert-table">
             <tr>
               <th>No</th>
@@ -34,7 +34,7 @@
       <div class="col-6">
       <% if @complete_documents.present? %>
         <div class="alert alert-warning">
-          <span><h5 class="blinking">【申請処理済アラーム】</h5></span>
+          <span><h5 class="blinking">【申 請 処 理 済 ア ラ ー ム】</h5></span>
           <h6><br>以下のとおり、削除されていない処理済の申請案件があるので、申請処理者は、アーカイブへの登録を完了後、申請状況一覧から削除してください！</h6>
           <table class="alert-table">
             <tr>

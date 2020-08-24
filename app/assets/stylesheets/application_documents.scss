@@ -6,6 +6,15 @@
 
 h5.blinking {
   text-align: center;
+  font-weight: bold;
+  color: red;
+  font-size: 25px;
+}
+
+.alert h6 span {
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 @keyframes condemned_blink_effect {
