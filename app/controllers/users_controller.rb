@@ -10,6 +10,10 @@ class UsersController < ApplicationController
       @users = User.where(admin: true).page(params[:page]).per(5)
     end
     @member_users = User.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

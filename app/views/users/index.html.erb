@@ -3,6 +3,8 @@
     <div class="content-title">
       <h1>ア ー カ イ ブ 使 用・返 却</h1>
       <h5>アーカイブの使用・返却をする場合は、管理者あてにメッセージをお送りください。<br>その際、アーカイブ情報(幼稚園名・申請認可名・認可日)を記載してください。</h5>
+    </div>
+    <div id="pagenate">
       <% if current_user.try(:admin?) %>
         <%= search_form_for @q do |f| %>
           <b><%= f.label :name, "登 録 ユ ー ザ ー 名 で 検 索 (部 分 検 索 も 可)" %></b><br>
@@ -11,7 +13,7 @@
           <%= link_to '全 件 表 示', users_path, class: "btn btn-secondary all-list" %>
         <% end %>
       <% end %>
-    </div><br>
+    <div id="paginate">
     <% if current_user.try(:admin?) %>
       <h5 class="member_count">現 在 の 登 録 ユ ー ザ ー 数：<span><%= @member_users.count %></span> 人</h5>
     <% end %><br>
@@ -53,7 +55,8 @@
         <% end %>
       </tbody>
     </table>
-    <%= paginate @users, class: "page" %>
+    <%= paginate @users, class: "page", remote: true %>
+    </div>
     <% if current_user.try(:admin?) %>
       <%= link_to "メ ッ セ ー ジ 受 信 確 認（ 管理者用 ）", "/letter_opener", target: :_blank, class: "btn btn-success rounded-pill p-3" %>
     <% end %><br><br>
