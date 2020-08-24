@@ -2,6 +2,16 @@
   <div class="profile_mask">
     <div class="content-title">
       <h1>プロフィール</h1><br><br>
+      <% if current_user.try(:admin?) %>
+      <div class="tab-list">
+        <ul class="nav nav-tabs">
+          <li class="nav-item"><a href="#ContentA" class="nav-link active" data-toggle="tab">プ ロ フ ィ ー ル</a></li>
+          <li class="nav-item"><a href="#ContentB" class="nav-link" data-toggle="tab">認 可 申 請 件 数</a></li>
+        </ul><br>
+      </div>
+      <% end %>
+      <div class="tab-content">
+        <div class="tab-pane active" id="ContentA">
       <table class="table table-border" id="user-profile">
         <tr>
           <th class="profile-title" width="50%">ユ ー ザ ー 名</th>
@@ -28,29 +38,34 @@
           <th>（<%= @user.application_documents.processing_complete.count %> 件）</th>
         </tr>
       </table><br><br><br>
-      <% if current_user.try(:admin?) %>
-      <div class="admin-border"></div>
-      <h3 class="task-title"><b>【各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</b></h3><br>
-      <h4 class="total-tasks">現 在 の 申 請 総 数：<span><%= @tasks.count %></span> 件</h4><br>
-      <div class="task-column">
-        <%= column_chart @chart %>
-      </div><br><br>
-      <table class="table table-bordered" id="task-count">
-        <tr>
-          <th class="task-content" width="15%">ユーザー名</th>
-          <% @users.each do |user| %>
-          <td><%= user.name %></td>
-          <% end %>
-        </tr>
-        <tr>
-          <th class="task-content" width="15%">件 数</th>
-          <% @users.each do |user| %>
-          <td><%= user.application_documents.count %>件</td>
-          <% end %>
-        </tr>
-      </table><br><br>
-      <%= paginate @users, class: "page" %>
-      <% end %>
+      </div>
+      <div class="tab-pane" id="ContentB">
+        <div id="pagenate">
+        <% if current_user.try(:admin?) %>
+        <h3 class="task-title"><b>【各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</b></h3><br>
+        <h4 class="total-tasks">現 在 の 申 請 総 数：<span><%= @tasks.count %></span> 件</h4><br>
+        <div class="task-column">
+          <%= column_chart @chart %>
+        </div><br><br>
+        <table class="table table-bordered" id="task-count">
+          <tr>
+            <th class="task-content" width="20%">ユーザー名</th>
+            <% @users.each do |user| %>
+            <td><%= user.name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <th class="task-content" width="20%">件 数</th>
+            <% @users.each do |user| %>
+            <td><%= user.application_documents.count %>件</td>
+            <% end %>
+          </tr>
+        </table><br><br>
+        <%= paginate @users, class: "page", remote: true %>
+        <% end %>
+        </div>
+      </div>
+    </div>
     <%= link_to '戻 る', kindergartens_path, class: "link" %><br><br><br>
   </div>
 </div>

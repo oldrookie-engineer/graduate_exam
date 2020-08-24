@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     @users = User.joins(:application_documents).group("users.id").order("count(application_documents.id) desc").page(params[:page]).per(5)
     @chart = User.joins(:application_documents).group("users.name").count
     @tasks = User.joins(:application_documents)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy

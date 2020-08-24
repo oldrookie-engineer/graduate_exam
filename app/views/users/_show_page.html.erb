@@ -1,0 +1,22 @@
+<% if current_user.try(:admin?) %>
+  <h3 class="task-title"><b>【各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</b></h3><br>
+  <h4 class="total-tasks">現 在 の 申 請 総 数：<span><%= @tasks.count %></span> 件</h4><br>
+    <div class="task-column">
+      <%= column_chart @chart %>
+    </div><br><br>
+  <table class="table table-bordered" id="task-count">
+    <tr>
+      <th class="task-content" width="15%">ユーザー名</th>
+      <% @users.each do |user| %>
+      <td><%= user.name %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <th class="task-content" width="15%">件 数</th>
+      <% @users.each do |user| %>
+      <td><%= user.application_documents.count %>件</td>
+      <% end %>
+    </tr>
+  </table><br><br>
+  <%= paginate @users, class: "page", remote: true  %>
+<% end %>

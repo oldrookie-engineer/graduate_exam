@@ -42,50 +42,50 @@
           </tr>
         </table>
       </div>
-      <table class="table table-hover">
-        <tr class="table-success">
-          <th>No</th>
-          <th><%= sort_link(@q, :name, "幼 稚 園 名") %></th>
-          <th><%= sort_link(@q, :address, "住 所") %></th>
-          <th>電 話 番 号</th>
-          <th>詳 細</th>
-          <th><% if current_user.try(:admin?) %>
-              編集
-              <% end %>
-          </th>
-          <th><% if current_user.try(:admin?) %>
-              削 除
-              <% end %>
-          </th>
-        </tr>
-      <% @kindergartens.each.with_index(1) do |kindergarten, index| %>
-        <tr class="table table-hover">
-          <td><%= @base_level + index %></td>
-          <td><%= kindergarten.name %>幼稚園</td>
-          <td><%= kindergarten.address %></td>
-          <td><%= kindergarten.phone_number %></td>
-          <td><%= link_to kindergarten_path(kindergarten.id) do %>
-            <%= image_tag asset_path("info.jpeg") %>
-            <% end %>
-          </td>
-          <td><%= link_to edit_kindergarten_path(kindergarten.id) do %>
-              <% if current_user.try(:admin?) %>
-                <%= image_tag asset_path("edit_icon.png") %>
-              <% end %>
-              <% end %>
-          </td>
-          <td><%= link_to kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } do %>
-              <% if current_user.try(:admin?) %>
-                <%= image_tag asset_path("delete_icon.png") %>
-              <% end %>
-              <% end %>
-          </td>
-        </tr>
-      <% end %>
-      </table><br><br>
-    <%= paginate @kindergartens, class: "page", remote: true %><br>
+        <table class="table table-hover">
+          <tr class="table-success">
+            <th>No</th>
+            <th><%= sort_link(@q, :name, "幼 稚 園 名") %></th>
+            <th><%= sort_link(@q, :address, "住 所") %></th>
+            <th>電 話 番 号</th>
+            <th>詳 細</th>
+            <th><% if current_user.try(:admin?) %>
+                編集
+                <% end %>
+            </th>
+            <th><% if current_user.try(:admin?) %>
+                削 除
+                <% end %>
+            </th>
+          </tr>
+          <% @kindergartens.each.with_index(1) do |kindergarten, index| %>
+            <tr class="table table-hover">
+              <td><%= @base_level + index %></td>
+              <td><%= kindergarten.name %>幼稚園</td>
+              <td><%= kindergarten.address %></td>
+              <td><%= kindergarten.phone_number %></td>
+              <td><%= link_to kindergarten_path(kindergarten.id) do %>
+                <%= image_tag asset_path("info.jpeg") %>
+                <% end %>
+              </td>
+              <td><%= link_to edit_kindergarten_path(kindergarten.id) do %>
+                  <% if current_user.try(:admin?) %>
+                    <%= image_tag asset_path("edit_icon.png") %>
+                  <% end %>
+                  <% end %>
+              </td>
+              <td><%= link_to kindergarten_path(kindergarten.id), method: :delete, data: { confirm: '本当に削除していいですか？' } do %>
+                  <% if current_user.try(:admin?) %>
+                    <%= image_tag asset_path("delete_icon.png") %>
+                  <% end %>
+                  <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table><br><br>
+        <%= paginate @kindergartens, class: "page", remote: true %><br>
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
-</div>
-</div>
 </div>
