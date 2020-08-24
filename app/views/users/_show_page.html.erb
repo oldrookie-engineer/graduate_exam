@@ -1,11 +1,11 @@
 <% if current_user.try(:admin?) %>
   <h3 class="task-title"><b>【各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</b></h3><br>
   <h4 class="total-tasks">現 在 の 申 請 総 数：<span><%= @tasks.count %></span> 件</h4><br>
-    <div class="task-column">
-      <p>申 請 件 数</p>
-      <%= column_chart @chart %>
-      <p>ユ ー ザ ー 名</p>
-    </div><br><br>
+  <div class="task-column">
+    <p class="y-column">申 請 件 数</p>
+    <%= column_chart @chart %>
+    <p class="x-column">ユ ー ザ ー 名</p>
+  </div><br><br>
   <table class="table table-bordered" id="task-count">
     <tr>
       <th class="task-content" width="15%">ユーザー名</th>
