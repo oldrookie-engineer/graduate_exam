@@ -12,8 +12,7 @@
           <%= f.submit "  ", class: "search" %>
           <%= link_to '全 件 表 示', users_path, class: "btn btn-secondary all-list" %>
         <% end %>
-      <% end %>
-    <div id="paginate">
+      <% end %><br>
     <% if current_user.try(:admin?) %>
       <h5 class="member_count">現 在 の 登 録 ユ ー ザ ー 数：<span><%= @member_users.count %></span> 人</h5>
     <% end %><br>

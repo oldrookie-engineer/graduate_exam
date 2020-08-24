@@ -1,42 +1,50 @@
 <% if current_user.try(:admin?) %>
-  <h5 class="member_count">現 在 の 登 録 ユ ー ザ ー 数：<span><%= @member_users.count %></span> 人</h5>
+  <%= search_form_for @q do |f| %>
+    <b><%= f.label :name, "登 録 ユ ー ザ ー 名 で 検 索 (部 分 検 索 も 可)" %></b><br>
+    <%= f.search_field :name_cont, class: "form" %>
+    <%= f.submit "  ", class: "search" %>
+    <%= link_to '全 件 表 示', users_path, class: "btn btn-secondary all-list" %>
+  <% end %>
+<% end %><br>
+<% if current_user.try(:admin?) %>
+<h5 class="member_count">現 在 の 登 録 ユ ー ザ ー 数：<span><%= @member_users.count %></span> 人</h5>
 <% end %><br>
 <table class="table table-hover" id="conversation-index">
-  <thead>
-    <tr class="table-success">
-    <% if current_user.try(:admin?) %>
-      <th><h4>送 信 先 （登 録 ユ ー ザ ー）</h4></th>
-      <th><h4>メ ッ セ ー ジ</h4></th>
-      <th><h4>ユ ー ザ ー 削 除</h4></th>
-    <% else %>
-      <th><h4>送 信 先 （管 理 者）</h4></th>
-      <th><h4>メ ッ セ ー ジ</h4></th>
-      <th colspan="1"></th>
-    <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user, index| %>
-      <tr>
-        <% if user.id != current_user.id %>
-        <td>
-          <h4 class="messenger"><%= user.name %></h4>
-        </td>
-        <td>
-          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post do %>
-            <%= image_tag asset_path("mail-icon.png") %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to user_path(user.id), method: :delete, data: {confirm: "本当に削除していいですか？"} do %>
-          <% if current_user.try(:admin?) %>
-            <%= image_tag asset_path("delete_icon.png") %>
-          <% end %>
-          <% end %>
-        </td>
+<thead>
+  <tr class="table-success">
+  <% if current_user.try(:admin?) %>
+    <th><h4>送 信 先 （登 録 ユ ー ザ ー）</h4></th>
+    <th><h4>メ ッ セ ー ジ</h4></th>
+    <th><h4>ユ ー ザ ー 削 除</h4></th>
+  <% else %>
+    <th><h4>送 信 先 （管 理 者）</h4></th>
+    <th><h4>メ ッ セ ー ジ</h4></th>
+    <th colspan="1"></th>
+  <% end %>
+  </tr>
+</thead>
+<tbody>
+  <% @users.each do |user, index| %>
+    <tr>
+      <% if user.id != current_user.id %>
+      <td>
+        <h4 class="messenger"><%= user.name %></h4>
+      </td>
+      <td>
+        <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post do %>
+          <%= image_tag asset_path("mail-icon.png") %>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
+      </td>
+      <td>
+        <%= link_to user_path(user.id), method: :delete, data: {confirm: "本当に削除していいですか？"} do %>
+        <% if current_user.try(:admin?) %>
+          <%= image_tag asset_path("delete_icon.png") %>
+        <% end %>
+        <% end %>
+      </td>
+      <% end %>
+    </tr>
+  <% end %>
+</tbody>
 </table>
 <%= paginate @users, class: "page", remote: true %>
