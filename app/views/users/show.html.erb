@@ -1,7 +1,7 @@
 <div class="profile_image">
   <div class="profile_mask">
     <div class="content-title">
-      <h1>プロフィール</h1><br><br>
+      <h1>プロフィール</h1>
       <% if current_user.try(:admin?) %>
       <div class="tab-list">
         <ul class="nav nav-tabs">
@@ -12,7 +12,7 @@
       <% end %>
       <div class="tab-content">
         <div class="tab-pane active" id="ContentA">
-      <table class="table table-border" id="user-profile">
+      <table class="table table-hover" id="user-profile">
         <tr>
           <th class="profile-title">ユ ー ザ ー 名</th>
           <th><%= @user.name %></th>
@@ -37,19 +37,19 @@
           <th class="profile-title"> （処理済の件数）</th>
           <th>（<%= @user.application_documents.processing_complete.count %> 件）</th>
         </tr>
-      </table><br><br><br>
+      </table><br><br>
       </div>
       <div class="tab-pane" id="ContentB">
         <div id="pagenate">
         <% if current_user.try(:admin?) %>
-        <h3 class="task-title">【 各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</h3><br>
+        <h3 class="task-title">【 各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</h3>
         <h4 class="total-tasks">現 在 の 申 請 総 数：<span><%= @tasks.count %></span> 件</h4><br>
         <div class="task-column">
           <p class="y-column">申 請 件 数</p>
           <%= column_chart @chart %>
           <p class="x-column">ユ ー ザ ー 名</p>
         </div><br><br>
-        <table class="table table-bordered" id="task-count">
+        <table class="table" id="task-count">
           <tr>
             <th class="task-content">ユーザー名</th>
             <% @users.each do |user| %>
