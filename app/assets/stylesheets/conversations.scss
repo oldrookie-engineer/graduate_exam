@@ -5,21 +5,26 @@
   margin-bottom: 50px;
 }
 
+#conversation-index h4 {
+  font-weight: bold;
+}
+
 .conversation_image {
   background-image: image-url('message-image.jpg');
-  // background-image: image-url('conversation-image.jpg');
   background-position: center;
   background-size: cover;
-  // min-height: 100%;
   text-align: center;
 }
 
 .conversation_mask {
   background-color: rgba(255,255,255,0.7);
-  // min-height: 100%;
 }
 
 .messenger {
+  font-weight: bold;
+}
+
+.member_count {
   font-weight: bold;
 }
 
@@ -27,4 +32,9 @@
   font-weight: bold;
   color: red;
   font-size: 30px;
+}
+
+.letter_opener {
+  text-align: center;
+  font-weight: bold;
 }
