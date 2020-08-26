@@ -125,29 +125,6 @@
 </script>
 
 <style>
-  .searching {
-    margin-bottom: 20px;
-  }
+@import "./style.css";
 
-  .searching h6 {
-    font-weight: bold;
-  }
-
-  .searching input {
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .memo input {
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-  }
-
-  .memo textarea {
-    border-radius: 5px;
-    padding: 5px;
-  }
 </style>
