@@ -16,14 +16,16 @@
 
 // new・edit画面
 .archive_image {
-  background-image: image-url('archive.jpg');
+  background-image: image-url('archive-image.jpg');
   background-size: cover;
   background-position: center;
   text-align: center;
+  min-height: 100%;
 }
 
 .archive_mask {
-  background-color: rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.7);
+  min-height: 100%;
 }
 
 .kindergarten-archive {
