@@ -1,30 +1,41 @@
 <% if current_user.try(:admin?) %>
-  <h3 class="task-title"><b>【各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</b></h3>
+  <h3 class="task-title">【 各 ユ ー ザ ー の 認 可 申 請 件 数（管 理 者 用）】</h3>
   <h4 class="total-tasks">現 在 の 申 請 総 数：<span><%= @tasks.count %></span> 件</h4><br>
   <div class="task-column">
     <p class="y-column">申 請 件 数</p>
     <%= column_chart @chart %>
     <p class="x-column">ユ ー ザ ー 名</p>
   </div><br><br>
-  <table class="table table-bordered" id="task-count">
+  <table class="table" id="task-count">
     <tr>
-      <th class="task-content" width="15%">ユーザー名</th>
+      <th class="task-content">ユ ー ザ ー 名</th>
       <% @users.each do |user| %>
       <td><%= user.name %></td>
       <% end %>
     </tr>
     <tr>
-      <th class="task-content" width="15%">申 請 件 数</th>
+      <th class="task-content">申 請 件 数</th>
       <% @users.each do |user| %>
-      <td><%= user.application_documents.count %>件</td>
+      <td><%= user.application_documents.count %> 件</td>
       <% end %>
     </tr>
     <tr>
-      <th class="task-content" width="15%">進 捗 率</th>
+      <th class="task-content">進 捗 率</th>
       <% @users.each do |user| %>
       <td><%=  ((user.application_documents.processing_complete.count.to_f / user.application_documents.count).round(2) * 100).floor %> ％</td>
       <% end %>
     </tr>
   </table><br><br>
-  <%= paginate @users, class: "page", remote: true  %>
+  <%= paginate @users, class: "page", remote: true %>
+  <div class="task-zero">
+    <h5>申 請 件 数 <span>０</span> 件 の ユ ー ザ ー</h5>
+    <table height="70px">
+      <tr>
+        <th>ユ ー ザ ー 名</th>
+        <% @task_zeros.each do |zero| %>
+        <td><%= zero.name if zero.application_documents.count == 0 %></td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
 <% end %>

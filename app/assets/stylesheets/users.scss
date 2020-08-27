@@ -191,6 +191,29 @@ header span {
   color: red;
 }
 
+.task-zero {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.task-zero table {
+  background: white;
+}
+
+.task-zero th {
+  width: 15%;
+  background-color: #DDDDDD;
+}
+
+.task-zero h5 {
+  color: #000;
+}
+
+.task-zero h5 span {
+  color: red;
+  font-size: 25px;
+}
+
 // 現在日時
 #Realtime {
   text-align: center;
