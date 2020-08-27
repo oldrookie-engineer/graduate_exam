@@ -76,7 +76,9 @@
                 <tr>
                   <th>ユ ー ザ ー 名</th>
                   <% @task_zeros.each do |zero| %>
-                  <td><%= zero.name if zero.application_documents.count == 0 %></td>
+                    <% if zero.application_documents.count == 0 %>
+                    <td><%= zero.name  %></td>
+                    <% end %>
                   <% end %>
                 </tr>
               </table>

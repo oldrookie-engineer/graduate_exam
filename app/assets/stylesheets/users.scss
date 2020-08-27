@@ -192,17 +192,24 @@ header span {
 }
 
 .task-zero {
-  width: 100%;
+  width: 70%;
   margin: 0 auto;
 }
 
 .task-zero table {
   background: white;
+  margin: 0 auto;
+  border: 3px solid #dfe2e7;
 }
 
 .task-zero th {
-  width: 15%;
+  width: 20%;
   background-color: #DDDDDD;
+}
+
+.task-zero td {
+  padding: 0 10px;
+  border: 1px solid #dfe2e7;
 }
 
 .task-zero h5 {
@@ -211,7 +218,7 @@ header span {
 
 .task-zero h5 span {
   color: red;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 // 現在日時
