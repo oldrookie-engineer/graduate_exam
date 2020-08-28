@@ -1,6 +1,7 @@
 // トップ画面
 #top-image1 {
-  background-image: image-url('top1.jpg');
+  // background-image: image-url('top1.jpg');
+  background-image: image-url('cube.png');
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -8,7 +9,9 @@
 }
 
 #top-image2 {
-  background-image: image-url('top2.jpg');
+  // background-image: image-url('top2.jpg');
+  background-image: image-url('cube.png');
+
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -37,12 +40,14 @@
 
 #top-image2 h5 {
   font-weight: bold;
-  color: white;
+  color: gray;
   text-shadow: 0 0 10px rgba(255, 255, 255, .7);
 }
 
 #top-image3 {
-  background-image: image-url('top3.jpg');
+  // background-image: image-url('top3.jpg');
+  background-image: image-url('cube.png');
+
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -51,7 +56,7 @@
 
 #top-image3 h5 {
   font-weight: bold;
-  color: white;
+  color: gray;
   text-shadow: 0 0 10px rgba(255, 255, 255, .7);
 }
 
@@ -76,7 +81,9 @@
 }
 
 #top-image4 {
-  background-image: image-url('top4.jpg');
+  // background-image: image-url('top4.jpg');
+  background-image: image-url('cube.png');
+
   background-size: cover;
   background-position: center;
   text-align: center;
