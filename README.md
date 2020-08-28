@@ -23,6 +23,9 @@
 ## ER図
 ![ER図](https://user-images.githubusercontent.com/62285033/91547329-b751a400-e95e-11ea-93c7-c6e888a30b7f.png)
 
+## サービス構成図
+![サービス構成図](https://user-images.githubusercontent.com/62285033/91557494-862d9f80-e96f-11ea-9825-de04bce251c3.png)
+
 ## 機能一覧
 
 ### 1 ユーザー登録機能
