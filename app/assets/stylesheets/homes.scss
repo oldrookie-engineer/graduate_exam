@@ -11,7 +11,6 @@
 #top-image2 {
   // background-image: image-url('top2.jpg');
   background-image: image-url('cube.png');
-
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -47,7 +46,6 @@
 #top-image3 {
   // background-image: image-url('top3.jpg');
   background-image: image-url('cube.png');
-
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -83,7 +81,6 @@
 #top-image4 {
   // background-image: image-url('top4.jpg');
   background-image: image-url('cube.png');
-
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -91,7 +88,7 @@
 }
 
 .top-mask {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,0.7);
   height: 750px;
 }
 

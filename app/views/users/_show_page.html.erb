@@ -34,7 +34,7 @@
         <th>ユ ー ザ ー 名</th>
         <% @task_zeros.each do |zero| %>
           <% if zero.application_documents.count == 0 %>
-          <td><span><%= zero.name  %></span></td>
+          <td><%= zero.name  %></td>
           <% end %>
         <% end %>
       </tr>

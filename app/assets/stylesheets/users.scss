@@ -70,12 +70,12 @@ header span {
   background-size: cover;
   background-position: center;
   text-align: center;
-  min-height: 100%;
+  // min-height: 100%;
 }
 
 .profile_mask {
   background-color: rgba(255,255,255,0.7);
-  min-height: 100%;
+  // min-height: 100%;
 }
 
 .tab-list {
@@ -204,7 +204,7 @@ header span {
 }
 
 .task-zero th {
-  width: 20%;
+  width: 15%;
   background-color: #DDDDDD;
 }
 
