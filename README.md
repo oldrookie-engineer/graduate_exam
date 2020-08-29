@@ -18,7 +18,7 @@
 #### ・PostgreSQL
 #### ・AWS(VPC,EC2,S3,ALB,Route53,ACM)
 #### ・Nginx(webサーバー)
-#### ・unicorn(アプリケーションサーバー)
+#### ・Unicorn(アプリケーションサーバー)
 
 ## ER図
 ![ER図](https://user-images.githubusercontent.com/62285033/91547329-b751a400-e95e-11ea-93c7-c6e888a30b7f.png)
