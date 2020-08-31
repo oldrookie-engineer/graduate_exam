@@ -1,7 +1,7 @@
 # README
 
 # ASAP BOX
-![asap-box](https://user-images.githubusercontent.com/62285033/90954512-cee8e280-e4af-11ea-802c-64a2aeea4430.png)
+![asap-box](https://user-images.githubusercontent.com/62285033/91673462-2aca0000-eb6f-11ea-976e-58f0816e5e8d.png)
 ## URL
 <https://www.asap-box.work>
 ## 概要
