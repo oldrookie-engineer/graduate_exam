@@ -44,6 +44,7 @@
   border: 3px solid #000000;
   z-index: 0;
   margin-left: 20px;
+  word-break: break-all;
 }
 
 .message-left:before {
@@ -86,6 +87,7 @@
   text-align: left;
   z-index: 0;
   margin-right: 20px;
+  word-break: break-all;
 }
 
 .message-right:before {
