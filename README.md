@@ -1,14 +1,14 @@
 # README
 
-# ASAP BOX
+# ★アプリ名：ASAP BOX
 ![asap-box](https://user-images.githubusercontent.com/62285033/91673462-2aca0000-eb6f-11ea-976e-58f0816e5e8d.png)
-## URL
+## ★URL
 <https://www.asap-box.work>
-## 概要
+## ★概要
 
 #### 前職(公務員)で役所のデータ管理が、非効率的だと感じていた実務経験を基に、大量に紙媒体で保管している認可幼稚園情報の台帳などをデータベースで管理し、調べたい情報を素早く探し出すことができます。また、職員が行う認可業務の進捗管理も行い、タスク漏れを防ぐことができます。
 
-## 使用技術
+## ★使用技術
 #### ・Ruby 2.6.5
 #### ・Rails 5.2.4
 #### ・Rspec
@@ -20,13 +20,13 @@
 #### ・Nginx(webサーバー)
 #### ・Unicorn(アプリケーションサーバー)
 
-## ER図
+## ★ER図
 ![ER図](https://user-images.githubusercontent.com/62285033/91547329-b751a400-e95e-11ea-93c7-c6e888a30b7f.png)
 
-## サービス構成図
+## ★サービス構成図
 ![サービス構成図](https://user-images.githubusercontent.com/62285033/91557494-862d9f80-e96f-11ea-9825-de04bce251c3.png)
 
-## 機能一覧
+## ★機能一覧
 
 ### 1 ユーザー登録機能
 #### ・名前、メールアドレス、パスワードは必須
@@ -76,23 +76,42 @@
 ### 17 グラフ機能
 #### ・ユーザー別の申請処理件数を円グラフで視覚的に把握できる。
 
-## [カタログ設計][1]
+## ★アプリの見所
+### ○タスクの進捗アラーム
+#### ・タスクの処理期限が迫っている、もしくは既に過ぎている緊急性の高いタスクをアラーム表示することで、タスクの優先順位付けやタスク漏れを防止できるところです。
+
+### ○職員の業務量・進捗率チェック
+#### ・アプリに登録されている全職員の業務量をグラフで可視化でき、特定の職員に業務が集中していないか把握できます。また、進捗率もチェックできるので、業務が滞っている職員も把握でき、業務分担の見直しにより、バランス良くタスクを割り振ることができるところです。
+
+## ★開発で意識したこと
+### ○分かりやすいUI/UX
+#### ・新規ユーザーでも使用方法が直感的に分かりやすいデザイン設計を意識しました。
+#### ・あまり縦長の画面構成にせず、極力スクロールをさせない範囲内に必要な情報が収まるような画面構成にしました。
+
+## ★今後、試したいこと
+### ○Docker導入
+#### ・将来、実務でのチーム開発を想定して、本アプリにDockerの導入を行いたいと考えています。
+
+### ○CI/CDパイプライン構築
+#### ・現場ではアプリの開発サイクルに合わせて、すぐにテストやデプロイを実施して、品質を維持することが重要だと思いますので、その対応が自動化できるCI/CDを本アプリでも構築したいと考えています。
+
+## ★[カタログ設計][1]
 
 [1]:<https://docs.google.com/spreadsheets/d/e/2PACX-1vSwvC58t34f2b3EupbpMhvoEK4YbyHlAmVDqRYsSziyaankqe1F-eVtNYuYrl7_x8qUSDQ5cvggECWp/pubhtml>
 
-## [テーブル定義][2]
+## ★[テーブル定義][2]
 
 [2]:<https://docs.google.com/spreadsheets/d/e/2PACX-1vT9y4LZoY7PJuu28aY6jAa1zyqATxdasf6Tn6Wjvu4NLUyz72aTEfZYYDh9ehTO4197KzHDzw-ci3fN/pubhtml>
 
-## [画面遷移図][3]
+## ★[画面遷移図][3]
 
 [3]:<https://docs.google.com/spreadsheets/d/e/2PACX-1vQZmV3UB0-SfWuo24yEaYh5Hdnpv5Q9Nx7_Whh7FQpQJfly2JJNfAFLl2p462uQY07yUYJpZpk0n8K5/pubhtml?gid=0&single=true>
 
-## [画面ワイヤーフレーム][4]
+## ★[画面ワイヤーフレーム][4]
 
 [4]:<https://docs.google.com/spreadsheets/d/e/2PACX-1vSVcNq42wBWN9Q6NWiuFELkVaISA5nrj-KsbajAo2JaTvG5L9naN29ragspilV1eyXn7Wh0Iv9-zhPu/pubhtml>
 
-## 使用Gem
+## ★使用Gem
 #### ・devise
 #### ・ransack
 #### ・carrierwave
@@ -106,5 +125,5 @@
 #### ・chartkick
 #### ・chartable
 
-## 使用API
+## ★使用API
 #### ・Google Maps API
