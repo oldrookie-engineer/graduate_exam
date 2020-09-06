@@ -1,6 +1,10 @@
 // トップ画面
+
+.container {
+  height: 750px;
+}
+
 #top-image1 {
-  // background-image: image-url('top1.jpg');
   background-image: image-url('cube.png');
   background-size: cover;
   background-position: center;
@@ -9,7 +13,6 @@
 }
 
 #top-image2 {
-  // background-image: image-url('top2.jpg');
   background-image: image-url('cube.png');
   background-size: cover;
   background-position: center;
@@ -44,7 +47,6 @@
 }
 
 #top-image3 {
-  // background-image: image-url('top3.jpg');
   background-image: image-url('cube.png');
   background-size: cover;
   background-position: center;
@@ -79,7 +81,6 @@
 }
 
 #top-image4 {
-  // background-image: image-url('top4.jpg');
   background-image: image-url('cube.png');
   background-size: cover;
   background-position: center;

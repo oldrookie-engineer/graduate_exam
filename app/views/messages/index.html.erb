@@ -62,7 +62,7 @@
     <%= form_with(model: [@conversation, @message]) do |f| %>
      <div class="field">
        <h4><strong><%= f.label :"メ ッ セ ー ジ 入 力 フ ォ ー ム" %></strong></h4><br>
-       <%= f.text_area :body, size: "40x4", maxlength: "140", rows: "7", placeholder: "メッセージを入力してください(140文字まで)", class: "message_area", id: "input-text" %>
+       <%= f.text_area :body, size: "40x4", maxlength: "140", rows: "7", placeholder: "メッセージを入力してください(140文字まで)", class: "message_area", id: "input-text" %><br><br>
        <p>【入 力 文 字 数】</p>
        <p id="counter">0文字</p>
      </div>

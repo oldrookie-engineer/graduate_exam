@@ -76,21 +76,21 @@
 ### 17 グラフ機能
 #### ・ユーザー別の申請処理件数を円グラフで視覚的に把握できる。
 
-## カタログ設計
+## [カタログ設計][1]
 
-<https://docs.google.com/spreadsheets/d/e/2PACX-1vSwvC58t34f2b3EupbpMhvoEK4YbyHlAmVDqRYsSziyaankqe1F-eVtNYuYrl7_x8qUSDQ5cvggECWp/pubhtml>
+[1]:<https://docs.google.com/spreadsheets/d/e/2PACX-1vSwvC58t34f2b3EupbpMhvoEK4YbyHlAmVDqRYsSziyaankqe1F-eVtNYuYrl7_x8qUSDQ5cvggECWp/pubhtml>
 
-## テーブル定義
+## [テーブル定義][2]
 
-<https://docs.google.com/spreadsheets/d/e/2PACX-1vT9y4LZoY7PJuu28aY6jAa1zyqATxdasf6Tn6Wjvu4NLUyz72aTEfZYYDh9ehTO4197KzHDzw-ci3fN/pubhtml>
+[2]:<https://docs.google.com/spreadsheets/d/e/2PACX-1vT9y4LZoY7PJuu28aY6jAa1zyqATxdasf6Tn6Wjvu4NLUyz72aTEfZYYDh9ehTO4197KzHDzw-ci3fN/pubhtml>
 
-## 画面遷移図
+## [画面遷移図][3]
 
-<https://docs.google.com/spreadsheets/d/e/2PACX-1vQZmV3UB0-SfWuo24yEaYh5Hdnpv5Q9Nx7_Whh7FQpQJfly2JJNfAFLl2p462uQY07yUYJpZpk0n8K5/pubhtml?gid=0&single=true>
+[3]:<https://docs.google.com/spreadsheets/d/e/2PACX-1vQZmV3UB0-SfWuo24yEaYh5Hdnpv5Q9Nx7_Whh7FQpQJfly2JJNfAFLl2p462uQY07yUYJpZpk0n8K5/pubhtml?gid=0&single=true>
 
-## 画面ワイヤーフレーム
+## [画面ワイヤーフレーム][4]
 
-<https://docs.google.com/spreadsheets/d/e/2PACX-1vSVcNq42wBWN9Q6NWiuFELkVaISA5nrj-KsbajAo2JaTvG5L9naN29ragspilV1eyXn7Wh0Iv9-zhPu/pubhtml>
+[4]:<https://docs.google.com/spreadsheets/d/e/2PACX-1vSVcNq42wBWN9Q6NWiuFELkVaISA5nrj-KsbajAo2JaTvG5L9naN29ragspilV1eyXn7Wh0Iv9-zhPu/pubhtml>
 
 ## 使用Gem
 #### ・devise
