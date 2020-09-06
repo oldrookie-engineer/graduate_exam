@@ -29,7 +29,7 @@ class User < ApplicationRecord
   #   end
   # end
   def self.guest
-    find_or_create_by!(name: "guest", email: "12@ab.com") do |user|
+    find_or_create_by!(name: "master", email: "12@ab.com") do |user|
       user.password = "adminpass"
     end
   end
