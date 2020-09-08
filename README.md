@@ -1,7 +1,7 @@
 # README
 
 # ★アプリ名：ASAP BOX
-![asap-box](https://user-images.githubusercontent.com/62285033/91673462-2aca0000-eb6f-11ea-976e-58f0816e5e8d.png)
+![asap-box](https://user-images.githubusercontent.com/62285033/92453700-914bbf80-f1fa-11ea-9449-e020a02513ce.png)
 ## ★URL
 <https://www.asap-box.work>
 ## ★概要
@@ -24,7 +24,7 @@
 ![ER図](https://user-images.githubusercontent.com/62285033/91547329-b751a400-e95e-11ea-93c7-c6e888a30b7f.png)
 
 ## ★サービス構成図
-![サービス構成図](https://user-images.githubusercontent.com/62285033/91557494-862d9f80-e96f-11ea-9825-de04bce251c3.png)
+![サービス構成図](https://user-images.githubusercontent.com/62285033/92455000-1d121b80-f1fc-11ea-8f62-14b6ff4e699c.png)
 
 ## ★機能一覧
 
@@ -124,6 +124,7 @@
 #### ・fog-aws
 #### ・chartkick
 #### ・chartable
+#### ・rubocop
 
 ## ★使用API
 #### ・Google Maps API
