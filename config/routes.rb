@@ -4,21 +4,21 @@ Rails.application.routes.draw do
   resources :homes, only: [:top]
   # ゲストログイン設定
   devise_scope :user do
-    post "users/guest_sign_in", to: "users/sessions#new_guest"
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   devise_for :users, controllers: {
-    registrations: "users/registrations",
+    registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   resources :users
   resources :kindergartens
   namespace :api, format: 'json' do
-    resources :tasks, only: [:index, :create, :show, :destroy, :update]
+    resources :tasks, only: %i[index create show destroy update]
   end
   resources :application_documents
   resources :conversations do
     resources :messages
   end
   resources :archives
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  mount LetterOpenerWeb::Engine, at: '/letter_opener'
 end

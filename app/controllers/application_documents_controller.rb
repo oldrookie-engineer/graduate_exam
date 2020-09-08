@@ -1,6 +1,6 @@
 class ApplicationDocumentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_application_document, only: [:edit, :update, :destroy]
+  before_action :set_application_document, only: %i[edit update destroy]
 
   def index
     @q = ApplicationDocument.ransack(params[:q])
@@ -26,8 +26,7 @@ class ApplicationDocumentsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @application_document.update(application_document_params)
@@ -43,6 +42,7 @@ class ApplicationDocumentsController < ApplicationController
   end
 
   private
+
   def application_document_params
     params.require(:application_document).permit(:name, :title, :application_date, :processing_deadline, :processing)
   end

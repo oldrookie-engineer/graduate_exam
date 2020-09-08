@@ -4,8 +4,8 @@ set :application, 'asap-box'
 set :repo_url, 'https://github.com/oldrookie-engineer/graduate_exam.git'
 # set :branch, ENV['BRANCH'] || 'master'
 set :deploy_to, '/var/www/asap-box'
-set :linked_files, %w{.env config/secrets.yml}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
+set :linked_files, %w[.env config/secrets.yml]
+set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets public/uploads]
 set :keep_releases, 5
 set :rbenv_ruby, '2.6.5'
 set :rbenv_type, :system
@@ -17,7 +17,7 @@ namespace :deploy do
   end
   desc 'Create database'
   task :db_create do
-    on roles(:db) do |host|
+    on roles(:db) do |_host|
       with rails_env: fetch(:rails_env) do
         within current_path do
           execute :bundle, :exec, :rake, 'db:create'

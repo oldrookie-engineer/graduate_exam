@@ -16,12 +16,12 @@ RSpec.describe 'アーカイブ使用・返却機能', type: :system do
     context '管理者にアーカイブの使用報告メッセージを作成した場合' do
       it '作成済みのメッセージ情報が表示される' do
         sleep 1.0
-        find(:xpath, "/html/body/div/div/table/tbody/tr/td[2]/a/img").click
+        find(:xpath, '/html/body/div/div/table/tbody/tr/td[2]/a/img').click
         sleep 1.0
-        fill_in 'message[body]', with: "第一幼稚園の廃園届を使用します。"
+        fill_in 'message[body]', with: '第一幼稚園の廃園届を使用します。'
         click_on 'commit'
         expect(page).to have_content @user.name
-        expect(page).to have_content "第一幼稚園の廃園届を使用します。"
+        expect(page).to have_content '第一幼稚園の廃園届を使用します。'
         sleep 0.5
       end
     end

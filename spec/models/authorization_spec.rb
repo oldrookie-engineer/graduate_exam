@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 RSpec.describe Authorization, type: :model do
   it 'principalが空ならバリデーションが通らない' do
     authorization = Authorization.new(principal: '')

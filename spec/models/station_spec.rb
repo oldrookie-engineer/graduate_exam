@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 RSpec.describe Station, type: :model do
   it 'routeが空ならバリデーションが通らない' do
     station = Station.new(route: '')

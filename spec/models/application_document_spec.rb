@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 RSpec.describe ApplicationDocument, type: :model do
   it 'nameが空ならバリデーションが通らない' do
     application_document = ApplicationDocument.new(name: '')

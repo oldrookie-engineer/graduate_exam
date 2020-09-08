@@ -1,18 +1,18 @@
 class ArchivesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_archive, only: [:edit, :update, :destroy]
+  before_action :set_archive, only: %i[edit update destroy]
 
   def index
     @q = Archive.ransack(params[:q])
     @archives = @q.result(distinct: true).page(params[:page]).per(5)
-    page_num =Archive.page(params[:page]).current_page
+    page_num = Archive.page(params[:page]).current_page
     @base_level = (page_num - 1) * 5
     if params[:search].present?
-      if params[:title].present?
-        @archives = Archive.all.title_search(params[:title]).page(params[:page]).per(5)
-      else
-        @archives = Archive.all.order(created_at: :asc).page(params[:page]).per(5)
-      end
+      @archives = if params[:title].present?
+                    Archive.all.title_search(params[:title]).page(params[:page]).per(5)
+                  else
+                    Archive.all.order(created_at: :asc).page(params[:page]).per(5)
+                  end
     end
     respond_to do |format|
       format.html
@@ -33,8 +33,7 @@ class ArchivesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @archive.update(archive_params)
@@ -50,6 +49,7 @@ class ArchivesController < ApplicationController
   end
 
   private
+
   def archive_params
     params.require(:archive).permit(:name, :title, :installation_date, :status_of_use)
   end

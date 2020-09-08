@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 RSpec.describe Archive, type: :model do
   it 'nameが空ならバリデーションが通らない' do
     archive = Archive.new(name: '')

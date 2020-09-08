@@ -9,7 +9,7 @@ class Archive < ApplicationRecord
     使用可: 0,
     使用不可: 1
   }
-  scope :title_search, -> (title) {
+  scope :title_search, lambda { |title|
     where(title: title)
   }
 end

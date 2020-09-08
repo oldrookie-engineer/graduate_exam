@@ -8,14 +8,14 @@ class ApplicationDocument < ApplicationRecord
   end
   validate :date_not_before_today
   belongs_to :user
-  scope :deadline, -> {
-    where('processing_deadline <= ?', Time.current.next_day(3).end_of_day).where("(processing = ?) OR (processing = ?)", 0 , 1)
+  scope :deadline, lambda {
+    where('processing_deadline <= ?', Time.current.next_day(3).end_of_day).where('(processing = ?) OR (processing = ?)', 0, 1)
   }
-  scope :processing_complete, -> {
+  scope :processing_complete, lambda {
     where(processing: 2)
   }
-  scope :processing_incomplete, -> {
-    where("(processing = ?) OR (processing = ?)", 0 , 1)
+  scope :processing_incomplete, lambda {
+    where('(processing = ?) OR (processing = ?)', 0, 1)
   }
   enum processing: {
     未処理: 0,
@@ -24,6 +24,8 @@ class ApplicationDocument < ApplicationRecord
   }
 
   def date_not_before_today
-    errors.add(:processing_deadline, "は、本日以降のものを選択してください") if processing_deadline.nil? || processing_deadline < Date.today
+    if processing_deadline.nil? || processing_deadline < Date.today
+      errors.add(:processing_deadline, 'は、本日以降のものを選択してください')
+    end
   end
 end

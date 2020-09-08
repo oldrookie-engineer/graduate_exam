@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 RSpec.describe User, type: :model do
   it 'nameが空ならバリデーションが通らない' do
     user = User.new(name: '')
@@ -12,4 +12,4 @@ RSpec.describe User, type: :model do
     user = User.new(encrypted_password: '')
     expect(user).not_to be_valid
   end
-end 
+end

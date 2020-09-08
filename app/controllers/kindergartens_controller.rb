@@ -1,5 +1,5 @@
 class KindergartensController < ApplicationController
-  before_action :set_kindergarten, only: [:show, :edit, :update, :destroy]
+  before_action :set_kindergarten, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   def index
@@ -28,11 +28,9 @@ class KindergartensController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @kindergarten.update(kindergarten_params)
@@ -48,11 +46,12 @@ class KindergartensController < ApplicationController
   end
 
   private
+
   def kindergarten_params
-    params.require(:kindergarten).permit(:name, :address, :phone_number, :image, :image_cache, :cover_image,  :cover_image_cache, :latitude, :longitude, stations_attributes:%i[route station_name walk_time id _destroy], authorization_attributes:%i[principal installation_date number_of_classes capacity number_of_students school_area school_floor_area id _destroy])
+    params.require(:kindergarten).permit(:name, :address, :phone_number, :image, :image_cache, :cover_image, :cover_image_cache, :latitude, :longitude, stations_attributes: %i[route station_name walk_time id _destroy], authorization_attributes: %i[principal installation_date number_of_classes capacity number_of_students school_area school_floor_area id _destroy])
   end
 
   def set_kindergarten
-    @kindergarten= Kindergarten.find(params[:id])
+    @kindergarten = Kindergarten.find(params[:id])
   end
 end
